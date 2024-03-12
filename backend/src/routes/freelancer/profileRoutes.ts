@@ -5,6 +5,6 @@ import authMiddleware from "../../middleware/authMiddleware";
 const router = express.Router();
 
 // Route to add profile data (protected with JWT token)
-router.post("/add-profile", addProfileController);
+router.post("/add-profile",authMiddleware ,addProfileController);
 
 export default router;
