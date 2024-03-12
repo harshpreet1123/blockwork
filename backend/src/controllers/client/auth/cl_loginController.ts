@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
-import Auth, { IAuth } from "../../../models/freelancer/authModel";
+import Auth, { IAuth } from "../../../models/client/cl_AuthModel";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 const login = async (req: Request, res: Response): Promise<void> => {
     try {
+      const jwt_secret = process.env.JWT_SECRET||'mashle99';
       const { email, password } = req.body;
   
       // Check if user with the provided email exists
@@ -23,7 +24,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
       }
   
       // Generate JWT token
-      const token: string = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRET || "secret", {
+      const token: string = jwt.sign({ userId: existingUser._id }, jwt_secret, {
         expiresIn: "1h",
       });
   

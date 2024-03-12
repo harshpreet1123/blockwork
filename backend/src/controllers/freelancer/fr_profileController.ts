@@ -1,8 +1,8 @@
 // controllers/freelancer/profileController.ts
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import Profile, { IProfile } from "../../models/freelancer/profileModel";
-import Auth from "../../models/freelancer/authModel";
+import Profile, { IProfile } from "../../models/freelancer/fr_ProfileModel";
+import Auth from "../../models/freelancer/fr_AuthModel";
 
 export const addProfileController = async (req: any, res: Response) => {
   try {

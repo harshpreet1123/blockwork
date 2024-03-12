@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import Auth, { IAuth } from "../../../models/freelancer/authModel";
+import Auth, { IAuth } from "../../../models/freelancer/fr_AuthModel";
 
 const register = async (req: Request, res: Response) => {
   try {

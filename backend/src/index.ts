@@ -1,12 +1,14 @@
 import express from "express";
-import freelancerAuthRoutes from './routes/freelancer/authRoutes';
-import profileRoutes from './routes/freelancer/profileRoutes';
-const port=5000;
+import freelancerRoutes from './routes/freelancer/freelancerRoutes';
+import clientRoutes from './routes/client/clientRoutes';
+import dotenv from 'dotenv';
+dotenv.config();
+const port=process.env.PORT;
 const app = express();
 app.use(express.json());
 
-app.use('/freelancer',freelancerAuthRoutes);
-app.use('/xyz',profileRoutes);
+app.use('/fr',freelancerRoutes);
+app.use('/cl',clientRoutes);
 app.listen(port, () => {
   console.log(`Running at ${port}`);
   console.log(`Visit http://localhost:${port}`);
