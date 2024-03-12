@@ -1,0 +1,59 @@
+// controllers/freelancer/profileController.ts
+import { Request, Response } from "express";
+import jwt from "jsonwebtoken";
+import Profile, { IProfile } from "../../models/freelancer/profileModel";
+import Auth from "../../models/freelancer/authModel";
+
+export const addProfileController = async (req: Request, res: Response) => {
+  try {
+    // Extract email from JWT token
+    const token = req.header("Authorization")?.replace("Bearer ", "");
+    if (!token) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+    const decoded: any = jwt.verify(token, process.env.JWT_SECRET || "secret");
+    const userId: string = decoded.userId;
+    if (!userId) {
+      return res.status(401).json({ error: "Unauthorized or user not found" });
+    }
+    console.log(userId);
+    // Check if user exists
+    const user = await Auth.findById(Object(userId));
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Check if profile already exists
+    const existingProfile = await Profile.findOne({ userId });
+    if (existingProfile) {
+      return res.status(400).json({ message: "Profile already exists" });
+    }
+
+    // Extract profile data from request body
+    const { username, firstname, lastname, bio, profileImg, bannerImg, wallets, location, skills, socialLinks, phone } = req.body;
+
+    // Create new profile document
+    const newProfileData: IProfile = new Profile({
+      user_id:userId,
+      username,
+      firstname,
+      lastname,
+      bio,
+      profileImg,
+      bannerImg,
+      wallets,
+      location,
+      skills,
+      social: socialLinks,
+      phone,
+    });
+
+    // Save the new profile data
+    const newProfile: IProfile = await Profile.create(newProfileData);
+
+    res.status(201).json({ message: "Profile created successfully", profile: newProfile });
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    res.status(500).json({ error: "Failed to create profile" });
+  }
+};
