@@ -4,18 +4,9 @@ import jwt from "jsonwebtoken";
 import Profile, { IProfile } from "../../models/freelancer/profileModel";
 import Auth from "../../models/freelancer/authModel";
 
-export const addProfileController = async (req: Request, res: Response) => {
+export const addProfileController = async (req: any, res: Response) => {
   try {
-    // Extract email from JWT token
-    const token = req.header("Authorization")?.replace("Bearer ", "");
-    if (!token) {
-      return res.status(401).json({ error: "Unauthorized" });
-    }
-    const decoded: any = jwt.verify(token, process.env.JWT_SECRET || "secret");
-    const userId: string = decoded.userId;
-    if (!userId) {
-      return res.status(401).json({ error: "Unauthorized or user not found" });
-    }
+    var userId=req.userId;
     console.log(userId);
     // Check if user exists
     const user = await Auth.findById(Object(userId));
@@ -30,7 +21,7 @@ export const addProfileController = async (req: Request, res: Response) => {
     }
 
     // Extract profile data from request body
-    const { username, firstname, lastname, bio, profileImg, bannerImg, wallets, location, skills, socialLinks, phone } = req.body;
+    const { username, firstname, lastname, bio, profileImg, bannerImg, wallets, location, skills, social, phone } = req.body;
 
     // Create new profile document
     const newProfileData: IProfile = new Profile({
@@ -44,7 +35,7 @@ export const addProfileController = async (req: Request, res: Response) => {
       wallets,
       location,
       skills,
-      social: socialLinks,
+      social,
       phone,
     });
 
