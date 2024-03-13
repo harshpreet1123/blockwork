@@ -1,11 +1,11 @@
-import Home from './screens/Home'
+import LandingPage from './pages/LandingPage'
 
 function App() {
 
   return (
     <>
     <div>
-      <Home/>
+      <LandingPage/>
     </div>
       
     </>

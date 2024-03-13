@@ -1,0 +1,10 @@
+.flex-half-row {
+  display: flex;
+  flex-direction: row;
+}
+.f-one{
+    flex:1;
+}
+.f-two{
+    flex: 2;
+}
