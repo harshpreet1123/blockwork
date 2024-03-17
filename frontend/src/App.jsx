@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import Exchange from "./pages/Exchange";
+import Category from "./pages/Category";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/news" element={<News />} />
           <Route path="/exchange" element={<Exchange />} />
+          <Route path="/category" element={<Category/>}/>
         </Routes>
       </BrowserRouter>
     </>
