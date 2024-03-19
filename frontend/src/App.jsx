@@ -17,7 +17,7 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/news" element={<News />} />
-          <Route path="/exchange" element={<Exchange />} />
+          <Route path="/exchange" element={<Exchange/>} />
           <Route path="/category" element={<Category/>}/>
           <Route path="/Loginpage" element={<Loginpage/>}/>
           <Route path="/FreelancerPage" element={<FreelancerPage/>}/>

@@ -5,7 +5,7 @@ const Loginpage = () => {
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
         <div className="mt-5 text-center text-4xl font-bold leading-9  tracking-tight text-gray-900">
-          BlockWork
+          BlocWork
         </div>
         <div  className=" mt-10 text-center justify-between text-xl leading-9 tracking-tight text-purple-600">
           Sign in as a Client
