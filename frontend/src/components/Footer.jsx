@@ -1,6 +1,5 @@
 const Footer = () => {
   return (
-    <div className="">
       <footer className="w-full h-full bg-purple-600  text-white p-5 flex flex-col md:flex-row md:scroll-px-12 flex-wrap justify-between">
         <div className="text-xl font-bold mt-4">
           BlocWork
@@ -36,7 +35,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </div>
   );
 };
 
