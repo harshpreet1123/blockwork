@@ -40,7 +40,7 @@ function App() {
       <h1 className="text-3xl font-semibold mb-4">Crypto Exchange Info</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {cryptoData.map((crypto) => (
-          <ExcangeCard key={crypto.symbolcrypto.id} crypto={crypto} />
+          <ExcangeCard key={crypto.symbol & crypto.id} crypto={crypto} />
         ))}
       </div>
       <button
