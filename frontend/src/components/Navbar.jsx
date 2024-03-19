@@ -9,7 +9,7 @@ const Navbar = () => {
   ];
   return (
     <div>
-      <header className="absolute inset-x-0 top-0 text-white z-50">
+      <div className="absolute inset-x-0 top-0 text-white z-50">
         <nav
           className="flex items-center justify-between py-2 bg-purple-600 lg:px-8"
           aria-label="Global"
@@ -49,7 +49,7 @@ const Navbar = () => {
             </Link>
           </div>
         </nav>
-      </header>
+      </div>
     </div>
   );
 };
