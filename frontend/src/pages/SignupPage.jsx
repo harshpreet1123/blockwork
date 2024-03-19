@@ -1,130 +1,94 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordMismatch, setPasswordMismatch] = useState(false);
   const handleSignup = async () => {
-    console.log(email);
-    console.log(password);
-    console.log(confirmPassword);
-    if (confirmPassword == password) {
-      setConfirmPassword(false);
-      try {
-        const response = await axios.post("http://localhost:5000/cl/register", {
-          email: email,
-          password: password,
-        });
-        console.log(response.body);
-      } catch (e) {
-        console.log("error", e);
-      }
-    } else {
-      setPasswordMismatch(true);
+    try {
+      const response = await axios.post("http://localhost:5000/cl/register", {
+        email: email,
+        password: password,
+      });
+      console.log(response.body);
+    } catch (e) {
+      console.log("error", e);
     }
   };
   return (
-    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <div className="mt-5 text-center text-4xl font-bold leading-9 tracking-tight text-gray-900">
-          BlocWork
-        </div>
-        <div className="mt-10 text-center justify-between text-xl leading-9 tracking-tight text-purple-600">
-          SignUp here
-        </div>
-      </div>
-      <div className="mt-3 sm:mx-auto sm:w-full sm:max-w-sm ">
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-lg font-medium leading-6 text-gray-900"
-          >
-            Email Address
-          </label>
-          <div className="mt-2">
+    <div className="h-screen flex">
+      <div className="flex w-1/2 justify-center items-center bg-white">
+        <form className="bg-white">
+          <h1 className="text-gray-800 font-bold text-2xl mb-1">Aloha!</h1>
+          <p className="text-sm font-normal text-gray-600 mb-7">
+            Register yourself as Freelancer
+          </p>
+          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+              />
+            </svg>
             <input
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              id="email"
-              name="email"
+              className="pl-2 outline-none border-none"
               type="email"
-              autoComplete="email"
+              name=""
+              id=""
+              placeholder="Email Address"
               required
-              className="block w-full shadow-sm focus:border-indigo-600 focus:ring-purple-600 focus:ring-opacity-50 py-2 placeholder-gray-400 focus:outline-none focus:ring-2  sm:text-sm border-solid border-2 p-2 border-purple-300 rounded-md "
             />
           </div>
-        </div>
-        <div>
-          <div className="flex items-center justify-between ">
-            <label
-              htmlFor="password"
-              className="block text-lg font-medium leading-6 text-gray-900"
+          <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-gray-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
             >
-              Password
-            </label>
-          </div>
-          <div className="mt-2">
+              <path
+                fillRule="evenodd"
+                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                clipRule="evenodd"
+              />
+            </svg>
             <input
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-              id="password"
-              name="password"
+              className="pl-2 outline-none border-none"
               type="password"
-              autoComplete="current-password"
+              name=""
+              id=""
+              placeholder="Password"
               required
-              className="block border-solid border-2  border-purple-300 rounded-md  w-full shadow-sm focus:border-indigo-600 focus:ring-purple-600 focus:ring-opacity-50 py-2 placeholder-gray-400 focus:outline-none focus:ring-2  sm:text-sm"
             />
           </div>
-        </div>
-        <div>
-          <div className="flex items-center justify-between ">
-            <label
-              htmlFor="confirmPassword"
-              className="block text-lg font-medium leading-6 text-gray-900"
-            >
-              Confirm Password
-            </label>
-          </div>
-          <div className="mt-2">
-            <input
-              onChange={(e) => {
-                setConfirmPassword(e.target.value);
-              }}
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              autoComplete="current-password"
-              required
-              className="block border-solid border-2  border-purple-300 rounded-md  w-full shadow-sm focus:border-indigo-600 focus:ring-purple-600 focus:ring-opacity-50 py-2 placeholder-gray-400 focus:outline-none focus:ring-2  sm:text-sm"
-            />
-          </div>
-        </div>
-        {passwordMismatch ? (
-          <p>Password and confirmPassword donot match</p>
-        ) : (
-          <p></p>
-        )}
-        <div>
           <button
             onClick={handleSignup}
-            className=" w-full h-full text-purple-500 text-xl font-bold border-solid border-2 p-2 border-purple-300 rounded-md py-1 hover:bg-purple-400 hover:text-white"
+            type="submit"
+            className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >
-            Register
+            Sign Up
           </button>
+        </form>
+      </div>
+      <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">
+        <div>
+          <h1 className="text-white font-bold text-4xl font-sans">BlockWork</h1>
+          <p className="text-white mt-1">The Decentrlized Workplace.</p>
         </div>
-        <p className="mt-3 text-center text-md text-gray-500">
-          Already have an account?{" "}
-          <Link to="/category">
-            <a className="font-medium text-lg text-purple-600 hover:text-purple-800">
-              Log in
-            </a>
-          </Link>
-        </p>
       </div>
     </div>
   );

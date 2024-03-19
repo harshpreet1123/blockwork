@@ -29,23 +29,16 @@ const Navbar = () => {
             ))}
           </div>
           <div className="lg:flex lg:flex-1 lg:justify-end">
-            <Link to="/Category">
-              <a
-                href="#"
-                className="relative inline-flex items-center justify-center p-0.5   px-1 py-1.5 transition-all ease-in duration-75 *:text-white "
-              >
-                Log in <span aria-hidden="true">&rarr;</span>
-              </a>
+            <Link
+              to="/Category"
+              className="relative inline-flex items-center justify-center p-0.5 px-1 py-1.5 mx-5 transition-all ease-in duration-75 *:text-white "
+            >
+              Log in
             </Link>
             <Link to="/SignupPage">
-              <a
-                href="#"
-                className="relative inline-flex items-center justify-center p-0.5 border-solid border-1 border-purple-950 rounded-md"
-              >
-                <span className="relative px-3 py-1.5 transition-all ease-in duration-75 bg-white text-purple-600   hover:bg-purple-500 hover:text-white rounded-md group-hover:bg-opacity-0">
-                  Sign Up
-                </span>
-              </a>
+              <span className="relative border-purple-950 inline-flex items-center justify-center border-solid border-1 px-3 py-1.5 transition-all ease-in duration-75 bg-white text-purple-600   hover:bg-purple-500 hover:text-white rounded-md group-hover:bg-opacity-0">
+                Sign Up
+              </span>
             </Link>
           </div>
         </nav>
