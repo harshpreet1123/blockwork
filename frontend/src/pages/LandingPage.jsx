@@ -8,7 +8,7 @@ const LandingPage = () => {
     <div className="h-full w-full">
       <Navbar/>
       <Header/>
-      <Footer />
+      <Footer/>
     </div>
   );
 };
