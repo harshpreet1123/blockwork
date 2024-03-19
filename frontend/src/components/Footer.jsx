@@ -7,7 +7,7 @@ const Footer = () => {
         </div>
         <div>
           <h2 className="font-bold text-2xl mt-4 ">BlocWork</h2>
-          <div className="w-32 h-1 border-b-2 border-yellow-400 rounded-2xl my-2"></div>
+          <div className="w-32 h-1 border-b-2 border-purple-500 rounded-2xl my-2"></div>
           <div>
             <p className="text-xl font-semibold">About Us</p>
             <p className="text-xl font-semibold">FAQs</p>
@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
         <div>
           <h2 className="font-bold text-2xl mt-4 ">Products</h2>
-          <div className="w-32 h-1 border-b-2 border-yellow-400 rounded-2xl my-2"></div>
+          <div className="w-32 h-1 border-b-2 border-purple-500 rounded-2xl my-2"></div>
           <div>
             <p className="text-xl font-semibold">jknikjn</p>
             <p className="text-xl font-semibold">ougbyvb9t</p>
@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <div>
           <h2 className="font-bold text-2xl mt-4 ">Links</h2>
-          <div className="w-32 h-1 border-b-2 border-yellow-400 rounded-2xl my-2"></div>
+          <div className="w-32 h-1 border-b-2 border-purple-500 rounded-2xl my-2"></div>
           <div>
             <p className="text-xl font-semibold">Instagram</p>
             <p className="text-xl font-semibold">Youtube</p>

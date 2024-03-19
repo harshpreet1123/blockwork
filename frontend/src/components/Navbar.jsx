@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link to="/Category">
               <a
                 href="#"
-                className="relative inline-flex items-center justify-center p-0.5   px-1 py-1.5 transition-all ease-in duration-75 *:text-white "
+                className="relative font-semibold inline-flex items-center justify-center p-0.5   px-1 py-1.5 transition-all ease-in duration-75 *:text-white "
               >
                 Log in <span aria-hidden="true">&rarr;</span>
               </a>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 href="#"
                 className="relative inline-flex items-center justify-center p-0.5 border-solid border-1 border-purple-950 rounded-md"
               >
-                <span className="relative px-3 py-1.5 transition-all ease-in duration-75 bg-white text-purple-600   hover:bg-purple-500 hover:text-white rounded-md group-hover:bg-opacity-0">
+                <span className="relative font-semibold px-3 py-1.5 transition-all ease-in duration-75 bg-white text-purple-600   hover:bg-purple-500 hover:text-white rounded-md group-hover:bg-opacity-0">
                   Sign Up
                 </span>
               </a>
