@@ -1,13 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import animation from "../lottie/done.json";
 
 const SignUp = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const state = location.state;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const handleSignup = async () => {
+    setError("");
+    setIsLoading(true);
     try {
       const response = await axios.post(
         `http://localhost:5000/${state.userType}/register`,
@@ -17,17 +23,24 @@ const SignUp = () => {
         }
       );
       console.log(response.body);
+      if (response.status === 200) {
+        navigate("/animation", { state: { animationData: animation } });
+      }
     } catch (e) {
       console.log("error", e);
+      setError(e);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
     <div className="h-screen flex">
       <div className="flex w-1/2 justify-center items-center bg-white">
-        <form className="bg-white">
+        <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-1">Aloha!</h1>
           <p className="text-sm font-normal text-gray-600 mb-7">
-            Register yourself as {state.userType == "cl" ? "Client" : "Freelancer"}
+            Register yourself as{" "}
+            {state.userType == "cl" ? "Client" : "Freelancer"}
           </p>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <svg
@@ -81,14 +94,15 @@ const SignUp = () => {
               required
             />
           </div>
+          {error == "" ? <p></p> : <p className="text-red-500">{error}</p>}
           <button
             onClick={handleSignup}
             type="submit"
             className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >
-            Sign Up
+            {!isLoading ? "Sign Up" : "Loading..."}
           </button>
-        </form>
+        </div>
       </div>
       <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">
         <div>

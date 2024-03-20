@@ -1,7 +1,43 @@
-import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import animation from "../lottie/welcome.json";
 const Loginpage = () => {
   const location = useLocation();
-  const state= location.state;
+  const state = location.state;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const handleLogin = async () => {
+    try {
+      setError("");
+      setLoading(true); // Start loading
+      const response = await axios.post(
+        `http://localhost:5000/${state.userType}/login`,
+        { email: email, password: password }
+      );
+      console.log(response);
+      // If successful, navigate to the next page
+      if (response.status === 200) {
+        Cookies.set("token", response.data.token, { expires: 1 });
+        // Redirect to next page or perform necessary action
+        console.log(response.data);
+
+        navigate("/animation", { state: { animationData: animation } }); // Stop loading
+      } else {
+        // Handle other statuses if needed
+        setError("Invalid credentials");
+      }
+    } catch (e) {
+      console.log(e);
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
   console.log(state.userType);
   return (
     <div className="h-screen flex">
@@ -12,7 +48,7 @@ const Loginpage = () => {
         </div>
       </div>
       <div className="flex w-1/2 justify-center items-center bg-white">
-        <form className="bg-white">
+        <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-1">
             Hello Again!
           </h1>
@@ -36,6 +72,7 @@ const Loginpage = () => {
               />
             </svg>
             <input
+              onChange={(e) => setEmail(e.target.value)}
               className="pl-2 outline-none border-none"
               type="email"
               name=""
@@ -58,6 +95,7 @@ const Loginpage = () => {
               />
             </svg>
             <input
+              onChange={(e) => setPassword(e.target.value)}
               className="pl-2 outline-none border-none"
               type="password"
               name=""
@@ -66,16 +104,18 @@ const Loginpage = () => {
               required
             />
           </div>
+          {error == "" ? <p></p> : <p className="text-red-500">{error}</p>}
           <button
+            onClick={handleLogin}
             type="submit"
             className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >
-            Login
+            {loading ? "Loading..." : "Login"}
           </button>
           <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
             Forgot Password ?
           </span>
-        </form>
+        </div>
       </div>
     </div>
   );
