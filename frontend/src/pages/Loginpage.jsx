@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 const Loginpage = () => {
   const location = useLocation();
-  const { userType } = location.state;
-  console.log(userType);
+  const state= location.state;
+  console.log(state.userType);
   return (
     <div className="h-screen flex">
       <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">
@@ -18,7 +18,7 @@ const Loginpage = () => {
           </h1>
           <p className="text-sm font-normal text-gray-600 mb-7">Welcome Back</p>
           <p className="text-sm font-normal text-gray-600 mb-7">
-            Continue as {userType.userType == "cl" ? "Client" : "Freelancer"}
+            Continue as {state.userType == "cl" ? "Client" : "Freelancer"}
           </p>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <svg
