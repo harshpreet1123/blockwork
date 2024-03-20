@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import News from "./pages/News";
 import Exchange from "./pages/Exchange";
 import Category from "./pages/Category";
-import Loginpage from "./pages/LoginPage";
+import Loginpage from "./pages/Loginpage";
 import SignUp from "./pages/SignupPage";
 
 function App() {
