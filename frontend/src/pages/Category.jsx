@@ -1,36 +1,44 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import ClientSvg from "../assets/svg/client.svg";
+import FreelancerSvg from "../assets/svg/freelancer.svg";
 
 const Category = () => {
   const location = useLocation();
   const state = location.state;
-
   return (
-    <>
-      <h1 className="text-3xl text-center p-4">
-        {state.route == "/register" ? "Register" : "Login"} as
-      </h1>
-      <div className="flex items-center justify-center align-middle text-center justify-items-center h-screen">
-        <div className="flex-1 border-r border-purple-400">
-          <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-            <Link to={state.route} state={{ userType: "cl" }}>
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white  rounded-md group-hover:bg-opacity-0">
-                Client
-              </span>
-            </Link>
-          </button>
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 shadow sm:p-8">
+        <h5 className="mb-4 text-xl font-medium text-gray-500 ">Hire Talent</h5>
+        <img src={ClientSvg} className="h-96 w-96 border" />
+        <div className="flex items-center text-center justify-center text-gray-900 ">
+          <p>Continue as</p>
         </div>
-        <div className="flex-1 border-l border-purple-400">
-          <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-            <Link to={state.route} state={{ userType: "fr" }}>
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white  rounded-md group-hover:bg-opacity-0">
-                Freelancer
-              </span>
-            </Link>
+        <Link to={state.route} state={{ userType: "fr" }}>
+          <button
+            type="button"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Client
           </button>
-        </div>
+        </Link>
       </div>
-    </>
+      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 shadow sm:p-8">
+        <h5 className="mb-4 text-xl font-medium text-gray-500 ">Find Work</h5>
+        <img src={FreelancerSvg} className="h-96 w-96 border" />
+        <div className="flex items-center text-center justify-center text-gray-900 ">
+          <p>Continue as</p>
+        </div>
+        <Link to={state.route} state={{ userType: "fr" }}>
+          <button
+            type="button"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Freelancer
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 };
 

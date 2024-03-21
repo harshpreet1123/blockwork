@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import animation from "../animations/welcome.json";
+import animation from "../assets/animations/welcome.json";
 const Loginpage = () => {
   const location = useLocation();
   const state = location.state;
@@ -43,7 +43,7 @@ const Loginpage = () => {
     <div className="h-screen flex">
       <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">
         <div>
-          <h1 className="text-white font-bold text-4xl font-sans">BlockWork</h1>
+          <h1 className="text-white font-bold text-4xl font-sans">BlocWork</h1>
           <p className="text-white mt-1">The Decentrlized Workplace.</p>
         </div>
       </div>
