@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import animation from "../lottie/welcome.json";
+import animation from "../animations/welcome.json";
 const Loginpage = () => {
   const location = useLocation();
   const state = location.state;

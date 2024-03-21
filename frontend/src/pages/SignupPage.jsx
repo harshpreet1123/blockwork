@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import animation from "../lottie/done.json";
+import animation from "../animations/done.json";
 
 const SignUp = () => {
   const location = useLocation();
