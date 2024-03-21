@@ -26,7 +26,7 @@ const Loginpage = () => {
         // Redirect to next page or perform necessary action
         console.log(response.data);
 
-        navigate("/animation", { state: { animationData: animation } }); // Stop loading
+        navigate("/animation1", { state: { animationData: animation } }); // Stop loading
       } else {
         // Handle other statuses if needed
         setError("Invalid credentials");

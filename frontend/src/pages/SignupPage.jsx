@@ -23,8 +23,10 @@ const SignUp = () => {
         }
       );
       console.log(response.body);
-      if (response.status === 200) {
-        navigate("/animation", { state: { animationData: animation } });
+      if (response.status === 201) {
+        navigate("/animation2", {
+          state: { animationData: animation,contentText: 'Register Sucessful', buttonLabel:'Continue to Login' },
+        });
       }
     } catch (e) {
       console.log("error", e);
@@ -97,7 +99,6 @@ const SignUp = () => {
           {error == "" ? <p></p> : <p className="text-red-500">{error}</p>}
           <button
             onClick={handleSignup}
-            type="submit"
             className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >
             {!isLoading ? "Sign Up" : "Loading..."}

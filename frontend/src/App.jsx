@@ -5,7 +5,8 @@ import Exchange from "./pages/Exchange";
 import Category from "./pages/Category";
 import Loginpage from "./pages/Loginpage";
 import SignUp from "./pages/SignupPage";
-import Animation from "./components/Animation";
+import Animation from "./components/AnimationFull";
+import AnimationAndContent from "./components/AnimationAndContent";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/category" element={<Category />} />
           <Route path="/login" element={<Loginpage />} />
           <Route path="/register" element={<SignUp />} />
-          <Route path="/animation" element={<Animation />} />
+          <Route path="/animation1" element={<Animation />} />
+          <Route path="/animation2" element={<AnimationAndContent />} />
         </Routes>
       </BrowserRouter>
     </>
