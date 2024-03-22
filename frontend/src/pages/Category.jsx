@@ -12,7 +12,9 @@ const Category = () => {
   return (
     <div className="flex justify-center items-center  h-screen bg-gradient-to-tr from-blue-600 to-purple-400">
       <div className="w-full max-w-sm p-4 bg-white  border border-gray-200   shadow-purple-400 rounded-2xl mx-16 sm:p-8">
-        <h5 className="mb-4 text-sm font-bold font-mono text-black">- Hire Exceptional Talent</h5>
+        <h5 className="mb-4 text-sm font-bold font-mono text-black">
+          Hire Exceptional Talent
+        </h5>
         {/* <img src={ClientSvg} className="h-96 w-96 border" /> */}
         <Lottie animationData={AnimationClient} className="w-80 h-80" />
         <div className="flex items-center text-center justify-center text-gray-900 ">
@@ -28,9 +30,11 @@ const Category = () => {
         </Link>
       </div>
       <div className="w-full max-w-sm p-4 bg-white  border border-gray-200   shadow-purple-400 rounded-2xl mx-16 sm:p-8">
-        <h5 className="mb-4 text-sm font-bold font-mono text-black">- Thriving as a Freelance Professional</h5>
+        <h5 className="mb-4 text-sm font-bold font-mono text-black">
+          Thriving as a Freelance
+        </h5>
         {/* <img src={FreelancerSvg} className="h-96 w-96 border" /> */}
-        <Lottie animationData={AnimationFreeLancer} className="w-80 h-80"/>
+        <Lottie animationData={AnimationFreeLancer} className="w-80 h-80" />
         <div className="flex items-center text-center justify-center text-gray-900 ">
           <p className="mb-2 font-mono font-bold">Continue as</p>
         </div>
