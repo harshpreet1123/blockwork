@@ -1,10 +1,9 @@
 import Lottie from "react-lottie";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const Animation = () => {
   const location = useLocation();
   const state = location.state;
-  const navigate = useNavigate();
   const defaultOptions = {
     loop: true,
     autoplay: true,
