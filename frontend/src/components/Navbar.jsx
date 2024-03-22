@@ -11,7 +11,7 @@ const Navbar = () => {
     <div>
       <div className="absolute inset-x-0 top-0 text-white z-50">
         <nav
-          className="flex items-center justify-between py-2 bg-gradient-to-tr from-blue-800 to-purple-700 lg:px-8"
+          className="flex items-center justify-between py-2 bg-gradient-to-tr from-blue-600 to-purple-700 lg:px-8"
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
