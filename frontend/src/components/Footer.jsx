@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="">
-      <footer className="w-full h-full bg-gradient-to-tr from-blue-600 to-purple-700  text-white p-5 flex flex-col md:flex-row md:scroll-px-12 flex-wrap justify-between">
+      <footer className="w-full h-full bg-gradient-to-tr from-blue-600 to-purple-600  text-white p-5 flex flex-col md:flex-row md:scroll-px-12 flex-wrap justify-between">
         <div className="text-xl font-bold mt-4">
           BlocWork
           <p className="my-4">Email us: support@blocwork.com</p>
