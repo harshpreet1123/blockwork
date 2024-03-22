@@ -55,7 +55,7 @@ const Loginpage = () => {
           </h1>
           <p className="text-sm font-normal text-gray-600 mb-7">Welcome Back</p>
           <p className="text-sm font-normal text-gray-600 mb-7">
-            Continue as {state.userType == "cl" ? "client" : "Freelancer"}
+            Continue as {state.userType === "cl" ? "Client" : "Freelancer"}
           </p>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <svg
