@@ -9,9 +9,9 @@ const Navbar = () => {
   ];
   return (
     <div>
-      <div className="absolute inset-x-0 top-2  m-6 text-white z-50">
+      <div className="absolute inset-x-0 top-2  m-6 text-white z-50 ">
         <nav
-          className="flex items-center justify-between py-2 rounded-2xl bg-gradient-to-tr from-blue-600 to-purple-400 lg:px-8"
+          className="flex items-center justify-between py-2 rounded-2xl backdrop-blur-lg bg-gradient-to-tr from-blue-950/80 to-purple-950/80 lg:px-8"
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
