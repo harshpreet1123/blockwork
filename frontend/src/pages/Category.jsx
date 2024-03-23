@@ -14,37 +14,37 @@ const Category = () => {
   return (
     <div className="flex justify-center items-center  h-screen bg-gradient-to-tr from-blue-500 to-purple-500">
       <Lottie className=" absolute h-full w-full mx-96 my-96 p-1" animationData={AnimationBgCategory} />
-      <div className="relative w-full max-w-sm p-4  bg-white  rounded-2xl mx-16 sm:p-8">
-        <h5 className="mb-4 text-sm font-bold font-mono text-black">
+      <div className="relative w-full max-w-sm p-4 backdrop-blur-sm bg-white/25 rounded-2xl mx-16 sm:p-8">
+        <h5 className="mb-4 text-md font-bold font-mono text-black">
           Hire Exceptional Talent
         </h5>
         {/* <img src={ClientSvg} className="h-96 w-96 border" /> */}
         <Lottie animationData={AnimationClient} className="w-80 h-80" />
         <div className="flex items-center text-center justify-center text-gray-900 ">
-          <p className="mb-2 font-mono font-bold">Continue as</p>
+          <p className="mb-2 font-mono text-md font-bold">Continue as</p>
         </div>
         <Link to={state.route} state={{ userType: "cl" }}>
           <button
             type="button"
-            className="text-white bg-gradient-to-tr from-blue-600 to-purple-400 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-purple-700 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center font-mono font-bold"
+            className="text-white bg-gradient-to-tr from-blue-800 to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center font-mono font-bold"
           >
             Client
           </button>
         </Link>
       </div>
-      <div className=" relative w-full max-w-sm p-4 bg-white  rounded-2xl mx-16 sm:p-8">
-        <h5 className="mb-4 text-sm font-bold font-mono text-black">
+      <div className=" relative w-full max-w-sm p-4 backdrop-blur-sm bg-white/25  rounded-2xl mx-16 sm:p-8">
+        <h5 className="mb-4 text-md font-bold font-mono text-black">
           Thriving as a Freelance
         </h5>
         {/* <img src={FreelancerSvg} className="h-96 w-96 border" /> */}
         <Lottie animationData={AnimationFreeLancer} className="w-80 h-80" />
         <div className="flex items-center text-center justify-center text-gray-900 ">
-          <p className="mb-2 font-mono font-bold">Continue as</p>
+          <p className="mb-2 font-mono text-md font-bold">Continue as</p>
         </div>
         <Link to={state.route} state={{ userType: "fr" }}>
           <button
             type="button"
-            className="text-white bg-gradient-to-tr from-blue-600 font-mono font-bold to-purple-400 hover:bg-gradient-to-tr hover:from-blue-600 hover:to-purple-700 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+            className="text-white bg-gradient-to-tr from-blue-800 font-mono font-bold to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
           >
             Freelancer
           </button>
