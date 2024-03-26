@@ -1,4 +1,4 @@
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 
 import { useLocation } from "react-router-dom";
 const AnimationAndContent = () => {
