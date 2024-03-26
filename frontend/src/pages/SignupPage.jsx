@@ -25,7 +25,11 @@ const SignUp = () => {
       console.log(response.body);
       if (response.status === 201) {
         navigate("/animation2", {
-          state: { animationData: animation,contentText: 'Register Sucessful', buttonLabel:'Continue to Login' },
+          state: {
+            animationData: animation,
+            contentText: "Registered Sucessful",
+            buttonLabel: "Continue to Login",
+          },
         });
       }
     } catch (e) {
@@ -98,6 +102,7 @@ const SignUp = () => {
           </div>
           {error == "" ? <p></p> : <p className="text-red-500">{error}</p>}
           <button
+            disabled={isLoading}
             onClick={handleSignup}
             className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >

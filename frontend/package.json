@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@splinetool/react-spline": "^2.2.6",
-    "@thirdweb-dev/react": "^3.10.3",
-    "@thirdweb-dev/sdk": "^2.0.3",
+    "@thirdweb-dev/react": "^4.4.23",
+    "@thirdweb-dev/sdk": "^4.0.49",
     "axios": "^1.6.8",
     "ethers": "^5.7.2",
+    "formik": "^2.4.5",
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
     "lottie-react": "^2.4.0",
