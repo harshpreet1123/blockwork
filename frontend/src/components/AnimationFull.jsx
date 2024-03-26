@@ -1,8 +1,9 @@
-import Lottie from "lottie-react";
+import Lottie from "react-lottie";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const Animation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const state = location.state;
   const defaultOptions = {
     loop: true,
@@ -21,7 +22,11 @@ const Animation = () => {
           {
             eventName: "loopComplete",
             callback: () => {
-              // navigate("/");
+              {
+                if (state.navigateRoute != "") {
+                  navigate(state.navigateRoute);
+                }
+              }
             },
           },
         ]}

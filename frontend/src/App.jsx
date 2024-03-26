@@ -7,6 +7,8 @@ import Loginpage from "./pages/Loginpage";
 import SignUp from "./pages/SignupPage";
 import Animation from "./components/AnimationFull";
 import AnimationAndContent from "./components/AnimationAndContent";
+import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
+import AddProfileClient from "./pages/client/AddProfileClient";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/register" element={<SignUp />} />
           <Route path="/animation1" element={<Animation />} />
           <Route path="/animation2" element={<AnimationAndContent />} />
+          <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
+          <Route path="/cl/add-profile" element={<AddProfileClient />} />
         </Routes>
       </BrowserRouter>
     </>
