@@ -2,7 +2,7 @@ import { Document, Schema } from "mongoose";
 import { freelancerDB } from "../../db/db";
 
 export interface IProfile extends Document {
-  user_id:string,
+  user_id:string;
   username: string;
   firstname: string;
   lastname: string;
