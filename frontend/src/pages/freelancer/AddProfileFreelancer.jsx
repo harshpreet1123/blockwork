@@ -1,10 +1,56 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
+import { useState } from "react";
 
 const AddProfileFreelancer = () => {
+  const [imagePreview, setImagePreview] = useState(null);
+  const [social, setSocial] = useState("");
+  const [skills, setSkills] = useState("");
+  const [socialList, setSocialList] = useState([]);
+  const [skillsList, setSkillsList] = useState([]);
+  const [username, setUsername] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [companyName, setCompanyname] = useState("");
+  const [bio, setBio] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        setImagePreview(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      // Reset image preview if file is not an image
+      setImagePreview(null);
+    }
+  };
+
+  const handleImageUpload = () => {};
+
+  const handleCreateProfile = () => {
+    handleImageUpload();
+    console.log(username);
+    console.log(firstname);
+    console.log(lastname);
+    console.log(bio);
+    console.log(companyName);
+    console.log(phone);
+    console.log(location);
+    console.log(skillsList);
+    console.log(socialList);
+  };
+
   return (
     <div className="h-screen flex bg-gradient-to-tr from-blue-200 to-purple-200 items-center justify-center">
-      <div className=" flex w-1/4 justify-center items-center bg-white rounded-lg py-4">
-        <div className="bg-white ">
+      <div className="flex w-1/2 justify-center items-center bg-white rounded-xl py-4">
+        <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-5">
             Hello Again! - Create Your Profile
           </h1>
@@ -12,84 +58,184 @@ const AddProfileFreelancer = () => {
             <input
               className="pl-2 outline-none border-none"
               type="text"
-              name=""
-              id=""
+              name="username"
               placeholder="Username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
               required
             />
+          </div>
+          <div className="flex">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+              <input
+                className="pl-2 outline-none border-none"
+                type="text"
+                name="firstname"
+                placeholder="First Name"
+                onChange={(e) => {
+                  setFirstname(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+              <input
+                className="pl-2 outline-none border-none"
+                type="text"
+                name="lastname"
+                placeholder="Last Name"
+                onChange={(e) => {
+                  setLastname(e.target.value);
+                }}
+                required
+              />
+            </div>
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
               className="pl-2 outline-none border-none"
               type="text"
-              name=""
-              id=""
-              placeholder="First Name"
-              required
+              name="companyname"
+              placeholder="Company Name (optional)"
+              onChange={(e) => {
+                setCompanyname(e.target.value);
+              }}
             />
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <input
+            <textarea
               className="pl-2 outline-none border-none"
-              type="text"
-              name=""
-              id=""
-              placeholder="Last Name"
-              required
-            />
-          </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <input
-              className="pl-2 outline-none border-none"
-              type="text"
-              name=""
-              id=""
+              name="bio"
               placeholder="Bio"
+              rows="1"
+              cols="60"
+              onChange={(e) => {
+                setBio(e.target.value);
+              }}
               required
             />
+          </div>
+          <div className="flex items-center">
+            <div className="inset-0 flex items-center justify-center">
+              {imagePreview ? (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="w-20 h-20 rounded-full border-2 border-gray-200"
+                />
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 text-gray-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm18 0a10 10 0 11-20 0 10 10 0 0120 0zM8 8a1 1 0 00-2 0v4a1 1 0 102 0V8zm8 0a1 1 0 10-2 0v4a1 1 0 102 0V8z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </div>
+            <div className="flex border-2 py-2 px-3 rounded-2xl mb-4">
+              <input
+                id="imageInput"
+                className=""
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                required
+              />
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+              <input
+                className="pl-2 outline-none border-none"
+                type="text"
+                name="location"
+                placeholder="Location"
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+              <input
+                className="pl-2 outline-none border-none"
+                type="text"
+                name="phone"
+                placeholder="Phone"
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
+                required
+              />
+            </div>
+          </div>
+          <div className="p-2">
+            {skillsList.map((str, index) => (
+              <span key={index} className="p-1 mr-1 bg-slate-400">
+                {str}
+              </span>
+            ))}
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
-              className="pl-2 outline-none border-none"
-              type="file"
+              onChange={(e) => {
+                setSkills(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setSkillsList([...skillsList, skills]);
+                  setSkills("");
+                  e.target.value = "";
+                }
+              }}
+              className="outline-none border-none"
+              type="text"
+              name="skills"
+              placeholder="Skills"
               required
             />
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <label>
-              Add Banner image
-              <img src="" alt="" />
-            </label>
+          <div className="p-2">
+            {socialList.map((str, index) => (
+              <span key={index} className="p-1 mr-1 bg-slate-400">
+                {str}
+              </span>
+            ))}
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <label>
-              <input type="text" placeholder="Add your location" />
-            </label>
-          </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <label>
-              <input type="array" placeholder="Add Skills" />
-            </label>
-          </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <label>
-              <input type="number" placeholder="Mobile number" />
-            </label>
-          </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <label>
-              <input type="array" placeholder="Add Social" />
-            </label>
+            <input
+              onChange={(e) => {
+                setSocial(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setSocialList([...socialList, social]);
+                  setSocial("");
+                  e.target.value = "";
+                }
+              }}
+              className="outline-none border-none"
+              type="text"
+              name="socialList"
+              placeholder="Social Media Links"
+              required
+            />
           </div>
           <ConnectWallet />
-          <div>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-tr from-blue-800 to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-md px-5 py-2.5 mt-2 inline-flex justify-center w-full text-center font-mono font-bold"
-            >
-              Save
-            </button>
-          </div>
+          <button
+            onClick={handleCreateProfile}
+            type="button"
+            className="text-white bg-gradient-to-tr from-blue-800 to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-md px-5 py-2.5 mt-2 inline-flex justify-center w-full text-center font-mono font-bold"
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>

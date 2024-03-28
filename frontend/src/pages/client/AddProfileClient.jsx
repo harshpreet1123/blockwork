@@ -46,7 +46,7 @@ const AddProfileClient = () => {
 
   return (
     <div className="h-screen flex bg-gradient-to-tr from-blue-200 to-purple-200 items-center justify-center">
-      <div className="flex w-1/2 justify-center items-center bg-white rounded-lg py-4">
+      <div className="flex w-1/2 justify-center items-center bg-white rounded-xl py-4">
         <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-5">
             Hello Again! - Create Your Profile
@@ -105,6 +105,8 @@ const AddProfileClient = () => {
               className="pl-2 outline-none border-none"
               name="info"
               placeholder="Info"
+              rows="1"
+              cols="60"
               onChange={(e) => {
                 setInfo(e.target.value);
               }}
