@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-// import Spline from "@splinetool/react-spline";
+import Spline from "@splinetool/react-spline";
 
 
 const Header=()=> {
@@ -64,10 +64,10 @@ const Header=()=> {
             </Link>
           </div>
           <div className="f-two">
-            {/* <Spline
+            <Spline
             ref={splineRef}
             scene="https://prod.spline.design/60QZSgoHxT30HLIT/scene.splinecode"
-          /> */}
+          />
           </div>
         </div>
       </header>
