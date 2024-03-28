@@ -45,7 +45,7 @@ const AddProfileClient = () => {
   };
 
   return (
-    <div className="h-screen flex bg-gradient-to-tr from-blue-200 to-purple-200 items-center justify-center">
+    <div className="flex items-center justify-center">
       <div className="flex w-1/2 justify-center items-center bg-white rounded-xl py-4">
         <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-5">
@@ -53,7 +53,7 @@ const AddProfileClient = () => {
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none w-full"
               type="text"
               name="username"
               placeholder="Username"
@@ -64,9 +64,9 @@ const AddProfileClient = () => {
             />
           </div>
           <div className="flex">
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="firstname"
                 placeholder="First Name"
@@ -76,9 +76,9 @@ const AddProfileClient = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="lastname"
                 placeholder="Last Name"
@@ -91,7 +91,7 @@ const AddProfileClient = () => {
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none w-full"
               type="text"
               name="companyname"
               placeholder="Company Name (optional)"
@@ -102,7 +102,7 @@ const AddProfileClient = () => {
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <textarea
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none w-full"
               name="info"
               placeholder="Info"
               rows="1"
@@ -139,7 +139,7 @@ const AddProfileClient = () => {
             <div className="flex border-2 py-2 px-3 rounded-2xl mb-4">
               <input
                 id="imageInput"
-                className=""
+                className="w-full"
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
@@ -148,9 +148,9 @@ const AddProfileClient = () => {
             </div>
           </div>
           <div className="flex">
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="location"
                 placeholder="Location"
@@ -160,7 +160,7 @@ const AddProfileClient = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
               <input
                 className="pl-2 outline-none border-none"
                 type="text"
@@ -192,7 +192,7 @@ const AddProfileClient = () => {
                   e.target.value = "";
                 }
               }}
-              className="outline-none border-none"
+              className="outline-none border-none w-full"
               type="text"
               name="socialList"
               placeholder="Social Media Links"

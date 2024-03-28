@@ -48,15 +48,15 @@ const AddProfileFreelancer = () => {
   };
 
   return (
-    <div className="h-screen flex bg-gradient-to-tr from-blue-200 to-purple-200 items-center justify-center">
-      <div className="flex w-1/2 justify-center items-center bg-white rounded-xl py-4">
+    <div className="flex items-center justify-center">
+      <div className="flex w-3/4 justify-center items-center bg-white rounded-xl py-4">
         <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-5">
             Hello Again! - Create Your Profile
           </h1>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none w-full"
               type="text"
               name="username"
               placeholder="Username"
@@ -67,9 +67,9 @@ const AddProfileFreelancer = () => {
             />
           </div>
           <div className="flex">
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+            <div className="w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="firstname"
                 placeholder="First Name"
@@ -79,9 +79,9 @@ const AddProfileFreelancer = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className=" w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="lastname"
                 placeholder="Last Name"
@@ -92,9 +92,9 @@ const AddProfileFreelancer = () => {
               />
             </div>
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none w-full"
               type="text"
               name="companyname"
               placeholder="Company Name (optional)"
@@ -103,9 +103,9 @@ const AddProfileFreelancer = () => {
               }}
             />
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <textarea
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none w-full"
               name="bio"
               placeholder="Bio"
               rows="1"
@@ -117,7 +117,7 @@ const AddProfileFreelancer = () => {
             />
           </div>
           <div className="flex items-center">
-            <div className="inset-0 flex items-center justify-center">
+            <div className="inset-0 items-center justify-center">
               {imagePreview ? (
                 <img
                   src={imagePreview}
@@ -139,10 +139,10 @@ const AddProfileFreelancer = () => {
                 </svg>
               )}
             </div>
-            <div className="flex border-2 py-2 px-3 rounded-2xl mb-4">
+            <div className="border-2 py-2 px-3 rounded-2xl mb-4">
               <input
                 id="imageInput"
-                className=""
+                className="w-full"
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
@@ -151,9 +151,9 @@ const AddProfileFreelancer = () => {
             </div>
           </div>
           <div className="flex">
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+            <div className="w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="location"
                 placeholder="Location"
@@ -163,9 +163,9 @@ const AddProfileFreelancer = () => {
                 required
               />
             </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className="w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
               <input
-                className="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none w-full"
                 type="text"
                 name="phone"
                 placeholder="Phone"
@@ -183,7 +183,7 @@ const AddProfileFreelancer = () => {
               </span>
             ))}
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
               onChange={(e) => {
                 setSkills(e.target.value);
@@ -195,7 +195,7 @@ const AddProfileFreelancer = () => {
                   e.target.value = "";
                 }
               }}
-              className="outline-none border-none"
+              className="outline-none border-none w-full"
               type="text"
               name="skills"
               placeholder="Skills"
@@ -209,7 +209,7 @@ const AddProfileFreelancer = () => {
               </span>
             ))}
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
               onChange={(e) => {
                 setSocial(e.target.value);
@@ -221,14 +221,16 @@ const AddProfileFreelancer = () => {
                   e.target.value = "";
                 }
               }}
-              className="outline-none border-none"
+              className="outline-none border-none w-full"
               type="text"
               name="socialList"
               placeholder="Social Media Links"
               required
             />
           </div>
-          <ConnectWallet />
+          <div className="w-full flex justify-center">
+            <ConnectWallet btnTitle="Connect Wallet" />
+          </div>
           <button
             onClick={handleCreateProfile}
             type="button"
