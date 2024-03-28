@@ -53,7 +53,7 @@ const AddProfileClient = () => {
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none "
               type="text"
               name="username"
               placeholder="Username"
@@ -114,7 +114,7 @@ const AddProfileClient = () => {
             />
           </div>
           <div className="flex items-center">
-            <div className="inset-0 flex items-center justify-center">
+            <div className="inset-0 flex items-center justify-center mx-3 mb-4">
               {imagePreview ? (
                 <img
                   src={imagePreview}

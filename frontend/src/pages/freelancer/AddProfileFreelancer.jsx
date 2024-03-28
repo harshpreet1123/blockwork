@@ -117,7 +117,7 @@ const AddProfileFreelancer = () => {
             />
           </div>
           <div className="flex items-center">
-            <div className="inset-0 flex items-center justify-center">
+            <div className="inset-0 flex items-center justify-center mx-3 mb-4">
               {imagePreview ? (
                 <img
                   src={imagePreview}
