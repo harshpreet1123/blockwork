@@ -1,8 +1,11 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import { useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const AddProfileClient = () => {
   const [imagePreview, setImagePreview] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [social, setSocial] = useState("");
   const [socialList, setSocialList] = useState([]);
   const [username, setUsername] = useState("");
@@ -12,10 +15,12 @@ const AddProfileClient = () => {
   const [info, setInfo] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
-
+  const pinataJWT =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmYjIxZGViMC0xNWQzLTRmMDMtOWNkMS00Yjc4MDIzMzBkNjQiLCJlbWFpbCI6ImhhcnNocHJlZXQuNzV3YXlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjI3MzE3MjNmMWUwYmExMjllNWEwIiwic2NvcGVkS2V5U2VjcmV0IjoiYTk0ZWZmMjNmNGEyNDU0ZDE3NjE3YWY1MjI3MGVjZDg5M2YxMGI2OWEwNDI1Mzk5ODc0YTZlZGJiMTRiMzQ0NCIsImlhdCI6MTcwOTIwMDA3MH0.kI5_9Ihjy9kUN95aVGpD5jeMNCLS_3SkVgZLtCew7Vs";
+  const token = Cookies.get("token");
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-
+    setSelectedFile(e.target.files[0]);
     if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
 
@@ -30,18 +35,63 @@ const AddProfileClient = () => {
     }
   };
 
-  const handleImageUpload = () => {};
+  const handleImageUpload = async() => {
+    if (selectedFile) {
+      // setIsLoading(true);
+      try {
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+        const pinataMetadata = JSON.stringify({
+          name: `${username}_profile_img`,
+        });
+        formData.append("pinataMetadata", pinataMetadata);
+        const pinataOptions = JSON.stringify({ cidVersion: 0 });
+        formData.append("pinataOptions", pinataOptions);
+        const res = await axios.post(
+          "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          formData,
+          {
+            maxBodyLength: Infinity,
+            headers: {
+              "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+              Authorization: `Bearer ${pinataJWT}`,
+            },
+          }
+        );
+        console.log(res.data);
+        return res.data.IpfsHash;
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      alert("Select a image to upload");
+    }
+  };
 
-  const handleCreateProfile = () => {
-    handleImageUpload();
-    console.log(username);
-    console.log(firstname);
-    console.log(lastname);
-    console.log(info);
-    console.log(companyName);
-    console.log(phone);
-    console.log(location);
-    console.log(socialList);
+  const handleCreateProfile = async() => {
+    const IpfsHash = await handleImageUpload();
+    console.log(IpfsHash);
+    try {
+      var response = axios.post(
+        "http://localhost:5000/fr/add-profile",
+        {
+          username: username,
+          firstname: firstname,
+          lastname: lastname,
+          info: info,
+          companyName: companyName,
+          profileImg: `ipfs.io/ipfs/${IpfsHash}`,
+          phone: parseInt(phone),
+          location: location,
+          wallets: [],
+          social: socialList,
+        },
+        { headers: { Authorization: token } }
+      );
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
