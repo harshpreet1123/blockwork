@@ -1,7 +1,7 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+// import { ConnectWallet } from "@thirdweb-dev/react";
 import { useState } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
+// import axios from "axios";
+// import Cookies from "js-cookie";
 
 import { InputText } from "primereact/inputtext";
 import { Avatar } from "primereact/avatar";
@@ -32,18 +32,18 @@ const AddProfileClient = () => {
     setimagecrop(false);
   };
 
-  const [social, setSocial] = useState("");
-  const [socialList, setSocialList] = useState([]);
-  const [username, setUsername] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [companyName, setCompanyname] = useState("");
-  const [info, setInfo] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
+  // const [social, setSocial] = useState("");
+  // const [socialList, setSocialList] = useState([]);
+  // const [username, setUsername] = useState("");
+  // const [firstname, setFirstname] = useState("");
+  // const [lastname, setLastname] = useState("");
+  // const [companyName, setCompanyname] = useState("");
+  // const [info, setInfo] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [location, setLocation] = useState("");
   // const pinataJWT =
   //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmYjIxZGViMC0xNWQzLTRmMDMtOWNkMS00Yjc4MDIzMzBkNjQiLCJlbWFpbCI6ImhhcnNocHJlZXQuNzV3YXlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjI3MzE3MjNmMWUwYmExMjllNWEwIiwic2NvcGVkS2V5U2VjcmV0IjoiYTk0ZWZmMjNmNGEyNDU0ZDE3NjE3YWY1MjI3MGVjZDg5M2YxMGI2OWEwNDI1Mzk5ODc0YTZlZGJiMTRiMzQ0NCIsImlhdCI6MTcwOTIwMDA3MH0.kI5_9Ihjy9kUN95aVGpD5jeMNCLS_3SkVgZLtCew7Vs";
-  const token = Cookies.get("token");
+  // const token = Cookies.get("token");
   // const handleImageChange = (e) => {
   //   const file = e.target.files[0];
   //   setSelectedFile(e.target.files[0]);
@@ -94,31 +94,31 @@ const AddProfileClient = () => {
   //   }
   // };
 
-  const handleCreateProfile = async () => {
-    // const IpfsHash = await handleImageUpload();
-    // console.log(IpfsHash);
-    try {
-      var response = axios.post(
-        "http://localhost:5000/fr/add-profile",
-        {
-          username: username,
-          firstname: firstname,
-          lastname: lastname,
-          info: info,
-          companyName: companyName,
-          // profileImg: `ipfs.io/ipfs/${IpfsHash}`,
-          phone: parseInt(phone),
-          location: location,
-          wallets: [],
-          social: socialList,
-        },
-        { headers: { Authorization: token } }
-      );
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const handleCreateProfile = async () => {
+  //   // const IpfsHash = await handleImageUpload();
+  //   // console.log(IpfsHash);
+  //   try {
+  //     var response = axios.post(
+  //       "http://localhost:5000/fr/add-profile",
+  //       {
+  //         username: username,
+  //         firstname: firstname,
+  //         lastname: lastname,
+  //         info: info,
+  //         companyName: companyName,
+  //         // profileImg: `ipfs.io/ipfs/${IpfsHash}`,
+  //         phone: parseInt(phone),
+  //         location: location,
+  //         wallets: [],
+  //         social: socialList,
+  //       },
+  //       { headers: { Authorization: token } }
+  //     );
+  //     console.log(response);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   return (
     <div className="flex items-center justify-center">
@@ -225,7 +225,7 @@ const AddProfileClient = () => {
               }}
             />
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          {/* <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
               className="pl-2 outline-none border-none w-full"
               type="text"
@@ -236,8 +236,8 @@ const AddProfileClient = () => {
               }}
               required
             />
-          </div>
-          <div className="flex">
+          </div> */}
+          {/* <div className="flex">
             <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
                 className="pl-2 outline-none border-none w-full"
@@ -346,7 +346,7 @@ const AddProfileClient = () => {
             className="text-white bg-gradient-to-tr from-blue-800 to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-md px-5 py-2.5 mt-2 inline-flex justify-center w-full text-center font-mono font-bold"
           >
             Save
-            </button>
+            </button> */}
         </div>
       </div>
     </div>

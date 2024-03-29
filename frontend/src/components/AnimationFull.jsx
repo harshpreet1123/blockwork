@@ -14,7 +14,7 @@ const Animation = () => {
     },
   };
   return (
-    <div className="justify-center items-center self-center text-center h-screen w-screen">
+    <div className="justify-center items-center self-center h-full w-full">
       <Lottie
         options={defaultOptions}
         isClickToPauseDisabled={true}
