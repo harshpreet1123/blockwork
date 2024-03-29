@@ -3,34 +3,34 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-import { InputText } from 'primereact/inputtext';
-import { Avatar } from 'primereact/avatar';
-import { Dialog } from 'primereact/dialog';
-import { Button } from 'primereact/button'; 
+import { InputText } from "primereact/inputtext";
+import { Avatar } from "primereact/avatar";
+import { Dialog } from "primereact/dialog";
+import { Button } from "primereact/button";
 
 const AddProfileClient = () => {
   // const [imagePreview, setImagePreview] = useState(null);
   // const [selectedFile, setSelectedFile] = useState(null);
-  const [ imgcrop,setimagecrop]=useState(false);
+  const [imgcrop, setimagecrop] = useState(false);
   const [setImage] = useState(" ");
-  const [src]=useState(false);
-  const[profile,setprofile]=useState([ ]);
-  const [pview ,setpview]=useState(false);
+  const [src] = useState(false);
+  const [profile, setprofile] = useState([]);
+  const [pview, setpview] = useState(false);
 
-  const profileFinal=profile.map((item)=>item.pview);
+  const profileFinal = profile.map((item) => item.pview);
 
-  const onClose=()=>{
+  const onClose = () => {
     setpview(null);
-  }
+  };
 
-  const onCrop=(view)=>{
+  const onCrop = (view) => {
     setpview(view);
-  }
+  };
 
-  const saveCropImage=()=>{
-    setprofile([...profile,{pview}]);
+  const saveCropImage = () => {
+    setprofile([...profile, { pview }]);
     setimagecrop(false);
-  }
+  };
 
   const [social, setSocial] = useState("");
   const [socialList, setSocialList] = useState([]);
@@ -117,7 +117,7 @@ const AddProfileClient = () => {
       console.log(response);
     } catch (e) {
       console.log(e);
-    } 
+    }
   };
 
   return (
@@ -162,56 +162,68 @@ const AddProfileClient = () => {
             </div>
           </div> */}
           <div className="flex flex-col justify-center items-center">
-            <img style={{
-              width: "100px",
-              height: "100px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              border:"4px solid blue"
-            }} 
-            onClick={()=>setimagecrop(true)}
-            src={profileFinal.length ? profileFinal : 'src/assets/images/image.png'} alt="" 
+            <img
+              style={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "4px solid blue",
+              }}
+              onClick={() => setimagecrop(true)}
+              src={
+                profileFinal.length
+                  ? profileFinal
+                  : "src/assets/images/image.png"
+              }
+              alt=""
             />
-            <label htmlFor="" className="mt-3 font-semibold text-lg">Karan Kumar</label>
-            <Dialog visible={imgcrop} 
-            header={()=>(
-              <p className="text-lg font-semibold textColor">
-                Update Profile
-              </p>
-            )}
-            onHide={()=>setimagecrop(false)}
+            <label htmlFor="" className="mt-3 font-semibold text-lg">
+              Karan Kumar
+            </label>
+            <Dialog
+              visible={imgcrop}
+              header={() => (
+                <p className="text-lg font-semibold textColor">
+                  Update Profile
+                </p>
+              )}
+              onHide={() => setimagecrop(false)}
             >
               <div className="confirmation-content flex flex-col items-center">
-                <Avatar 
-                width={100}
-                height={100}
-                onCrop={onCrop}
-                onClose={onClose}
-                src={src} 
-                shadingColor={"#474649"}
-                backgroundColor={"#474649"}
+                <Avatar
+                  width={100}
+                  height={100}
+                  onCrop={onCrop}
+                  onClose={onClose}
+                  src={src}
+                  shadingColor={"#474649"}
+                  backgroundColor={"#474649"}
                 />
                 <div className="flex flex-col items-center mt-5 w-12">
                   <div className="flex justify-around w-12 mt-4">
                     <Button
-                    onClick={saveCropImage} 
-                    label="Save"
-                    icon="pi pi-check"
-                    /> 
+                      onClick={saveCropImage}
+                      label="Save"
+                      icon="pi pi-check"
+                    />
                   </div>
                 </div>
               </div>
             </Dialog>
 
-            <InputText type="file" accept='/image/*' onChange={(event)=>{
-              const file=event.target.files[0];
-              if(file && file.type.substring(0,5)==="image"){
-                setImage(file);
-              }else{
-                setImage(null);
-              }
-            }
-            }/>
+            <InputText
+              type="file"
+              accept="/image/*"
+              onChange={(event) => {
+                const file = event.target.files[0];
+                if (file && file.type.substring(0, 5) === "image") {
+                  setImage(file);
+                } else {
+                  setImage(null);
+                }
+              }}
+            />
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
@@ -334,11 +346,10 @@ const AddProfileClient = () => {
             className="text-white bg-gradient-to-tr from-blue-800 to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-md px-5 py-2.5 mt-2 inline-flex justify-center w-full text-center font-mono font-bold"
           >
             Save
-          </button>
+            </button>
         </div>
       </div>
     </div>
   );
 };
 export default AddProfileClient;
-
