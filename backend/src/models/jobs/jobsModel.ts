@@ -14,17 +14,17 @@ export interface IJob extends Document {
   attachments?: IAttachment[];
   deliverables?: IAttachment[];
   status: string;
-  assigned_to: string;
+  assigned_to?: string;
   bidders: string[];
-  created_by: string;
-  amount: number;
+  author: string;
+  budget: number;
   time: string;
   creation_time: Date;
   assigning_time: Date;
 }
 
 const jobSchema: Schema<IJob> = new Schema({
-  job_id: { type: Number, required: true, unique: true },
+  job_id: { type: Number, unique: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   attachments: [{
@@ -36,13 +36,13 @@ const jobSchema: Schema<IJob> = new Schema({
     url: { type: String, required: true }
   }],
   status: { type: String, required: true },
-  assigned_to: { type: String, required: true },
+  assigned_to: { type: String},
   bidders: { type: [String], default: [] },
-  created_by: { type: String, required: true },
-  amount: { type: Number, required: true },
+  author: { type: String, required: true },
+  budget: { type: Number, required: true },
   time: { type: String, required: true },
   creation_time: { type: Date, default: Date.now },
-  assigning_time: { type: Date, default: Date.now }
+  assigning_time: { type: Date }
 });
 
 // Pre-save middleware to auto-increment job_id
