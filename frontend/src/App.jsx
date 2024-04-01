@@ -9,6 +9,8 @@ import Animation from "./components/AnimationFull";
 import AnimationAndContent from "./components/AnimationAndContent";
 import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
+import Home from "./pages/client/Home";
+import Home from "./pages/freelancer/Home";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/animation2" element={<AnimationAndContent />} />
           <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
           <Route path="/cl/add-profile" element={<AddProfileClient />} />
+          <Route path="/cl/home" element={<Home />} />
+          <Route path="/fr/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
