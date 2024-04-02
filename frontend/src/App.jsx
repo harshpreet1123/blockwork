@@ -3,14 +3,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import News from "./pages/News";
 import Exchange from "./pages/Exchange";
 import Category from "./pages/Category";
-import Loginpage from "./pages/Loginpage";
-import SignUp from "./pages/SignupPage";
+import Loginpage from "./pages/Login";
+import SignUp from "./pages/Register";
 import Animation from "./components/AnimationFull";
 import AnimationAndContent from "./components/AnimationAndContent";
 import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
-import Home from "./pages/client/Home";
-import Home from "./pages/freelancer/Home";
+import FreelancerHome from "./pages/freelancer/FreelancerHome";
+import ClientHome from "./pages/client/ClientHome";
+
 
 function App() {
   return (
@@ -28,8 +29,8 @@ function App() {
           <Route path="/animation2" element={<AnimationAndContent />} />
           <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
           <Route path="/cl/add-profile" element={<AddProfileClient />} />
-          <Route path="/cl/home" element={<Home />} />
-          <Route path="/fr/home" element={<Home />} />
+          <Route path="/cl/home" element={<ClientHome/>} />
+          <Route path="/fr/home" element={<FreelancerHome/>} />
         </Routes>
       </BrowserRouter>
     </>

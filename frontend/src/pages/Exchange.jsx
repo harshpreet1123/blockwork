@@ -1,8 +1,6 @@
-// src/App.js
-
 import { useState, useEffect } from "react";
-import axios from "axios";
 import ExcangeCard from "../components/ExchangeCrad";
+import ApiService from "../services/api";
 
 function App() {
   const [cryptoData, setCryptoData] = useState([]);
@@ -11,17 +9,7 @@ function App() {
   useEffect(() => {
     const fetchCryptoData = async () => {
       try {
-        const response = await axios.get(
-          "https://api.coingecko.com/api/v3/coins/markets",
-          {
-            params: {
-              vs_currency: "usd",
-              per_page: 12,
-              page: page,
-              sparkline: false,
-            },
-          }
-        );
+        const response = await ApiService.exchangeData(page);
         setCryptoData((prevData) => [...prevData, ...response.data]);
       } catch (error) {
         console.error("Error fetching crypto data:", error);

@@ -1,4 +1,4 @@
-import axios from "axios";
+import ApiService from "../services/api";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -12,27 +12,23 @@ const Loginpage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
       setError("");
       setLoading(true); // Start loading
-      const response = await axios.post(
-        `http://localhost:5000/${state.userType}/login`,
-        { email: email, password: password }
-      );
-      console.log(response);
+      const response = await ApiService.login(email,password,state.userType);
       // If successful, navigate to the next page
       if (response.status === 200) {
+        setLoading(false);
         Cookies.set("token", response.data.token, { expires: 1 });
-        // Redirect to next page or perform necessary action
-        console.log(response.data);
 
         navigate("/animation1", {
           state: {
             animationData: animation,
             navigateRoute: `/${state.userType}/add-profile`,
           },
-        }); // Stop loading
+        }); 
       } else {
         // Handle other statuses if needed
         setError("Invalid credentials");
@@ -44,7 +40,7 @@ const Loginpage = () => {
       setLoading(false);
     }
   };
-  console.log(state.userType);
+
   return (
     <div className="h-screen flex">
       <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">

@@ -1,6 +1,7 @@
 // News.jsx
 import { useEffect, useState } from "react";
 import { NewsCard } from "../components/NewsCard";
+import ApiService from "../services/api";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
@@ -8,10 +9,7 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(
-          "https://newsapi.org/v2/everything?q=blockchain&q=crypto&language=en&sortBy=popularity&pageSize=10&page=1&apiKey=79b953060c674330b0ccc948ff6cdd0e"
-        );
-        const data = await response.json();
+        const data = await ApiService.newsData();
         setNewsData(data.articles);
       } catch (error) {
         console.error("Error fetching news:", error);

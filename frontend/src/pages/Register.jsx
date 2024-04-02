@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import animation from "../assets/animations/done.json";
+import ApiService from "../services/api";
 
 const SignUp = () => {
   const location = useLocation();
@@ -15,14 +15,11 @@ const SignUp = () => {
     setError("");
     setIsLoading(true);
     try {
-      const response = await axios.post(
-        `http://localhost:5000/${state.userType}/register`,
-        {
-          email: email,
-          password: password,
-        }
+      const response = await ApiService.register(
+        email,
+        password,
+        state.userType
       );
-      console.log(response.body);
       if (response.status === 201) {
         navigate("/animation2", {
           state: {
