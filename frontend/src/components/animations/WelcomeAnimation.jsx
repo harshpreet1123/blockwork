@@ -1,14 +1,13 @@
 import Lottie from "react-lottie";
+import animationData from "../assets/animations/welcome.json";
 
-import { useLocation, useNavigate } from "react-router-dom";
-const Animation = () => {
-  const location = useLocation();
+import { useNavigate } from "react-router-dom";
+const WelcomeAnimation = () => {
   const navigate = useNavigate();
-  const state = location.state;
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: state.animationData,
+    animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -23,9 +22,7 @@ const Animation = () => {
             eventName: "loopComplete",
             callback: () => {
               {
-                if (state.navigateRoute != "") {
-                  navigate(state.navigateRoute);
-                }
+                navigate("/cl/add-profile");
               }
             },
           },
@@ -35,4 +32,4 @@ const Animation = () => {
   );
 };
 
-export default Animation;
+export default WelcomeAnimation;

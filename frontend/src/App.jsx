@@ -5,13 +5,12 @@ import Exchange from "./pages/Exchange";
 import Category from "./pages/Category";
 import Loginpage from "./pages/Login";
 import SignUp from "./pages/Register";
-import Animation from "./components/AnimationFull";
-import AnimationAndContent from "./components/AnimationAndContent";
+import WelcomeAnimation from "./components/animations/WelcomeAnimation";
+import RegisterAnimation from "./components/animations/RegisterAnimation";
 import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
 import FreelancerHome from "./pages/freelancer/FreelancerHome";
 import ClientHome from "./pages/client/ClientHome";
-
 
 function App() {
   return (
@@ -25,12 +24,12 @@ function App() {
           <Route path="/category" element={<Category />} />
           <Route path="/login" element={<Loginpage />} />
           <Route path="/register" element={<SignUp />} />
-          <Route path="/animation1" element={<Animation />} />
-          <Route path="/animation2" element={<AnimationAndContent />} />
+          <Route path="/welcome" element={<WelcomeAnimation />} />
+          <Route path="/register-animation" element={<RegisterAnimation/>} />
           <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
           <Route path="/cl/add-profile" element={<AddProfileClient />} />
-          <Route path="/cl/home" element={<ClientHome/>} />
-          <Route path="/fr/home" element={<FreelancerHome/>} />
+          <Route path="/cl/home" element={<ClientHome />} />
+          <Route path="/fr/home" element={<FreelancerHome />} />
         </Routes>
       </BrowserRouter>
     </>

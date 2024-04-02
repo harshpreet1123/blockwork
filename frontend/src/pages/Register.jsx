@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import animation from "../assets/animations/done.json";
 import ApiService from "../services/api";
 
 const SignUp = () => {
@@ -21,13 +20,7 @@ const SignUp = () => {
         state.userType
       );
       if (response.status === 201) {
-        navigate("/animation2", {
-          state: {
-            animationData: animation,
-            contentText: "Registered Sucessful",
-            buttonLabel: "Continue to Login",
-          },
-        });
+        navigate("/register-animation");
       }
     } catch (e) {
       console.log("error", e);

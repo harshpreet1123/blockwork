@@ -1,13 +1,10 @@
 import Lottie from "react-lottie";
-
-import { useLocation } from "react-router-dom";
+import animationData from "../../assets/animations/done.json";
 const AnimationAndContent = () => {
-  const location = useLocation();
-  const state = location.state;
   const defaultOptions = {
     loop: false,
     autoplay: true,
-    animationData: state.animationData,
+    animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -23,9 +20,9 @@ const AnimationAndContent = () => {
         />
       </div>
       <div className="justify-center items-center text-center">
-        <div>{state.contentText}</div>
+        <div>Registration Done</div>
 
-        <button >{state.buttonLabel}</button>
+        <button>Continue to Login</button>
       </div>
     </div>
   );

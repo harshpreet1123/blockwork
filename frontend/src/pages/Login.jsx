@@ -2,7 +2,6 @@ import ApiService from "../services/api";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import animation from "../assets/animations/welcome.json";
 
 const Loginpage = () => {
   const location = useLocation();
@@ -17,18 +16,13 @@ const Loginpage = () => {
     try {
       setError("");
       setLoading(true); // Start loading
-      const response = await ApiService.login(email,password,state.userType);
+      const response = await ApiService.login(email, password, state.userType);
       // If successful, navigate to the next page
       if (response.status === 200) {
         setLoading(false);
         Cookies.set("token", response.data.token, { expires: 1 });
 
-        navigate("/animation1", {
-          state: {
-            animationData: animation,
-            navigateRoute: `/${state.userType}/add-profile`,
-          },
-        }); 
+        navigate("/welcome");
       } else {
         // Handle other statuses if needed
         setError("Invalid credentials");
