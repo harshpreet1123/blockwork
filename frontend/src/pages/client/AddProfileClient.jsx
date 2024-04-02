@@ -259,7 +259,17 @@ const AddProfileClient = () => {
               required
             />
           </div>
-          <ConnectWallet />
+          <ConnectWallet
+            btnTitle={"Choose Wallet"}
+            modalTitle={"Choose a Wallet to Continue"}
+            modalSize={"wide"}
+            welcomeScreen={{
+              title: "BlocWork",
+              subtitle: "The Decentralised Workplace ",
+            }}
+            modalTitleIconUrl={""}
+            showThirdwebBranding={false}
+          />
           <button
             onClick={handleCreateProfile}
             type="button"

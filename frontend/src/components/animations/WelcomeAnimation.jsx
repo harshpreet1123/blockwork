@@ -1,5 +1,5 @@
 import Lottie from "react-lottie";
-import animationData from "../assets/animations/welcome.json";
+import animationData from "../../assets/animations/welcome.json";
 
 import { useNavigate } from "react-router-dom";
 const WelcomeAnimation = () => {

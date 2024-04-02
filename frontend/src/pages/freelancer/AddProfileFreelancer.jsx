@@ -70,7 +70,7 @@ const AddProfileFreelancer = () => {
     }
   };
 
-  const handleCreateProfile = async()=> {
+  const handleCreateProfile = async () => {
     const IpfsHash = await handleImageUpload();
     console.log(IpfsHash);
     try {
@@ -267,7 +267,17 @@ const AddProfileFreelancer = () => {
             />
           </div>
           <div className="w-full flex justify-center">
-            <ConnectWallet btnTitle="Connect Wallet" />
+            <ConnectWallet
+              btnTitle={"Choose Wallet"}
+              modalTitle={"Choose a Wallet to Continue"}
+              modalSize={"wide"}
+              welcomeScreen={{
+                title: "BlocWork",
+                subtitle: "The Decentralised Workplace ",
+              }}
+              modalTitleIconUrl={""}
+              showThirdwebBranding={false}
+            />
           </div>
           <button
             onClick={handleCreateProfile}
