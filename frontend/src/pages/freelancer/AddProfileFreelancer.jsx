@@ -1,7 +1,7 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import { useState } from "react";
-import axios from "axios";
 import Cookies from "js-cookie";
+import ApiService from "../../services/api";
 
 const AddProfileFreelancer = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -16,9 +16,9 @@ const AddProfileFreelancer = () => {
   const [bio, setBio] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
-  const pinataJWT =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmYjIxZGViMC0xNWQzLTRmMDMtOWNkMS00Yjc4MDIzMzBkNjQiLCJlbWFpbCI6ImhhcnNocHJlZXQuNzV3YXlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjI3MzE3MjNmMWUwYmExMjllNWEwIiwic2NvcGVkS2V5U2VjcmV0IjoiYTk0ZWZmMjNmNGEyNDU0ZDE3NjE3YWY1MjI3MGVjZDg5M2YxMGI2OWEwNDI1Mzk5ODc0YTZlZGJiMTRiMzQ0NCIsImlhdCI6MTcwOTIwMDA3MH0.kI5_9Ihjy9kUN95aVGpD5jeMNCLS_3SkVgZLtCew7Vs";
+
   const token = Cookies.get("token");
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(e.target.files[0]);
@@ -37,60 +37,20 @@ const AddProfileFreelancer = () => {
     }
   };
 
-  const handleImageUpload = async () => {
-    if (selectedFile) {
-      // setIsLoading(true);
-      try {
-        const formData = new FormData();
-        formData.append("file", selectedFile);
-        const pinataMetadata = JSON.stringify({
-          name: `${username}_profile_img`,
-        });
-        formData.append("pinataMetadata", pinataMetadata);
-        const pinataOptions = JSON.stringify({ cidVersion: 0 });
-        formData.append("pinataOptions", pinataOptions);
-        const res = await axios.post(
-          "https://api.pinata.cloud/pinning/pinFileToIPFS",
-          formData,
-          {
-            maxBodyLength: Infinity,
-            headers: {
-              "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-              Authorization: `Bearer ${pinataJWT}`,
-            },
-          }
-        );
-        console.log(res.data);
-        return res.data.IpfsHash;
-      } catch (e) {
-        console.log(e);
-      }
-    } else {
-      alert("Select a image to upload");
-    }
-  };
-
   const handleCreateProfile = async () => {
-    const IpfsHash = await handleImageUpload();
-    console.log(IpfsHash);
     try {
-      var response = axios.post(
-        "http://localhost:5000/fr/add-profile",
-        {
-          username: username,
-          firstname: firstname,
-          lastname: lastname,
-          bio: bio,
-          skills: skillsList,
-          profileImg: `ipfs.io/ipfs/${IpfsHash}`,
-          phone: parseInt(phone),
-          location: location,
-          wallets: [],
-          social: socialList,
-        },
-        { headers: { Authorization: token } }
+      await ApiService.createProfileFreelancer(
+        selectedFile,
+        username,
+        firstname,
+        lastname,
+        bio,
+        skillsList,
+        phone,
+        location,
+        socialList,
+        token
       );
-      console.log(response);
     } catch (e) {
       console.log(e);
     }
