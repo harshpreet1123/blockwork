@@ -12,9 +12,12 @@ const Category = () => {
   const state = location.state;
 
   return (
-    <div className="flex justify-center items-center  h-screen bg-gradient-to-tr from-blue-200 to-purple-200">
-      <Lottie className=" absolute h-full w-full mx-96 my-96 p-1" animationData={AnimationBgCategory} />
-      <div className="relative w-full max-w-sm p-4 backdrop-blur-sm bg-white/25 rounded-2xl mx-16 sm:p-8">
+    <div className="flex flex-col md:flex-col lg:flex-row justify-center items-center  h-screen bg-gradient-to-tr from-blue-200 to-purple-200">
+      <Lottie
+        className=" absolute h-full w-full mx-96 my-96 p-1"
+        animationData={AnimationBgCategory}
+      />
+      <div className="relative w-full max-w-sm p-4 backdrop-blur-sm bg-white/25 rounded-2xl m-8 sm:p-8">
         <h5 className="mb-4 text-md font-bold font-mono text-black">
           Hire Exceptional Talent
         </h5>
@@ -32,7 +35,7 @@ const Category = () => {
           </button>
         </Link>
       </div>
-      <div className=" relative w-full max-w-sm p-4 backdrop-blur-sm bg-white/25  rounded-2xl mx-16 sm:p-8">
+      <div className=" relative w-full max-w-sm p-4 backdrop-blur-sm bg-white/25  rounded-2xl m-8 sm:p-8">
         <h5 className="mb-4 text-md font-bold font-mono text-black">
           Thriving as a Freelance
         </h5>

@@ -21,21 +21,24 @@ const Navbar = () => {
           </div>
           <div className="flex gap-x-12">
             {navigation.map((item) => (
-              <Link to={item.to} key={item.name}>
-                <a className="text-base font-semibold leading-6  text-white hover:text-gray-300 px-6">
-                  {item.name}
-                </a>
+              <Link
+                to={item.to}
+                key={item.name}
+                className="text-base font-semibold leading-6  text-white hover:text-gray-300 px-6"
+              >
+                {item.name}
               </Link>
             ))}
           </div>
           <div className="lg:flex lg:flex-1 lg:justify-end">
             <Link
-              to="/category" state={{route:'/login'}}
+              to="/category"
+              state={{ route: "/login" }}
               className="relative inline-flex items-center justify-center font-semibold text-lg p-0.5 px-1 py-1.5 mx-5 transition-all ease-in duration-75 *:text-white "
             >
               Log in
             </Link>
-            <Link to="/category" state={{route:'/register'}}>
+            <Link to="/category" state={{ route: "/register" }}>
               <span className="relative border-purple-950 inline-flex items-center justify-center font-semibold text-lg border-solid border-1 px-3 py-1.5 transition-all ease-in duration-75 bg-white text-purple-600   hover:bg-purple-600 hover:text-white rounded-md group-hover:bg-opacity-0">
                 Sign Up
               </span>
