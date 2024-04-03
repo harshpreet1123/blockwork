@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import Spline from "@splinetool/react-spline";
@@ -62,10 +62,12 @@ const LandingPageContent = () => {
             </Link>
           </div>
           <div className="flex-1">
-            <Spline
-              ref={splineRef}
-              scene="https://prod.spline.design/60QZSgoHxT30HLIT/scene.splinecode"
-            />
+            <Suspense fallback={<div ref={splineRef}></div>}>
+              <Spline
+                ref={splineRef}
+                scene="https://prod.spline.design/60QZSgoHxT30HLIT/scene.splinecode"
+              />
+            </Suspense>
           </div>
         </div>
       </header>
