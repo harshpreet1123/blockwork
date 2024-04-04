@@ -1,7 +1,7 @@
-import { Suspense, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline";
 import IconTextCard from "./IconTextCard";
 
 const LandingPageContent = () => {
@@ -62,12 +62,12 @@ const LandingPageContent = () => {
             </Link>
           </div>
           <div className="flex-1">
-            <Suspense fallback={<div ref={splineRef}></div>}>
+            {/* 
               <Spline
                 ref={splineRef}
                 scene="https://prod.spline.design/60QZSgoHxT30HLIT/scene.splinecode"
               />
-            </Suspense>
+            */}
           </div>
         </div>
       </header>
