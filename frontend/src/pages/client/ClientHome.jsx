@@ -5,9 +5,12 @@ import chat from "../../assets/svg/chat.svg";
 import settings from "../../assets/svg/settings.svg";
 import coin from "../../assets/svg/coin.svg";
 import arrow_left from "../../assets/svg/arrow_left.svg";
+import logout from "../../assets/svg/logout.svg";
+import { ConnectWallet } from "@thirdweb-dev/react";
+
 const ClientHome = () => {
   const [open, setOpen] = useState(true);
-  //TODO: sidebar items name and icons.....
+
   const Menus = [
     { title: "Home", src: home },
     { title: "Inbox", src: chat },
@@ -16,52 +19,74 @@ const ClientHome = () => {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <div
         className={` ${
           open ? "w-72" : "w-20 "
-        } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
+        } bg-dark-purple p-5  pt-8 relative duration-300 flex flex-col justify-between border-r-2`}
       >
-        <img
-          src={arrow_left}
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
-          onClick={() => setOpen(!open)}
-        />
-        <div className="flex gap-x-4 items-center">
+        <div>
           <img
-            src={logo}
-            className={`cursor-pointer duration-500 max-h-11 ${
-              open && "rotate-[360deg]"
-            }`}
+            src={arrow_left}
+            className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+             border-2 rounded-full  ${!open && "rotate-180"}`}
+            onClick={() => setOpen(!open)}
           />
-          <h1
-            className={`origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
-          >
-            BlocWork
-          </h1>
-        </div>
-        <ul className="pt-6">
-          {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                index === 0 && "bg-light-white"
-              } `}
+          <div className="flex gap-x-4 items-center">
+            <img
+              src={logo}
+              className={`cursor-pointer duration-500 max-h-11 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`origin-left font-medium text-xl duration-200 ${
+                !open && "scale-0"
+              }`}
             >
-              <img src={Menu.src} className="max-h-8"/>
-              <span className={`${!open && "hidden"} origin-left duration-200 `}>
-                {Menu.title}
-              </span>
-            </li>
-          ))}
-        </ul>
+              BlocWork
+            </h1>
+          </div>
+          <ul className="pt-6">
+            {Menus.map((Menu, index) => (
+              <li
+                key={index}
+                className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 
+                ${Menu.gap ? "mt-9" : "mt-2"} ${
+                  index === 0 && "bg-light-white"
+                } `}
+              >
+                <img src={Menu.src} className="max-h-8" />
+                <span
+                  className={`${!open && "hidden"} origin-left duration-200 `}
+                >
+                  {Menu.title}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 ">
+          <img src={logout} className="max-h-8" />
+          <span className={`${!open && "hidden"} origin-left duration-200 `}>
+            Logout
+          </span>
+        </div>
       </div>
       <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
+        <div className="flex justify-between items-center">
+          <div className="flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+            />
+          </div>
+          <div className="flex items-center">
+            <ConnectWallet />
+          </div>
+        </div>
+        <h1 className="text-2xl font-semibold mt-8">Home Page</h1>
       </div>
     </div>
   );
