@@ -34,7 +34,7 @@ const ClientSideBar = () => {
       case "Jobs":
         return <Jobs />;
       default:
-        return <Home/>;
+        return <Home />;
     }
   };
 
@@ -69,14 +69,29 @@ const ClientSideBar = () => {
               }`}
             />
             <h1
-              className={`origin-left font-medium text-xl duration-200 ${
+              className={`origin-left font-medium text-2xl italic duration-200 ${
                 !open && "scale-0"
               }`}
             >
               BlocWork
             </h1>
           </div>
-          <ul className="pt-6">
+          <div className={`flex ${open?"p-3":null} rounded cursor-pointer bg-slate-100 mt-5 items-center gap-x-4`}>
+            <img
+              src={
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeIAQBG3gpg5-h2T_8P-MOH7oStKnCi3Yq3V5J9xN04Q&s"
+              }
+              className="max-h-10 rounded"
+            />
+            <span
+              className={`${
+                !open && "hidden"
+              } origin-left duration-200 text-xl`}
+            >
+              Asuna
+            </span>
+          </div>
+          <ul className="pt-4">
             {Menus.map((Menu, index) => (
               <li
                 key={index}
