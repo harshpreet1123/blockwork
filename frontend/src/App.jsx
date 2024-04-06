@@ -10,7 +10,7 @@ import RegisterAnimation from "./pages/animations/RegisterAnimation";
 import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
 import FreelancerHome from "./pages/freelancer/FreelancerHome";
-import ClientHome from "./pages/client/ClientHome";
+import ClientSideBar from "./pages/client/ClientSideBar";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
           <Route path="/register-animation" element={<RegisterAnimation/>} />
           <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
           <Route path="/cl/add-profile" element={<AddProfileClient />} />
-          <Route path="/cl/home" element={<ClientHome />} />
+          <Route path="/cl/home" element={<ClientSideBar />} />
           <Route path="/fr/home" element={<FreelancerHome />} />
         </Routes>
       </BrowserRouter>

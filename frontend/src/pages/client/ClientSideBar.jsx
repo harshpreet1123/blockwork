@@ -2,21 +2,50 @@ import { useState } from "react";
 import logo from "../../assets/svg/logo.svg";
 import home from "../../assets/svg/home.svg";
 import chat from "../../assets/svg/chat.svg";
-import settings from "../../assets/svg/settings.svg";
+import jobs from "../../assets/svg/jobs.svg";
 import coin from "../../assets/svg/coin.svg";
 import arrow_left from "../../assets/svg/arrow_left.svg";
 import logout from "../../assets/svg/logout.svg";
 import { ConnectWallet } from "@thirdweb-dev/react";
+import Home from "./Home";
+import Jobs from "./Jobs";
+import Inbox from "./Inbox";
+import Wallet from "./Wallet";
 
-const ClientHome = () => {
+const ClientSideBar = () => {
   const [open, setOpen] = useState(true);
+  const [selectedItem, setSelectedItem] = useState("Home");
 
   const Menus = [
     { title: "Home", src: home },
     { title: "Inbox", src: chat },
-    { title: "Jobs", src: coin },
-    { title: "Settings", src: settings },
+    { title: "Wallet", src: coin },
+    { title: "Jobs", src: jobs },
   ];
+
+  const getContent = (title) => {
+    switch (title) {
+      case "Home":
+        return <Home />;
+      case "Inbox":
+        return <Inbox />;
+      case "Wallet":
+        return <Wallet />;
+      case "Jobs":
+        return <Jobs />;
+      default:
+        return <Home/>;
+    }
+  };
+
+  const svgFilter = {
+    filter:
+      "invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%)",
+  };
+
+  const handleMenuItemClick = (title) => {
+    setSelectedItem(title);
+  };
 
   return (
     <div className="flex h-screen">
@@ -51,12 +80,17 @@ const ClientHome = () => {
             {Menus.map((Menu, index) => (
               <li
                 key={index}
+                onClick={() => handleMenuItemClick(Menu.title)}
                 className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 
                 ${Menu.gap ? "mt-9" : "mt-2"} ${
-                  index === 0 && "bg-light-white"
-                } `}
+                  selectedItem === Menu.title && "bg-purple-700 text-white"
+                }`}
               >
-                <img src={Menu.src} className="max-h-8" />
+                <img
+                  src={Menu.src}
+                  className="max-h-8"
+                  style={selectedItem === Menu.title ? svgFilter : null}
+                />
                 <span
                   className={`${!open && "hidden"} origin-left duration-200 `}
                 >
@@ -86,10 +120,10 @@ const ClientHome = () => {
             <ConnectWallet />
           </div>
         </div>
-        <h1 className="text-2xl font-semibold mt-8">Home Page</h1>
+        <div>{getContent(selectedItem)}</div>
       </div>
     </div>
   );
 };
 
-export default ClientHome;
+export default ClientSideBar;
