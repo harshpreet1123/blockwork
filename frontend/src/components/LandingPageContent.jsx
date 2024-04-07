@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 // import Spline from "@splinetool/react-spline";
 import IconTextCard from "./IconTextCard";
+import Lottie from "react-lottie";
+import animationData from "../assets/animations/hero_animation.json";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -40,14 +42,13 @@ const LandingPageContent = () => {
   return (
     <div>
       {/* Hero Section */}
-      <header className="py-14">
-        <div className="flex flex-col md:flex-row lg:flex-row p-16">
-          <div className="flex-initial" ref={textRef}>
+      <header className="py-14 h-screen">
+        <div className="flex flex-col md:flex-row lg:flex-row p-16 justify-strecth">
+          <div className="flex-1 px-6" ref={textRef}>
             <p>Aloha</p>
             <p className="font-bold text-4xl">Lorem, ipsum dolor sit amet</p>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              <br />
               impedit nostrum unde adipisci tenetur expedita dolorum quasi,
               <br />
               recusandae laborum earum nobis voluptatum.
@@ -61,13 +62,26 @@ const LandingPageContent = () => {
               </div>
             </Link>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 max-h-[30rem] max-w-[30rem]" ref={splineRef}>
             {/* 
               <Spline
                 ref={splineRef}
                 scene="https://prod.spline.design/60QZSgoHxT30HLIT/scene.splinecode"
               />
             */}
+            <Lottie
+            
+           
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: animationData,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              isClickToPauseDisabled
+            />
           </div>
         </div>
       </header>

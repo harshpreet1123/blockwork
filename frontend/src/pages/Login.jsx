@@ -22,7 +22,7 @@ const Loginpage = () => {
         setLoading(false);
         Cookies.set("token", response.data.token, { expires: 1 });
 
-        navigate("/welcome");
+        navigate("/welcome", { state: { userType: state.userType } });
       } else {
         // Handle other statuses if needed
         setError("Invalid credentials");

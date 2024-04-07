@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/svg/logo.svg";
 import home from "../../assets/svg/home.svg";
 import chat from "../../assets/svg/chat.svg";
@@ -11,10 +11,27 @@ import Home from "./Home";
 import Jobs from "./Jobs";
 import Inbox from "./Inbox";
 import Wallet from "./Wallet";
+import ApiService from "../../services/api";
+import Cookies from "js-cookie";
 
 const ClientSideBar = () => {
   const [open, setOpen] = useState(true);
   const [selectedItem, setSelectedItem] = useState("Home");
+  const [userData, setUserData] = useState({});
+  const token = Cookies.get("token");
+
+  useEffect(() => {
+    const fetchUserData = async (token) => {
+      console.log("token:" + token);
+      const response = await ApiService.getProfleDetails(token);
+      
+      if (response.data) {
+        setUserData(response.data);
+      }
+    };
+
+    fetchUserData(token);
+  }, []);
 
   const Menus = [
     { title: "Home", src: home },
@@ -76,19 +93,18 @@ const ClientSideBar = () => {
               BlocWork
             </h1>
           </div>
-          <div className={`flex ${open?"p-3":null} rounded cursor-pointer bg-slate-100 mt-5 items-center gap-x-4`}>
-            <img
-              src={
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeIAQBG3gpg5-h2T_8P-MOH7oStKnCi3Yq3V5J9xN04Q&s"
-              }
-              className="max-h-10 rounded"
-            />
+          <div
+            className={`flex ${
+              open ? "p-3" : null
+            } rounded cursor-pointer bg-slate-100 mt-5 items-center gap-x-4`}
+          >
+            <img src={userData.profileImg} className="h-10 w-10 rounded" />
             <span
               className={`${
                 !open && "hidden"
               } origin-left duration-200 text-xl`}
             >
-              Asuna
+              {userData.username}
             </span>
           </div>
           <ul className="pt-4">

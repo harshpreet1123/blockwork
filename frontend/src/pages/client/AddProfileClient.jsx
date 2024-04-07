@@ -2,6 +2,7 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import ApiService from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const AddProfileClient = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -16,6 +17,7 @@ const AddProfileClient = () => {
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
   const token = Cookies.get("token");
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -36,7 +38,7 @@ const AddProfileClient = () => {
 
   const handleCreateProfile = async () => {
     try {
-      await ApiService.createProfileClient(
+      const response = await ApiService.createProfileClient(
         selectedFile,
         username,
         firstname,
@@ -48,6 +50,12 @@ const AddProfileClient = () => {
         socialList,
         token
       );
+      console.log("response:" + response);
+      if(response==true){
+        navigate('/cl/home');
+      }else{
+        navigate('/');
+      }
     } catch (e) {
       console.log(e);
     }
