@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 // import Spline from "@splinetool/react-spline";
 import IconTextCard from "./IconTextCard";
 import Lottie from "react-lottie";
-import animationData from "../assets/animations/hero_animation.json";
+import animationData from "../assets/animations/robo.json";
+import OurCustomers from "../pages/OurCustomers";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -85,7 +86,8 @@ const LandingPageContent = () => {
           </div>
         </div>
       </header>
-      <br />
+      <OurCustomers />
+    
       <div className="bg-black p-10">
         <p className="text-3xl justify-center items-center text-center text-white">
           Dive into the World of decentrlization
