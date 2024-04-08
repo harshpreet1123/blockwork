@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import IconTextCard from "./IconTextCard";
 import Lottie from "react-lottie";
 import animationData from "../assets/animations/robo.json";
-import OurCustomers from "../pages/OurCustomers";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -86,7 +85,6 @@ const LandingPageContent = () => {
           </div>
         </div>
       </header>
-      <OurCustomers />
     
       <div className="bg-black p-10">
         <p className="text-3xl justify-center items-center text-center text-white">
