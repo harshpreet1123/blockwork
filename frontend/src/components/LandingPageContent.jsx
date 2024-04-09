@@ -45,15 +45,10 @@ const LandingPageContent = () => {
       {/* Hero Section */}
       <header className="py-14 h-screen">
         <div className="flex flex-col md:flex-row lg:flex-row p-16 justify-strecth">
-          <div className="flex-1 px-6" ref={textRef}>
-            <p>Aloha</p>
-            <p className="font-bold text-4xl">Lorem, ipsum dolor sit amet</p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              impedit nostrum unde adipisci tenetur expedita dolorum quasi,
-              <br />
-              recusandae laborum earum nobis voluptatum.
-            </p>
+          <div className="flex-1 p-6" ref={textRef}>
+            <p className="font-bold text-4xl">EMPOWER YOUR FREELANCE FUTURE TODAY</p>
+            <p className="text-xl">Join a Borderless Community of Talent and Opprtunity on the Blockchain.</p>
+            <p className="text-xl">Explore Decentralized Freelancing Today.</p>
             <br />
             <Link to="/category" state={{ route: "/register" }} ref={buttonRef}>
               <div className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 mx-2 -my-4 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
