@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 // import Spline from "@splinetool/react-spline";
 import IconTextCard from "./IconTextCard";
 import Lottie from "react-lottie";
-import animationData from "../assets/animations/robo.json";
+// import animationData from "../assets/animations/robo.json";
+import animationData from "../assets/animations/blocks.json";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
