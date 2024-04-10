@@ -43,7 +43,7 @@ const LandingPageContent = () => {
   return (
     <div>
       {/* Hero Section */}
-      <header className="py-14 h-screen">
+      <header className="py-14 h-screen ">
         <div className="flex flex-col md:flex-row lg:flex-row p-16 justify-strecth">
           <div className="flex-1 p-6" ref={textRef}>
             <p className="font-bold text-4xl">EMPOWER YOUR FREELANCE FUTURE TODAY</p>
