@@ -177,7 +177,27 @@ const ApiService = {
       var response = await axios.get(`${BASE_URL}/cl/get-profile`, {
         headers: { Authorization: token },
       });
-      console.log('Getting Profile Details', response);
+      console.log("Getting Profile Details", response);
+      return response;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+
+  createJob: async (token, title, description, attachments, budget, time) => {
+    try {
+      const params = {
+        title: title,
+        description: description,
+        attachments: attachments,
+        budget: budget,
+        time: time,
+      };
+      const response = await axios.post(`${BASE_URL}/cl/create-job`, params, {
+        headers: { Authorization: token },
+      });
+      console.log(response);
       return response;
     } catch (e) {
       console.log(e);

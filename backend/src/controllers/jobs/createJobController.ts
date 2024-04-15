@@ -10,27 +10,13 @@ export const createJOB = async (req: any, res: Response) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    const {
-      title,
-      description,
-      attachments,
-      deliverables,
-      status,
-      assigned_to,
-      bidders,
-      budget,
-      time,
-    } = req.body;
+    const { title, description, attachments, budget, time } = req.body;
 
     const newJobData: IJob = new Job({
       title,
       description,
       author: userId,
-      status: status || "draft",
-      assignTo: assigned_to ? assigned_to : userId,
       attachments: attachments || [],
-      deliverables: deliverables || [],
-      bidders: [...bidders] || [],
       budget: budget,
       time: time,
     });
