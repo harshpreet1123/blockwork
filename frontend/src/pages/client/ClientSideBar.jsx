@@ -94,7 +94,7 @@ const ClientSideBar = () => {
               BlocWork
             </h1>
           </div>
-          <Link to="/cl/profile">
+          <Link to="/cl/profile" state={{ userData: userData }}>
             <div
               className={`flex ${
                 open ? "p-3" : null

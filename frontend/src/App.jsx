@@ -5,12 +5,13 @@ import Exchange from "./pages/Exchange";
 import Category from "./pages/Category";
 import Loginpage from "./pages/Login";
 import SignUp from "./pages/Register";
-import WelcomeAnimation from "./pages/animations/WelcomeAnimation";
-import RegisterAnimation from "./pages/animations/RegisterAnimation";
+import WelcomeAnimation from "./pages/extra/WelcomeAnimation";
+import RegisterAnimation from "./pages/extra/RegisterAnimation";
 import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
 import FreelancerHome from "./pages/freelancer/FreelancerHome";
 import ClientSideBar from "./pages/client/ClientSideBar";
+import ViewProfile from "./pages/client/ViewProfile";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/cl/add-profile" element={<AddProfileClient />} />
           <Route path="/cl/home" element={<ClientSideBar />} />
           <Route path="/fr/home" element={<FreelancerHome />} />
+          <Route path="/cl/profile" element={<ViewProfile/>} />
         </Routes>
       </BrowserRouter>
     </>

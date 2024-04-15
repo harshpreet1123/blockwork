@@ -1,20 +1,10 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const ViewProfile = () => {
-  const [userData, setUserData] = useState(second);
-  useEffect(() => {
-    const fetchUserData = async (token) => {
-      console.log("token:" + token);
-      const response = await ApiService.getProfleDetails(token);
-
-      if (response.data) {
-        setUserData(response.data);
-      }
-    };
-
-    fetchUserData(token);
-  }, []);
-  return <div>{userData}</div>;
+  const location = useLocation();
+  const state = location.state;
+  return <div>{state.userData.username}</div>;
 };
 
 export default ViewProfile;
