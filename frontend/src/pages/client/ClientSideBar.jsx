@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/svg/logo.svg";
 import home from "../../assets/svg/home.svg";
 import chat from "../../assets/svg/chat.svg";
@@ -24,7 +25,7 @@ const ClientSideBar = () => {
     const fetchUserData = async (token) => {
       console.log("token:" + token);
       const response = await ApiService.getProfleDetails(token);
-      
+
       if (response.data) {
         setUserData(response.data);
       }
@@ -93,20 +94,22 @@ const ClientSideBar = () => {
               BlocWork
             </h1>
           </div>
-          <div
-            className={`flex ${
-              open ? "p-3" : null
-            } rounded cursor-pointer bg-slate-100 mt-5 items-center gap-x-4`}
-          >
-            <img src={userData.profileImg} className="h-10 w-10 rounded" />
-            <span
-              className={`${
-                !open && "hidden"
-              } origin-left duration-200 text-xl`}
+          <Link to="/cl/profile">
+            <div
+              className={`flex ${
+                open ? "p-3" : null
+              } rounded cursor-pointer bg-slate-100 mt-5 items-center gap-x-4`}
             >
-              {userData.username}
-            </span>
-          </div>
+              <img src={userData.profileImg} className="h-10 w-10 rounded" />
+              <span
+                className={`${
+                  !open && "hidden"
+                } origin-left duration-200 text-xl`}
+              >
+                {userData.username}
+              </span>
+            </div>
+          </Link>
           <ul className="pt-4">
             {Menus.map((Menu, index) => (
               <li

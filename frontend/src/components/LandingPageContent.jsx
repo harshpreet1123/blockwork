@@ -46,8 +46,13 @@ const LandingPageContent = () => {
       <header className="py-14 h-screen ">
         <div className="flex flex-col md:flex-row lg:flex-row p-16 justify-strecth">
           <div className="flex-1 p-6" ref={textRef}>
-            <p className="font-bold text-4xl">EMPOWER YOUR FREELANCE FUTURE TODAY</p>
-            <p className="text-xl">Join a Borderless Community of Talent and Opprtunity on the Blockchain.</p>
+            <p className="font-bold text-4xl">
+              EMPOWER YOUR FREELANCE FUTURE TODAY
+            </p>
+            <p className="text-xl">
+              Join a Borderless Community of Talent and Opprtunity on the
+              Blockchain.
+            </p>
             <p className="text-xl">Explore Decentralized Freelancing Today.</p>
             <br />
             <Link to="/category" state={{ route: "/register" }} ref={buttonRef}>
@@ -66,8 +71,6 @@ const LandingPageContent = () => {
               />
             */}
             <Lottie
-            
-           
               options={{
                 loop: true,
                 autoplay: true,
@@ -81,7 +84,7 @@ const LandingPageContent = () => {
           </div>
         </div>
       </header>
-    
+
       <div className="bg-black p-10">
         <p className="text-3xl justify-center items-center text-center text-white">
           Dive into the World of decentrlization
