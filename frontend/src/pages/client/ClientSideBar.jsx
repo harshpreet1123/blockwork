@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/svg/logo.svg";
-import home from "../../assets/svg/home.svg";
-import chat from "../../assets/svg/chat.svg";
-import jobs from "../../assets/svg/jobs.svg";
-import coin from "../../assets/svg/coin.svg";
-import arrow_left from "../../assets/svg/arrow_left.svg";
-import logout from "../../assets/svg/logout.svg";
 import { ConnectWallet } from "@thirdweb-dev/react";
 import Home from "./Home";
 import Jobs from "./Jobs";
@@ -14,6 +7,15 @@ import Inbox from "./Inbox";
 import Wallet from "./Wallet";
 import ApiService from "../../services/api";
 import Cookies from "js-cookie";
+import {
+  logo,
+  home,
+  chat,
+  jobs,
+  coin,
+  arrow_left,
+  logout,
+} from "../extra/svgIndex";
 
 const ClientSideBar = () => {
   const [open, setOpen] = useState(true);
