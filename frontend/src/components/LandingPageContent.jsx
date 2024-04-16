@@ -3,9 +3,14 @@ import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 // import Spline from "@splinetool/react-spline";
 import IconTextCard from "./IconTextCard";
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 // import animationData from "../assets/animations/robo.json";
-import animationData from "../assets/animations/blocks.json";
+import heroAnimation from "../assets/animations/blocks.json";
+import Jobs from "../assets/animations/Jobs.json";
+import Client from "../assets/animations/Clinet.json";
+import Freelancer from "../assets/animations/Freelancer.json";
+import Transaction from "../assets/animations/Transaction.json";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -71,15 +76,7 @@ const LandingPageContent = () => {
               />
             */}
             <Lottie
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: animationData,
-                rendererSettings: {
-                  preserveAspectRatio: "xMidYMid slice",
-                },
-              }}
-              isClickToPauseDisabled
+              animationData={heroAnimation}
             />
           </div>
         </div>
@@ -101,6 +98,78 @@ const LandingPageContent = () => {
           />
         </div>
       </div>
+
+      <section>
+        <div className="h-auto w-100 flex flex-wrap flex-col items-center text-center p-10 m-1">
+          <div className="w-full h-auto flex flex-wrap flex-col items-center text-center">
+            <p className="text-black font-bold text-3xl text-center">
+              Pure Hardwork, No Shortcuts
+            </p>
+            <div className="w-36 h-1 border-b-4 border-yellow-400 mt-5 mb-5 rounded-2xl "></div>
+          </div>
+          <div className="w-full h-auto flex flex-wrap justify-evenly">
+            <div className="w-46 flex flex-col items-center mb-12">
+              <Lottie className="w-48 h-48 mt-3" animationData={Jobs} />
+              <p className="text-2xl font-bold text-black mt-1 mb-2">600+</p>
+              <p className="text-1xl font-bold text-gray-800 mb-1"> Jobs </p>
+            </div>
+            <div className="w-46 flex flex-col items-center mb-12">
+              <Lottie className="w-48 h-48 mt-3" animationData={Client} />
+              <p className="text-2xl font-bold text-black mt-1 mb-2">
+                700,000+
+              </p>
+              <p className="text-xl font-bold text-gray-800 mb-1">Clients</p>
+            </div>
+            <div className="w-46 flex flex-col items-center mb-12">
+              <Lottie className="w-48 h-48 mt-3" animationData={Freelancer} />
+              <p className="text-2xl font-bold text-black mt-1 mb-2">10000+</p>
+              <p className="text-xl font-bold text-gray-800 mb-1">
+                Freelancers
+              </p>
+            </div>
+            <div className="w-46 flex flex-col items-center mb-12">
+              <Lottie className="w-48 h-48 mt-3" animationData={Transaction} />
+              <p className="text-2xl font-bold text-black mt-1 mb-2">40000+</p>
+              <p className="text-xl font-bold text-gray-800 mb-1">
+                Successfull Transactions
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-900">
+        <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+          <div className="font-light sm:text-lg text-gray-400">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">
+              We didn't reinvent the wheel
+            </h2>
+            <p className="mb-4">
+              We are strategists, designers and developers. Innovators and
+              problem solvers. Small enough to be simple and quick, but big
+              enough to deliver the scope you want at the pace you need. Small
+              enough to be simple and quick, but big enough to deliver the scope
+              you want at the pace you need.
+            </p>
+            <p>
+              We are strategists, designers and developers. Innovators and
+              problem solvers. Small enough to be simple and quick.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mt-8">
+            <img
+              className="w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+              alt="office content 1"
+            />
+            <img
+              className="mt-4 w-full lg:mt-10 rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
+              alt="office content 2"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
