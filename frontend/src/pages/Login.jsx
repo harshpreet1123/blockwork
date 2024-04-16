@@ -21,6 +21,7 @@ const Loginpage = () => {
       if (response.status === 200) {
         setLoading(false);
         Cookies.set("token", response.data.token, { expires: 1 });
+        Cookies.set("userType", state.userType, { expires: 1 });
 
         navigate("/welcome", { state: { userType: state.userType } });
       } else {

@@ -7,15 +7,7 @@ import Inbox from "./Inbox";
 import Wallet from "./Wallet";
 import ApiService from "../../services/api";
 import Cookies from "js-cookie";
-import {
-  logo,
-  home,
-  chat,
-  jobs,
-  coin,
-  arrow_left,
-  logout,
-} from "../extra/svgIndex";
+import { logo, home, chat, jobs, coin, arrow_left, logout } from "../extra/svgIndex";
 
 const ClientSideBar = () => {
   const [open, setOpen] = useState(true);

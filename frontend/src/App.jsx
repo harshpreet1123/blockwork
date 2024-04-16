@@ -1,5 +1,5 @@
+import { BrowserRouter,useNavigate,useLocation, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import News from "./pages/News";
 import Exchange from "./pages/Exchange";
 import Category from "./pages/Category";
@@ -12,30 +12,45 @@ import AddProfileClient from "./pages/client/AddProfileClient";
 import FreelancerHome from "./pages/freelancer/FreelancerHome";
 import ClientSideBar from "./pages/client/ClientSideBar";
 import ViewProfile from "./pages/client/ViewProfile";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 function App() {
+  const token = Cookies.get("token");
+  const userType = Cookies.get("userType");
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    if (token && location.pathname === "/") {
+      navigate(`/${userType}/home`);
+    }
+  }, [token, location, navigate]);
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route index element={<LandingPage />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/exchange" element={<Exchange />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/login" element={<Loginpage />} />
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/welcome" element={<WelcomeAnimation />} />
-          <Route path="/register-animation" element={<RegisterAnimation/>} />
-          <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
-          <Route path="/cl/add-profile" element={<AddProfileClient />} />
-          <Route path="/cl/home" element={<ClientSideBar />} />
-          <Route path="/fr/home" element={<FreelancerHome />} />
-          <Route path="/cl/profile" element={<ViewProfile/>} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route index element={<LandingPage />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/exchange" element={<Exchange />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/welcome" element={<WelcomeAnimation />} />
+        <Route path="/register-animation" element={<RegisterAnimation />} />
+        <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
+        <Route path="/cl/add-profile" element={<AddProfileClient />} />
+        <Route path="/cl/home" element={<ClientSideBar />} />
+        <Route path="/fr/home" element={<FreelancerHome />} />
+        <Route path="/cl/profile" element={<ViewProfile />} />
+      </Routes>
     </>
   );
 }
 
-export default App;
+export default function AppWrapper() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+}
