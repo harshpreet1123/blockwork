@@ -1,11 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-// import Spline from "@splinetool/react-spline";
 import IconTextCard from "./IconTextCard";
-// import Lottie from "react-lottie";
 import Lottie from "lottie-react";
-// import animationData from "../assets/animations/robo.json";
 import heroAnimation from "../assets/animations/blocks.json";
 import Jobs from "../assets/animations/Jobs.json";
 import Client from "../assets/animations/Clinet.json";
@@ -69,12 +66,6 @@ const LandingPageContent = () => {
             </Link>
           </div>
           <div className="flex-1 max-h-[30rem] max-w-[30rem]" ref={splineRef}>
-            {/* 
-              <Spline
-                ref={splineRef}
-                scene="https://prod.spline.design/60QZSgoHxT30HLIT/scene.splinecode"
-              />
-            */}
             <Lottie
               animationData={heroAnimation}
             />

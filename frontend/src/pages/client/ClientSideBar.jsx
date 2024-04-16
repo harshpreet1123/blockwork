@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ConnectWallet } from "@thirdweb-dev/react";
 import Home from "./Home";
@@ -15,6 +15,24 @@ const ClientSideBar = () => {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const token = Cookies.get("token");
+
+  const scriptRef = useRef(null);
+
+  // chat bot code
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://embed.tawk.to/661e4bbb1ec1082f04e2f6ce/1hrj5fm5t";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
+
+    scriptRef.current.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchUserData = async (token) => {
@@ -163,6 +181,8 @@ const ClientSideBar = () => {
         </div>
         <div>{getContent(selectedItem)}</div>
       </div>
+      {/* Chat-botwidget called here */}
+      <div ref={scriptRef} />
     </div>
   );
 };

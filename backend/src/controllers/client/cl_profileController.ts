@@ -5,7 +5,6 @@ import Auth from "../../models/client/cl_AuthModel";
 export const addProfileController = async (req: any, res: Response) => {
   try {
     var userId = req.body.userId;
-    console.log(userId);
     // Check if user exists
     const user = await Auth.findById(Object(userId));
     if (!user) {
@@ -64,7 +63,6 @@ export const checkProfileExists = async (req: any, res: any): Promise<void> => {
     const { userId } = req.body;
     // Check if profile already exists
     const existingProfile = await Profile.findOne({ user_id: userId });
-    console.log(existingProfile);
     if (existingProfile) {
       console.log("existing Profile");
       return res.status(200).json(true);
