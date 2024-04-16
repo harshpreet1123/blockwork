@@ -23,7 +23,7 @@ const ClientSideBar = () => {
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.async = true;
-    script.src = "https://embed.tawk.to/661e4bbb1ec1082f04e2f6ce/1hrj5fm5t";
+    script.src = "https://embed.tawk.to/661e92cba0c6737bd12c8d4d/1hrjmqr7i";
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
 
