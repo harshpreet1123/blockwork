@@ -97,14 +97,14 @@ const ApiService = {
     console.log(IpfsHash);
     try {
       var response = axios.post(
-        "http://localhost:5000/fr/add-profile",
+        `${BASE_URL}/cl/add-profile`,
         {
           username: username,
           firstname: firstname,
           lastname: lastname,
           info: info,
           companyName: companyName,
-          profileImg: `ipfs.io/ipfs/${IpfsHash}`,
+          profileImg: `https://lavender-magnificent-parakeet-19.mypinata.cloud/ipfs/${IpfsHash}`,
           phone: parseInt(phone),
           location: location,
           wallets: [],
@@ -113,8 +113,10 @@ const ApiService = {
         { headers: { Authorization: token } }
       );
       console.log(response);
+      return true;
     } catch (e) {
       console.log(e);
+      return false;
     }
   },
 
@@ -138,14 +140,14 @@ const ApiService = {
     console.log(IpfsHash);
     try {
       var response = axios.post(
-        "http://localhost:5000/fr/add-profile",
+        `${BASE_URL}/fr/add-profile`,
         {
           username: username,
           firstname: firstname,
           lastname: lastname,
           bio: bio,
           skills: skillsList,
-          profileImg: `ipfs.io/ipfs/${IpfsHash}`,
+          profileImg: `https://lavender-magnificent-parakeet-19.mypinata.cloud/ipfs/${IpfsHash}`,
           phone: parseInt(phone),
           location: location,
           wallets: [],
@@ -156,6 +158,50 @@ const ApiService = {
       console.log(response);
     } catch (e) {
       console.log(e);
+    }
+  },
+
+  checkProfileExistsClient: async (token) => {
+    try {
+      var response = await axios.get(`${BASE_URL}/cl/check-profile`, {
+        headers: { Authorization: token },
+      });
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+  },
+
+  getProfleDetails: async (token) => {
+    try {
+      var response = await axios.get(`${BASE_URL}/cl/get-profile`, {
+        headers: { Authorization: token },
+      });
+      console.log("Getting Profile Details", response);
+      return response;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+
+  createJob: async (token, title, description, attachments, budget, time) => {
+    try {
+      const params = {
+        title: title,
+        description: description,
+        attachments: attachments,
+        budget: budget,
+        time: time,
+      };
+      const response = await axios.post(`${BASE_URL}/cl/create-job`, params, {
+        headers: { Authorization: token },
+      });
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.log(e);
+      return false;
     }
   },
 };

@@ -13,14 +13,14 @@ export interface IJob extends Document {
   description: string;
   attachments?: IAttachment[];
   deliverables?: IAttachment[];
-  status: string;
+  status?: string;
   assigned_to?: string;
-  bidders: string[];
+  bidders?: string[];
   author: string;
   budget: number;
   time: string;
   creation_time: Date;
-  assigning_time: Date;
+  assigning_time?: Date;
 }
 
 const jobSchema: Schema<IJob> = new Schema({

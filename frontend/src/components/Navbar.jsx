@@ -5,7 +5,6 @@ const Navbar = () => {
     { name: "News", to: "/news" },
     { name: "Exchange", to: "/exchange" },
     { name: "Team", to: "/" },
-    { name: "FAQ", to: "/" },
   ];
   return (
     <div>
