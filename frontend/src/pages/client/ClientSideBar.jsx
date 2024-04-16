@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/svg/logo.svg";
 import home from "../../assets/svg/home.svg";
 import chat from "../../assets/svg/chat.svg";
@@ -19,15 +19,20 @@ const ClientSideBar = () => {
   const [open, setOpen] = useState(true);
   const [selectedItem, setSelectedItem] = useState("Home");
   const [userData, setUserData] = useState({});
+  const navigate = useNavigate();
   const token = Cookies.get("token");
 
   useEffect(() => {
     const fetchUserData = async (token) => {
-      console.log("token:" + token);
-      const response = await ApiService.getProfleDetails(token);
+      if (token) {
+        console.log("token:" + token);
+        const response = await ApiService.getProfleDetails(token);
 
-      if (response.data) {
-        setUserData(response.data);
+        if (response.data) {
+          setUserData(response.data);
+        }
+      } else {
+        navigate("/");
       }
     };
 
@@ -63,6 +68,11 @@ const ClientSideBar = () => {
 
   const handleMenuItemClick = (title) => {
     setSelectedItem(title);
+  };
+
+  const handleLogout = () => {
+    Cookies.remove("token");
+    navigate("/");
   };
 
   return (
@@ -134,7 +144,10 @@ const ClientSideBar = () => {
             ))}
           </ul>
         </div>
-        <div className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 ">
+        <div
+          className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 "
+          onClick={handleLogout}
+        >
           <img src={logout} className="max-h-8" />
           <span className={`${!open && "hidden"} origin-left duration-200 `}>
             Logout
