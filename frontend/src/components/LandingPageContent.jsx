@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import IconTextCard from "./IconTextCard";
 import Lottie from "lottie-react";
-import heroAnimation from "../assets/animations/blocks.json";
+import heroAnimation from "../assets/animations/blocks_2.json";
 import Jobs from "../assets/animations/Jobs.json";
 import Client from "../assets/animations/Clinet.json";
 import Freelancer from "../assets/animations/Freelancer.json";
@@ -65,20 +65,23 @@ const LandingPageContent = () => {
               </div>
             </Link>
           </div>
-          <div className="flex-1 max-h-[30rem] max-w-[30rem]" ref={splineRef}>
-            <Lottie
-              animationData={heroAnimation}
-            />
+          <div className="flex-1 max-h-[28rem] max-w-[28rem]" ref={splineRef}>
+            <Lottie animationData={heroAnimation} />
           </div>
         </div>
       </header>
+      <br />
 
       <div className="bg-black p-10">
         <p className="text-3xl justify-center items-center text-center text-white">
           Dive into the World of decentrlization
         </p>
         <br />
-        <div className="flex flex-col lg:flex-row">
+        <div className="flex flex-col md:flex-col lg:flex-row justify-between sm:space-y-4 lg:space-y-0">
+          <IconTextCard
+            title="IPFS"
+            subtitle="Uses IPFS(nterPlanetary File System) protocol, a secure decentralized way to store files, that can be accessed even from space."
+          />
           <IconTextCard
             title="IPFS"
             subtitle="Uses IPFS(nterPlanetary File System) protocol, a secure decentralized way to store files, that can be accessed even from space."
