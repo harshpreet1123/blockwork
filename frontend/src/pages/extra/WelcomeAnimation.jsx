@@ -29,16 +29,16 @@ const WelcomeAnimation = () => {
             callback: async () => {
               console.log(state.userType);
               {
-                if (state.userType == "cl") {
+                if (state.userType == "fr") {
                   const response = await ApiService.checkProfileExistsClient(
                     token
                   );
                   if (response.data == true) {
-                    navigate("/cl/home");
+                    navigate("/fr/home");
                   } else {
-                    navigate("/cl/add-profile");
+                    navigate("/fr/add-profile");
                   }
-                } else if (state.userType == "fr") {
+                } else if (state.userType == "cl") {
                   // const response = await ApiService.checkProfileExistsClient(
                   //   token
                   // );

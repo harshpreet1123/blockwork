@@ -62,12 +62,12 @@ const AddProfileClient = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex w-1/2 justify-center items-center bg-white rounded-xl py-4">
-        <div className="bg-white">
-          <h1 className="text-gray-800 font-bold text-2xl mb-5">
+    <div className="flex items-center justify-center bg-gradient-to-tr from-blue-300 to-purple-300">
+      <h1 className="text-gray-800 font-bold text-2xl mb-5 m-8">
             Hello Again! - Create Your Profile
           </h1>
+      <div className="flex w-1/2 justify-center items-center bg-white rounded-none py-4">
+        <div className="bg-white ">
           <div className="flex-col items-center">
             <div className="inset-0 flex items-center justify-center mx-3 mb-4">
               {imagePreview ? (

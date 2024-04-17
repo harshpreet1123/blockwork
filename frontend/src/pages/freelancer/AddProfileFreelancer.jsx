@@ -54,10 +54,10 @@ const AddProfileFreelancer = () => {
         token
       );
       console.log("response:" + response);
-      if(response == true){
-        navigate('/fr/home');
-      }else{
-        navigate('/');
+      if (response == true) {
+        navigate("/fr/home");
+      } else {
+        navigate("/");
       }
     } catch (e) {
       console.log(e);
@@ -65,13 +65,49 @@ const AddProfileFreelancer = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex w-3/4 justify-center items-center bg-white rounded-xl py-4">
+    <div className="flex items-center justify-center bg-gradient-to-tr from-blue-300 to-purple-300">
+      <h1 className="text-gray-800 font-bold text-2xl mb-5 m-8">
+        Hello Again! - Create Your Profile
+      </h1>
+      <div className="flex w-1/2 justify-center items-center bg-white rounded-none py-4">
         <div className="bg-white">
-          <h1 className="text-gray-800 font-bold text-2xl mb-5">
-            Hello Again! - Create Your Profile
-          </h1>
-          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
+        <div className="flex-col items-center">
+            <div className="inset-0 flex items-center justify-center mx-3 mb-4">
+              {imagePreview ? (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="w-48 h-48 rounded-full border-2 border-gray-200"
+                />
+              ) : (
+                <div className="justify-center items-center w-40 h-40 overflow-hidden bg-gray-100 rounded-full">
+                  <svg
+                    className="w-40 h-40 text-gray-400 justify-center items-center -left-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+              )}
+            </div>
+            <div className="flex py-2 px-3 mb-4 rounded-2xl">
+              <input
+                className="flex w-full text-gray-900 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
+                id="file_input"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                required
+              ></input>
+            </div>
+          </div>
+          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <input
               className="pl-2 outline-none border-none w-full"
               type="text"
@@ -84,7 +120,7 @@ const AddProfileFreelancer = () => {
             />
           </div>
           <div className="flex">
-            <div className="w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
                 className="pl-2 outline-none border-none w-full"
                 type="text"
@@ -96,7 +132,7 @@ const AddProfileFreelancer = () => {
                 required
               />
             </div>
-            <div className=" w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
               <input
                 className="pl-2 outline-none border-none w-full"
                 type="text"
@@ -109,7 +145,7 @@ const AddProfileFreelancer = () => {
               />
             </div>
           </div>
-          <div className="items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <textarea
               className="pl-2 outline-none border-none w-full"
               name="bio"
@@ -122,42 +158,8 @@ const AddProfileFreelancer = () => {
               required
             />
           </div>
-          <div className="flex items-center">
-            <div className="inset-0 items-center justify-center">
-              {imagePreview ? (
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  className="w-20 h-20 rounded-full border-2 border-gray-200"
-                />
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-gray-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm18 0a10 10 0 11-20 0 10 10 0 0120 0zM8 8a1 1 0 00-2 0v4a1 1 0 102 0V8zm8 0a1 1 0 10-2 0v4a1 1 0 102 0V8z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-            </div>
-            <div className="border-2 py-2 px-3 rounded-2xl mb-4">
-              <input
-                id="imageInput"
-                className="w-full"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                required
-              />
-            </div>
-          </div>
           <div className="flex">
-            <div className="w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
               <input
                 className="pl-2 outline-none border-none w-full"
                 type="text"
@@ -169,9 +171,9 @@ const AddProfileFreelancer = () => {
                 required
               />
             </div>
-            <div className="w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
               <input
-                className="pl-2 outline-none border-none w-full"
+                className="pl-2 outline-none border-none"
                 type="text"
                 name="phone"
                 placeholder="Phone"
@@ -234,7 +236,6 @@ const AddProfileFreelancer = () => {
               required
             />
           </div>
-          <div className="w-full flex justify-center">
             <ConnectWallet
               btnTitle={"Choose Wallet"}
               modalTitle={"Choose a Wallet to Continue"}
@@ -246,7 +247,6 @@ const AddProfileFreelancer = () => {
               modalTitleIconUrl={""}
               showThirdwebBranding={false}
             />
-          </div>
           <button
             onClick={handleCreateProfile}
             type="button"
