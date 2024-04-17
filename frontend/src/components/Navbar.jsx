@@ -29,20 +29,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <div className="lg:flex lg:flex-1 lg:justify-end">
-            <Link
-              to="/category"
-              state={{ route: "/login" }}
-              className="relative inline-flex items-center justify-center font-semibold text-lg p-0.5 px-1 py-1.5 mx-5 transition-all ease-in duration-75 *:text-white "
-            >
-              Log in
-            </Link>
-            <Link to="/category" state={{ route: "/register" }}>
-              <span className="relative border-purple-950 inline-flex items-center justify-center font-semibold text-lg border-solid border-1 px-3 py-1.5 transition-all ease-in duration-75 bg-white text-purple-600   hover:bg-purple-600 hover:text-white rounded-md group-hover:bg-opacity-0">
-                Sign Up
-              </span>
-            </Link>
-          </div>
+          
         </nav>
       </div>
     </div>

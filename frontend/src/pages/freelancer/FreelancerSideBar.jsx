@@ -124,7 +124,7 @@ function FreelancerSideBar() {
               BlocWork
             </h1>
           </div>
-          <Link to="/cl/profile" state={{ userData: userData }}>
+          <Link to="/fr/profile" state={{ userData: userData }}>
             <div
               className={`flex ${
                 open ? "p-3" : null

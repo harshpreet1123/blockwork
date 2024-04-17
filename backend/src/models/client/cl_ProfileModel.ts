@@ -9,7 +9,6 @@ export interface IProfile extends Document {
   companyName?:string;
   info: string;
   profileImg: string;
-  bannerImg: string;
   wallets: string[];
   location: string;
   social: string[];
@@ -24,7 +23,6 @@ const profileSchema: Schema<IProfile> = new Schema({
   companyName: { type: String, required: false },
   info: { type: String, required: true },
   profileImg: { type: String },
-  bannerImg: { type: String },
   wallets: { type: [String] },
   location: { type: String, required: true },
   social: {

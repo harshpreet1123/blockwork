@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-const ViewProfile = () => {
+const ViewProfileClient = () => {
   const location = useLocation();
   const state = location.state;
   const userData = state.userData;
@@ -38,6 +38,10 @@ const ViewProfile = () => {
               </div>
             </div>
             <div>
+              <span className="text-sm text-gray-400">Name: </span>
+              <span>{userData.firstname}&nbsp;{userData.lastname}</span>
+            </div>
+            <div>
               <span className="text-sm text-gray-400">Comapny Name: </span>
               <span>{userData.companyName}</span>
             </div>
@@ -66,4 +70,4 @@ const ViewProfile = () => {
   );
 };
 
-export default ViewProfile;
+export default ViewProfileClient;

@@ -11,9 +11,10 @@ import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
 import FreelancerSideBar from "./pages/freelancer/FreelancerSideBar";
 import ClientSideBar from "./pages/client/ClientSideBar";
-import ViewProfile from "./pages/client/ViewProfile";
+import ViewProfileClient from "./pages/client/ViewProfile";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
+import ViewProfileFreelancer from "./pages/freelancer/ViewProfile";
 
 function App() {
   const token = Cookies.get("token");
@@ -41,7 +42,8 @@ function App() {
         <Route path="/cl/add-profile" element={<AddProfileClient />} />
         <Route path="/cl/home" element={<ClientSideBar />} />
         <Route path="/fr/home" element={<FreelancerSideBar />} />
-        <Route path="/cl/profile" element={<ViewProfile />} />
+        <Route path="/cl/profile" element={<ViewProfileClient />} />
+        <Route path="/fr/profile" element={<ViewProfileFreelancer />} />
       </Routes>
     </>
   );

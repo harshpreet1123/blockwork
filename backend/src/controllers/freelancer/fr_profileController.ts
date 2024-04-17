@@ -5,8 +5,8 @@ import Auth from "../../models/freelancer/fr_AuthModel";
 
 export const addProfileController = async (req: any, res: Response) => {
   try {
-    var userId=req.userId;
-    console.log(userId);
+    var userId=req.body.userId;
+    console.log("userId: "+userId);
     // Check if user exists
     const user = await Auth.findById(Object(userId));
     if (!user) {
