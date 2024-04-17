@@ -2,6 +2,7 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import ApiService from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const AddProfileFreelancer = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -18,6 +19,7 @@ const AddProfileFreelancer = () => {
   const [location, setLocation] = useState("");
 
   const token = Cookies.get("token");
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -39,7 +41,7 @@ const AddProfileFreelancer = () => {
 
   const handleCreateProfile = async () => {
     try {
-      await ApiService.createProfileFreelancer(
+      const response = await ApiService.createProfileClient(
         selectedFile,
         username,
         firstname,
@@ -51,6 +53,12 @@ const AddProfileFreelancer = () => {
         socialList,
         token
       );
+      console.log("response:" + response);
+      if(response == true){
+        navigate('/fr/home');
+      }else{
+        navigate('/');
+      }
     } catch (e) {
       console.log(e);
     }

@@ -9,7 +9,7 @@ import WelcomeAnimation from "./pages/extra/WelcomeAnimation";
 import RegisterAnimation from "./pages/extra/RegisterAnimation";
 import AddProfileFreelancer from "./pages/freelancer/AddProfileFreelancer";
 import AddProfileClient from "./pages/client/AddProfileClient";
-import FreelancerHome from "./pages/freelancer/FreelancerHome";
+import FreelancerSideBar from "./pages/freelancer/FreelancerSideBar";
 import ClientSideBar from "./pages/client/ClientSideBar";
 import ViewProfile from "./pages/client/ViewProfile";
 import Cookies from "js-cookie";
@@ -40,7 +40,7 @@ function App() {
         <Route path="/fr/add-profile" element={<AddProfileFreelancer />} />
         <Route path="/cl/add-profile" element={<AddProfileClient />} />
         <Route path="/cl/home" element={<ClientSideBar />} />
-        <Route path="/fr/home" element={<FreelancerHome />} />
+        <Route path="/fr/home" element={<FreelancerSideBar />} />
         <Route path="/cl/profile" element={<ViewProfile />} />
       </Routes>
     </>

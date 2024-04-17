@@ -1,6 +1,10 @@
 
 const FreelancerHome = () => {
-  return <div>Home-Freelancer</div>;
+  return (
+    <div className="p-4 ">
+      <p className="text-xl bold">Hello! Asuna👋</p>
+    </div>
+  );
 };
 
 export default FreelancerHome;

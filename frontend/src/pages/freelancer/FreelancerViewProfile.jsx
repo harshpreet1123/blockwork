@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-const ViewProfile = () => {
+function FreelancerViewProfile() {
   const location = useLocation();
   const state = location.state;
   const userData = state.userData;
@@ -64,6 +64,6 @@ const ViewProfile = () => {
       </div>
     </>
   );
-};
+}
 
-export default ViewProfile;
+export default FreelancerViewProfile;
