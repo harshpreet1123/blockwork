@@ -46,8 +46,8 @@ const LandingPageContent = () => {
   return (
     <div>
       {/* Hero Section */}
-      <header className="py-14 h-screen ">
-        <div className="flex flex-col md:flex-row lg:flex-row p-16 justify-strecth">
+      <header className="h-screen ">
+        <div className="flex flex-col md:flex-row lg:flex-row px-12 pt-6 justify-strecth">
           <div className="flex-1 p-6" ref={textRef}>
             <p className="font-bold text-4xl">
               EMPOWER YOUR FREELANCE FUTURE TODAY
@@ -68,20 +68,12 @@ const LandingPageContent = () => {
                 </span>
               </div>
             </Link>
-            <Link to="/category" state={{ route: "/login" }} ref={buttonRef}>
-              <div className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 mx-2 -my-4 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                <span className="relative px-3 py-2.5 me-0.5 transition-all ease-in duration-75 bg-white  rounded-md group-hover:bg-opacity-0">
-                  Login
-                </span>
-              </div>
-            </Link>
           </div>
-          <div className="flex-1 max-h-[28rem] max-w-[28rem]" ref={splineRef}>
+          <div className="flex-1 max-h-[28rem] max-w-[28rem] hidden md:block lg:block" ref={splineRef}>
             <Lottie animationData={heroAnimation} />
           </div>
         </div>
       </header>
-      <br />
 
       <div className="bg-black p-10">
         <p className="text-3xl justify-center items-center text-center text-white">
