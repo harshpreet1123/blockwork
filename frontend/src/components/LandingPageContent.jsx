@@ -8,6 +8,7 @@ import Jobs from "../assets/animations/Jobs.json";
 import Client from "../assets/animations/Clinet.json";
 import Freelancer from "../assets/animations/Freelancer.json";
 import Transaction from "../assets/animations/Transaction.json";
+import ConnectFreelancer from "../assets/animations/AnimationConnectwith.json";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -51,11 +52,14 @@ const LandingPageContent = () => {
             <p className="font-bold text-4xl">
               EMPOWER YOUR FREELANCE FUTURE TODAY
             </p>
-            <p className="text-xl">
+            <p className="text-lg">
               Join a Borderless Community of Talent and Opprtunity on the
               Blockchain.
             </p>
-            <p className="text-xl">Explore Decentralized Freelancing Today.</p>
+            <p className="text-lg">Explore Decentralized Freelancing Today.</p>
+            <p className="text-lg">
+            BlocWork offers secure, transparent freelancing, eliminating intermediaries, fostering trust, and providing global accessibility, efficiency, and community collaboration.
+            </p>
             <br />
             <Link to="/category" state={{ route: "/register" }} ref={buttonRef}>
               <div className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 mx-2 -my-4 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
@@ -101,7 +105,7 @@ const LandingPageContent = () => {
       </div>
 
       <section>
-        <div className="h-auto w-100 flex flex-wrap flex-col items-center text-center p-10 m-1">
+        <div className="h-auto w-100 flex flex-wrap flex-col items-center text-center p-10 m-1 bg-gray-600/10">
           <div className="w-full h-auto flex flex-wrap flex-col items-center text-center">
             <p className="text-black font-bold text-3xl text-center">
               Pure Hardwork, No Shortcuts
@@ -138,12 +142,26 @@ const LandingPageContent = () => {
           </div>
         </div>
       </section>
+      <section>
+        <div className="h-auto w-100 flex flex-wrap flex-col items-center text-center p-5 m-1 bg-gray-600/10">
+          <div className="w-full h-auto flex flex-wrap justify-evenly">
+            <div className="w-46 flex flex-col items-center mb-2">
+              <Lottie className="w-72 h-72" animationData={ConnectFreelancer} />
+            </div>
+            <div>
+              <p className="text-2xl font-bold">Connect with fellow FreeLancers</p>
+              <p className="text-lg">Empower your freelancing journey, network with like-minded professionals, exchange ideas, and collaborate for mutual success in the freelance world.</p>
+              <button className="border-solid border-2 border-gray-400 mt-3 font-bold px-6 py-3">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-gray-900">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light sm:text-lg text-gray-400">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">
-              We didn't reinvent the wheel
+              We didn&apos;t reinvent the wheel
             </h2>
             <p className="mb-4">
               We are strategists, designers and developers. Innovators and
