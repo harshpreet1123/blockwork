@@ -15,6 +15,7 @@ const ClientSideBar = () => {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const token = Cookies.get("token");
+  const userType = Cookies.get("userType");
 
   const scriptRef = useRef(null);
 
@@ -38,7 +39,7 @@ const ClientSideBar = () => {
     const fetchUserData = async (token) => {
       if (token) {
         console.log("token:" + token);
-        const response = await ApiService.getProfleDetails(token);
+        const response = await ApiService.getProfleDetails(token,userType);
 
         if (response.data) {
           setUserData(response.data);

@@ -20,7 +20,9 @@ const SignUp = () => {
         state.userType
       );
       if (response.status === 201) {
-        navigate("/register-animation");
+        navigate("/register-animation", {
+          state: { userType: state.userType },
+        });
       }
     } catch (e) {
       console.log("error", e);

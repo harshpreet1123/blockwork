@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ConnectWallet } from "@thirdweb-dev/react";
-import Home from "./FreelancerHome";
-import Jobs from "./FreelancerJobs";
-import Inbox from "./FreelancerInbox";
-import Wallet from "./FreelancerWallet";
+import Home from "./Home";
+import Jobs from "./Jobs";
+import Inbox from "./Inbox";
+import Wallet from "./Wallet";
 import ApiService from "../../services/api";
 import Cookies from "js-cookie";
 import {
@@ -23,6 +23,7 @@ function FreelancerSideBar() {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const token = Cookies.get("token");
+  const userType = Cookies.get("userType");
 
   const scriptRef = useRef(null);
 
@@ -45,7 +46,7 @@ function FreelancerSideBar() {
     const fetchUserData = async (token) => {
       if (token) {
         console.log("token:" + token);
-        const response = await ApiService.getProfleDetails(token);
+        const response = await ApiService.getProfleDetails(token,userType);
 
         if (response.data) {
           setUserData(response.data);

@@ -41,7 +41,7 @@ const AddProfileFreelancer = () => {
 
   const handleCreateProfile = async () => {
     try {
-      const response = await ApiService.createProfileClient(
+      const response = await ApiService.createProfileFreelancer(
         selectedFile,
         username,
         firstname,
