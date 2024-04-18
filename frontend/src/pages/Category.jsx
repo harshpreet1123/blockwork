@@ -15,11 +15,11 @@ const Category = () => {
         className="absolute inset-0 z-0"
         animationData={AnimationBgCategory}
       />
-      <div className="w-full relative max-w-md p-4 bg-white bg-opacity-25 rounded-2xl m-8 md:max-w-sm md:p-8 lg:max-w-lg">
+      <div className="w-3/4 lg:w-full relative max-w-md p-4 bg-white bg-opacity-25 rounded-2xl m-8 md:max-w-sm md:p-8 lg:max-w-lg">
         <h5 className="mb-4 text-md font-bold font-mono text-black text-center">
           Hire Exceptional Talent
         </h5>
-        <Lottie animationData={AnimationClient} className="w-80 h-80 mx-auto" />
+        <Lottie animationData={AnimationClient} className="w-40 lg:w-80 lg:h-80 mx-auto" />
         <div className="flex items-center justify-center text-gray-900 mb-2">
           <p className="font-mono text-md font-bold">Continue as</p>
         </div>
@@ -32,11 +32,11 @@ const Category = () => {
           </button>
         </Link>
       </div>
-      <div className="w-full relative max-w-md p-4 bg-white bg-opacity-25 rounded-2xl m-8 md:max-w-sm md:p-8 lg:max-w-lg">
+      <div className="w-3/4 lg:w-full relative max-w-md p-4 bg-white bg-opacity-25 rounded-2xl m-8 md:max-w-sm md:p-8 lg:max-w-lg">
         <h5 className="mb-4 text-md font-bold font-mono text-black text-center">
           Thriving as a Freelance
         </h5>
-        <Lottie animationData={AnimationFreeLancer} className="w-80 h-80 mx-auto" />
+        <Lottie animationData={AnimationFreeLancer} className="h-40 lg:w-80 lg:h-80 mx-auto" />
         <div className="flex items-center justify-center text-gray-900 mb-2">
           <p className="font-mono text-md font-bold">Continue as</p>
         </div>

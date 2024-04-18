@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="p-2 bg-white text-gray-800 sticky top-0 border-b z-10">
+    <header className="py-2 bg-white text-gray-800 fixed lg:sticky md:sticky top-0 border-b z-10">
       <div className="container flex justify-between h-16 mx-auto">
         <div className="flex items-center cursor-pointer">
           <Link className="h-8 w-8" to="/">
@@ -18,7 +18,7 @@ const Navbar = () => {
           </Link>
           <span className="ml-2 font-bold text-lg">BlocWork</span>
         </div>
-        <ul className="items-stretch hidden space-x-3 lg:flex">
+        <ul className="items-stretch invisible lg:visible space-x-3 lg:flex">
           <li className="flex font-semibold">
             <Link className="flex items-center px-4" to="/news">
               News
@@ -35,7 +35,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className="items-center flex-shrink-0 hidden lg:flex">
+        <div className="items-center flex-shrink-0 invisible lg:visible lg:flex">
           <Link to="/category" state={{ route: "/register" }}>
             <button className="self-center px-8 py-3 rounded font-bold">
               Sign in
@@ -47,13 +47,13 @@ const Navbar = () => {
             </button>
           </Link>
         </div>
-        <button className="p-4 lg:hidden" onClick={toggleMobileMenu}>
+        <button className="py-4 lg:hidden" onClick={toggleMobileMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className="w-6 h-6 text-gray-800"
+            className="w-5 h-5 text-gray-800"
           >
             <path
               strokeLinecap="round"
