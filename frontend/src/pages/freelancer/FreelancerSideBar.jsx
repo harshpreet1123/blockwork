@@ -5,6 +5,8 @@ import Home from "./Home";
 import Jobs from "./Jobs";
 import Inbox from "./Inbox";
 import Wallet from "./Wallet";
+import News from "../News";
+import Exchange from "../Exchange";
 import ApiService from "../../services/api";
 import Cookies from "js-cookie";
 import {
@@ -15,6 +17,8 @@ import {
   coin,
   arrow_left,
   logout,
+  news,
+  exchange,
 } from "../extra/svgIndex";
 
 function FreelancerSideBar() {
@@ -46,7 +50,7 @@ function FreelancerSideBar() {
     const fetchUserData = async (token) => {
       if (token) {
         console.log("token:" + token);
-        const response = await ApiService.getProfleDetails(token,userType);
+        const response = await ApiService.getProfleDetails(token, userType);
 
         if (response.data) {
           setUserData(response.data);
@@ -64,6 +68,8 @@ function FreelancerSideBar() {
     { title: "Inbox", src: chat },
     { title: "Wallet", src: coin },
     { title: "Jobs", src: jobs },
+    { title: "News", src: news },
+    { title: "Exchange", src: exchange },
   ];
 
   const getContent = (title) => {
@@ -76,6 +82,10 @@ function FreelancerSideBar() {
         return <Wallet />;
       case "Jobs":
         return <Jobs />;
+      case "News":
+        return <News />;
+      case "Exchange":
+        return <Exchange />;
       default:
         return <Home />;
     }

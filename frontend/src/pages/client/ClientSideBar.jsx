@@ -5,9 +5,21 @@ import Home from "./Home";
 import Jobs from "./Jobs";
 import Inbox from "./Inbox";
 import Wallet from "./Wallet";
+import News from "../News";
+import Exchange from "../Exchange";
 import ApiService from "../../services/api";
 import Cookies from "js-cookie";
-import { logo, home, chat, jobs, coin, arrow_left, logout } from "../extra/svgIndex";
+import {
+  logo,
+  home,
+  chat,
+  jobs,
+  coin,
+  arrow_left,
+  logout,
+  news,
+  exchange,
+} from "../extra/svgIndex";
 
 const ClientSideBar = () => {
   const [open, setOpen] = useState(true);
@@ -19,7 +31,7 @@ const ClientSideBar = () => {
 
   const scriptRef = useRef(null);
 
-  // chat bot code
+  // Chat bot code
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
@@ -39,7 +51,7 @@ const ClientSideBar = () => {
     const fetchUserData = async (token) => {
       if (token) {
         console.log("token:" + token);
-        const response = await ApiService.getProfleDetails(token,userType);
+        const response = await ApiService.getProfleDetails(token, userType);
 
         if (response.data) {
           setUserData(response.data);
@@ -57,6 +69,8 @@ const ClientSideBar = () => {
     { title: "Inbox", src: chat },
     { title: "Wallet", src: coin },
     { title: "Jobs", src: jobs },
+    { title: "News", src: news },
+    { title: "Exchange", src: exchange },
   ];
 
   const getContent = (title) => {
@@ -69,6 +83,10 @@ const ClientSideBar = () => {
         return <Wallet />;
       case "Jobs":
         return <Jobs />;
+      case "News":
+        return <News />;
+      case "Exchange":
+        return <Exchange />;
       default:
         return <Home />;
     }
@@ -90,16 +108,18 @@ const ClientSideBar = () => {
 
   return (
     <div className="flex h-screen">
+      {/* Sidebar */}
       <div
         className={` ${
-          open ? "w-72" : "w-20 "
-        } bg-dark-purple p-5  pt-8 relative duration-300 flex flex-col justify-between border-r-2`}
+          open ? "w-72" : "w-20"
+        } fixed h-screen bg-dark-purple p-5 pt-8 duration-300 flex flex-col justify-between border-r-2 `}
       >
+        {/* Sidebar content */}
         <div>
           <img
             src={arrow_left}
             className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-             border-2 rounded-full  ${!open && "rotate-180"}`}
+             border-2 rounded-full ${!open && "rotate-180"}`}
             onClick={() => setOpen(!open)}
           />
           <div className="flex gap-x-4 items-center">
@@ -157,8 +177,9 @@ const ClientSideBar = () => {
             ))}
           </ul>
         </div>
+        {/* Logout button */}
         <div
-          className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 "
+          className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4"
           onClick={handleLogout}
         >
           <img src={logout} className="max-h-8" />
@@ -167,7 +188,17 @@ const ClientSideBar = () => {
           </span>
         </div>
       </div>
-      <div className="h-screen flex-1 p-7">
+
+      {/* Main content area */}
+      <div
+        className="flex-1 p-7"
+        style={{
+          height: "100vh",
+          marginLeft: open ? "18rem" : "5rem",
+          overflowY: "auto",
+        }}
+      >
+        {/* Search bar and Connect Wallet */}
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <input
@@ -180,9 +211,12 @@ const ClientSideBar = () => {
             <ConnectWallet />
           </div>
         </div>
+
+        {/* Content based on selected menu item */}
         <div>{getContent(selectedItem)}</div>
       </div>
-      {/* Chat-botwidget called here */}
+
+      {/* Chat-bot widget */}
       <div ref={scriptRef} />
     </div>
   );

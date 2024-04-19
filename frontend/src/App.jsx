@@ -1,4 +1,10 @@
-import { BrowserRouter,useNavigate,useLocation, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  useNavigate,
+  useLocation,
+  Routes,
+  Route,
+} from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import News from "./pages/News";
 import Exchange from "./pages/Exchange";
@@ -52,7 +58,7 @@ function App() {
 export default function AppWrapper() {
   return (
     <BrowserRouter>
-      <App />
+      <App/>
     </BrowserRouter>
   );
 }
