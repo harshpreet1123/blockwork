@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="py-2 bg-white text-gray-800 fixed lg:sticky md:sticky top-0 border-b z-10">
+    <header className="py-2 bg-white text-gray-800 sticky top-0 border-b z-10">
       <div className="container flex justify-between h-16 mx-auto">
         <div className="flex items-center cursor-pointer">
           <Link className="h-8 w-8" to="/">
