@@ -1,13 +1,12 @@
 // controllers/freelancer/profileController.ts
 import { Request, Response } from "express";
-import jwt from "jsonwebtoken";
 import Profile, { IProfile } from "../../models/freelancer/fr_ProfileModel";
 import Auth from "../../models/freelancer/fr_AuthModel";
 
 export const addProfileController = async (req: any, res: Response) => {
   try {
-    var userId=req.userId;
-    console.log(userId);
+    var userId=req.body.userId;
+    console.log("userId: "+userId);
     // Check if user exists
     const user = await Auth.findById(Object(userId));
     if (!user) {
@@ -45,5 +44,36 @@ export const addProfileController = async (req: any, res: Response) => {
   } catch (error) {
     console.error(`Error: ${error}`);
     res.status(500).json({ error: "Failed to create profile" });
+  }
+};
+
+export const checkProfileExists = async (req: any, res: any): Promise<void> => {
+  try {
+    const { userId } = req.body;
+    // Check if profile already exists
+    const existingProfile = await Profile.findOne({ user_id: userId });
+    if (existingProfile) {
+      console.log("existing Profile");
+      return res.status(200).json(true);
+    }
+    console.log("Profile no");
+    return res.status(200).json(false);
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    res.status(500).json({ error: "Failed to check profile existence" });
+  }
+};
+
+export const getProfileDetails = async (req: any, res: Response) => {
+  try {
+    const { userId } = req.body;
+    const userProfile = await Profile.findOne({ user_id: userId });
+
+    if (!userProfile) {
+      throw new Error("User not found");
+    }
+    res.status(200).json(userProfile);
+  } catch {
+    res.status(404).send("User Not Found!");
   }
 };

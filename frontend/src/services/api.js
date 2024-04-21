@@ -161,9 +161,9 @@ const ApiService = {
     }
   },
 
-  checkProfileExistsClient: async (token) => {
+  checkProfileExists: async (token,userType) => {
     try {
-      var response = await axios.get(`${BASE_URL}/cl/check-profile`, {
+      var response = await axios.get(`${BASE_URL}/${userType}/check-profile`, {
         headers: { Authorization: token },
       });
       return response;
@@ -172,9 +172,9 @@ const ApiService = {
     }
   },
 
-  getProfleDetails: async (token) => {
+  getProfleDetails: async (token,userType) => {
     try {
-      var response = await axios.get(`${BASE_URL}/cl/get-profile`, {
+      var response = await axios.get(`${BASE_URL}/${userType}/get-profile`, {
         headers: { Authorization: token },
       });
       console.log("Getting Profile Details", response);

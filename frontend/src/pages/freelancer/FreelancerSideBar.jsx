@@ -21,7 +21,7 @@ import {
   exchange,
 } from "../extra/svgIndex";
 
-const ClientSideBar = () => {
+function FreelancerSideBar() {
   const [open, setOpen] = useState(true);
   const [selectedItem, setSelectedItem] = useState("Home");
   const [userData, setUserData] = useState({});
@@ -31,7 +31,6 @@ const ClientSideBar = () => {
 
   const scriptRef = useRef(null);
 
-  // Chat bot code
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
@@ -108,18 +107,16 @@ const ClientSideBar = () => {
 
   return (
     <div className="flex h-screen">
-      {/* Sidebar */}
       <div
         className={` ${
-          open ? "w-72" : "w-20"
-        } fixed h-screen bg-dark-purple p-5 pt-8 duration-300 flex flex-col justify-between border-r-2 `}
+          open ? "w-72" : "w-20 "
+        } bg-dark-purple p-5  pt-8 relative duration-300 flex flex-col justify-between border-r-2`}
       >
-        {/* Sidebar content */}
         <div>
           <img
             src={arrow_left}
             className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-             border-2 rounded-full ${!open && "rotate-180"}`}
+             border-2 rounded-full  ${!open && "rotate-180"}`}
             onClick={() => setOpen(!open)}
           />
           <div className="flex gap-x-4 items-center">
@@ -137,7 +134,7 @@ const ClientSideBar = () => {
               BlocWork
             </h1>
           </div>
-          <Link to="/cl/profile" state={{ userData: userData }}>
+          <Link to="/fr/profile" state={{ userData: userData }}>
             <div
               className={`flex ${
                 open ? "p-3" : null
@@ -177,9 +174,8 @@ const ClientSideBar = () => {
             ))}
           </ul>
         </div>
-        {/* Logout button */}
         <div
-          className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4"
+          className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4 "
           onClick={handleLogout}
         >
           <img src={logout} className="max-h-8" />
@@ -188,17 +184,7 @@ const ClientSideBar = () => {
           </span>
         </div>
       </div>
-
-      {/* Main content area */}
-      <div
-        className="flex-1 p-7"
-        style={{
-          height: "100vh",
-          marginLeft: open ? "18rem" : "5rem",
-          overflowY: "auto",
-        }}
-      >
-        {/* Search bar and Connect Wallet */}
+      <div className="h-screen flex-1 p-7">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <input
@@ -211,15 +197,12 @@ const ClientSideBar = () => {
             <ConnectWallet />
           </div>
         </div>
-
-        {/* Content based on selected menu item */}
         <div>{getContent(selectedItem)}</div>
       </div>
-
-      {/* Chat-bot widget */}
+      {/* Chat-botwidget called here */}
       <div ref={scriptRef} />
     </div>
   );
-};
+}
 
-export default ClientSideBar;
+export default FreelancerSideBar;

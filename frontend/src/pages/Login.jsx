@@ -37,14 +37,14 @@ const Loginpage = () => {
   };
 
   return (
-    <div className="h-screen flex">
-      <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">
+    <div className="h-screen flex flex-col lg:flex-row">
+      <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center invisible lg:visible">
         <div>
           <h1 className="text-white font-bold text-4xl font-sans">BlocWork</h1>
           <p className="text-white mt-1">The Decentrlized Workplace.</p>
         </div>
       </div>
-      <div className="flex w-1/2 justify-center items-center bg-white">
+      <div className="flex w-full h-screen lg:w-1/2 justify-center items-center bg-white">
         <div className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-1">
             Hello Again!

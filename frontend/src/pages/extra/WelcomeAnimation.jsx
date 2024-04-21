@@ -29,24 +29,14 @@ const WelcomeAnimation = () => {
             callback: async () => {
               console.log(state.userType);
               {
-                if (state.userType == "cl") {
-                  const response = await ApiService.checkProfileExistsClient(
-                    token
-                  );
-                  if (response.data == true) {
-                    navigate("/cl/home");
-                  } else {
-                    navigate("/cl/add-profile");
-                  }
-                } else if (state.userType == "fr") {
-                  // const response = await ApiService.checkProfileExistsClient(
-                  //   token
-                  // );
-                  // if (response == true) {
-                  //   navigate("/cl/home");
-                  // } else {
-                  //   navigate("/cl/add-profile");
-                  // }
+                const response = await ApiService.checkProfileExists(
+                  token,
+                  state.userType
+                );
+                if (response.data == true) {
+                  navigate(`/${state.userType}/home`);
+                } else {
+                  navigate(`/${state.userType}/add-profile`);
                 }
               }
             },

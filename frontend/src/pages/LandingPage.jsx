@@ -5,10 +5,10 @@ import Navbar from "../components/Navbar";
 
 const LandingPage = () => {
   return (
-    <div className="h-full w-full ">
-      <Navbar/>
-      <LandingPageContent/>
-      <Footer/>
+    <div className="h-full w-full font-sora">
+      <Navbar />
+      <LandingPageContent />
+      <Footer />
     </div>
   );
 };

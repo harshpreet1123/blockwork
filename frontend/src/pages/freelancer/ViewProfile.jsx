@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-const ViewProfileClient = () => {
+function ViewProfileFreelancer() {
   const location = useLocation();
   const state = location.state;
   const userData = state.userData;
@@ -42,16 +42,16 @@ const ViewProfileClient = () => {
               <span>{userData.firstname}&nbsp;{userData.lastname}</span>
             </div>
             <div>
-              <span className="text-sm text-gray-400">Comapny Name: </span>
-              <span>{userData.companyName}</span>
-            </div>
-            <div>
-              <span className="text-sm text-gray-400">Info: </span>
-              <span>{userData.info}</span>
+              <span className="text-sm text-gray-400">Bio: </span>
+              <span>{userData.bio}</span>
             </div>
             <div>
               <span className="text-sm text-gray-400">Phone: </span>
               <span>{userData.phone}</span>
+            </div>
+            <div>
+              <span className="text-sm text-gray-400">Skills: </span>
+              <span>{userData.skills.toString()}</span>
             </div>
             <div>
               <span className="text-sm text-gray-400">Social: </span>
@@ -68,6 +68,6 @@ const ViewProfileClient = () => {
       </div>
     </>
   );
-};
+}
 
-export default ViewProfileClient;
+export default ViewProfileFreelancer;
