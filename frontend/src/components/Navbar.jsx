@@ -30,7 +30,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="flex font-semibold">
-            <Link to="/" className="flex items-center px-4 ">
+            <Link to="/team" className="flex items-center px-4 ">
               Team
             </Link>
           </li>

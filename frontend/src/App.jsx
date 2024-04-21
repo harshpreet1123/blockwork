@@ -8,6 +8,7 @@ import {
 import LandingPage from "./pages/LandingPage";
 import News from "./pages/News";
 import Exchange from "./pages/Exchange";
+import Team from "./pages/Team";
 import Category from "./pages/Category";
 import Loginpage from "./pages/Login";
 import SignUp from "./pages/Register";
@@ -39,6 +40,7 @@ function App() {
         <Route index element={<LandingPage />} />
         <Route path="/news" element={<News />} />
         <Route path="/exchange" element={<Exchange />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/category" element={<Category />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<SignUp />} />

@@ -155,22 +155,20 @@ const LandingPageContent = () => {
         <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl text-gray-900">
-              Aliquip definiebas ad est
+              Empower Your Potential
             </h2>
             <p className="max-w-3xl mx-auto mt-4 text-xl text-center text-gray-600">
-              Quando cetero his ne, eum admodum sapientem ut.
+              Discover the Advantages of Our Platform
             </p>
           </div>
           <div>
             <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
               <div className="lg:col-start-2">
                 <h3 className="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900">
-                  Eam nibh gloriatur ex
+                  How We Can Help You Succeed
                 </h3>
                 <p className="mt-3 text-lg text-gray-600">
-                  Per odio fabellas consulatu cu. Utroque detracto mel ea, quo
-                  te latine theophrastus. Ea his tale nibh dissentias, mei
-                  exerci tamquam euripidis cu.
+                  Discover the Benefits of Joining Our Community
                 </p>
                 <div className="mt-12 space-y-12">
                   <div className="flex">
@@ -194,12 +192,11 @@ const LandingPageContent = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leading-6 text-gray-900">
-                        Cibo augue offendit has ad
+                        Global Reach
                       </h4>
                       <p className="mt-2 text-gray-600">
-                        An per velit appellantur, ut utinam minimum nominavi
-                        sit, odio nostro habemus ne nec. Ne sonet regione
-                        contentiones est.
+                        Connect with talent and opportunities from around the
+                        world, transcending geographical boundaries.
                       </p>
                     </div>
                   </div>
@@ -224,12 +221,12 @@ const LandingPageContent = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leading-6 text-gray-900">
-                        At eum ferri luptatum lobortis
+                        Trust and Security
                       </h4>
                       <p className="mt-2 text-gray-600">
-                        Te per quidam maiorum ocurreret, etiam delicatissimi usu
-                        ad. Ne has quod periculis. Te sit primis iisque
-                        efficiantur.
+                        Our blockchain-based system ensures transparent and
+                        secure transactions, fostering trust among our community
+                        members.
                       </p>
                     </div>
                   </div>
@@ -254,12 +251,12 @@ const LandingPageContent = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leading-6 text-gray-900">
-                        Dicunt verterem evertitur eu sea
+                        Seamless Experience
                       </h4>
                       <p className="mt-2 text-gray-600">
-                        Audire principes rationibus eam an, autem nominavi
-                        luptatum per te. Sumo fabulas vim eu, sonet saperet
-                        eleifend ut vix.
+                        Enjoy a user-friendly interface and streamlined
+                        processes, making it easy to navigate and utilize our
+                        platform efficiently.
                       </p>
                     </div>
                   </div>
