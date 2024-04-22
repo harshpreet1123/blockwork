@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="items-center flex-shrink-0 invisible lg:visible lg:flex">
           <Link to="/category" state={{ route: "/register" }}>
             <button className="self-center px-8 py-3 rounded font-bold">
-              Sign in
+              Sign up
             </button>
           </Link>
           <Link to="/category" state={{ route: "/login" }}>

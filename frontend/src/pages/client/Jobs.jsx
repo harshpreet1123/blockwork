@@ -1,6 +1,8 @@
 const Jobs = () => {
   return (
-    <div>Jobs</div>
+    <div>
+      jobs
+    </div>
   )
 }
 
