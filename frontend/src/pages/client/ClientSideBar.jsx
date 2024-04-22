@@ -31,6 +31,20 @@ const ClientSideBar = () => {
 
   const scriptRef = useRef(null);
 
+  const handleLogout = () => {
+    Cookies.remove("token");
+    navigate("/");
+  };
+
+  const handleConfirm = () => {
+    const result = window.confirm('Are you sure you want to logout?');
+    if (result) {
+      handleLogout();
+    } else {
+      navigate("/cl/home");
+    }
+  };
+
   // Chat bot code
   useEffect(() => {
     const script = document.createElement("script");
@@ -101,10 +115,7 @@ const ClientSideBar = () => {
     setSelectedItem(title);
   };
 
-  const handleLogout = () => {
-    Cookies.remove("token");
-    navigate("/");
-  };
+  
 
   return (
     <div className="flex h-screen">
@@ -180,7 +191,7 @@ const ClientSideBar = () => {
         {/* Logout button */}
         <div
           className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4"
-          onClick={handleLogout}
+          onClick={handleConfirm}
         >
           <img src={logout} className="max-h-8" />
           <span className={`${!open && "hidden"} origin-left duration-200 `}>

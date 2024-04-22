@@ -3,7 +3,7 @@ import CreateJobAnimation from "../../assets/animations/CreateJobAni.json";
 import { useState } from "react";
 
 function CreateJob() {
-    const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState([]);
 
   const handleFileChange = (event) => {
     setSelectedFiles([...selectedFiles, ...event.target.files]);
@@ -12,6 +12,7 @@ function CreateJob() {
   const handleUpload = () => {
     console.log(selectedFiles);
   };
+
   return (
     <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mt-24 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800">
       <div className="flex flex-col justify-between">
@@ -67,8 +68,10 @@ function CreateJob() {
         </div>
         <div className="flex items-center border-2 py-3 px-3 rounded-2xl mb-4">
           <input type="file" onChange={handleFileChange} />
-          <button onClick={handleUpload} className="border-2 rounded-lg p-2">Attach Files</button>
-        </div> 
+          <button onClick={handleUpload} className="border-2 rounded-lg p-2">
+            Attach Files
+          </button>
+        </div>
         <button
           type="submit"
           className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-purple-600 dark:text-gray-50"
