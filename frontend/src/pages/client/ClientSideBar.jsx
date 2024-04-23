@@ -25,6 +25,7 @@ const ClientSideBar = () => {
   const [open, setOpen] = useState(true);
   const [selectedItem, setSelectedItem] = useState("Home");
   const [userData, setUserData] = useState({});
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // State for logout confirmation modal
   const navigate = useNavigate();
   const token = Cookies.get("token");
   const userType = Cookies.get("userType");
@@ -36,21 +37,12 @@ const ClientSideBar = () => {
     navigate("/");
   };
 
-  const handleConfirm = () => {
-    const result = window.confirm('Are you sure you want to logout?');
-    if (result) {
-      handleLogout();
-    } else {
-      navigate("/cl/home");
-    }
-  };
-
   // Chat bot code
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.async = true;
-    script.src = "https://embed.tawk.to/661e92cba0c6737bd12c8d4d/1hrjmqr7i";
+    script.src = "https://embed.tawk.to/661e929aa0c6737bd12c8d3a/1hs52b1ar";
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
 
@@ -115,7 +107,18 @@ const ClientSideBar = () => {
     setSelectedItem(title);
   };
 
-  
+  const handleLogoutClick = () => {
+    setShowLogoutModal(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    handleLogout();
+    setShowLogoutModal(false);
+  };
+
+  const handleLogoutCancel = () => {
+    setShowLogoutModal(false);
+  };
 
   return (
     <div className="flex h-screen">
@@ -191,7 +194,7 @@ const ClientSideBar = () => {
         {/* Logout button */}
         <div
           className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm items-center gap-x-4"
-          onClick={handleConfirm}
+          onClick={handleLogoutClick}
         >
           <img src={logout} className="max-h-8" />
           <span className={`${!open && "hidden"} origin-left duration-200 `}>
@@ -229,6 +232,30 @@ const ClientSideBar = () => {
 
       {/* Chat-bot widget */}
       <div ref={scriptRef} />
+
+      {/* Logout Confirmation Modal */}
+      {showLogoutModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-md shadow-md">
+            <p className="text-xl font-semibold mb-4">Logout Confirmation</p>
+            <p>Are you sure you want to logout?</p>
+            <div className="flex justify-end mt-4">
+              <button
+                className="px-4 py-2 mr-4 bg-purple-500 text-white rounded-md"
+                onClick={handleLogoutConfirm}
+              >
+                Logout
+              </button>
+              <button
+                className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md"
+                onClick={handleLogoutCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
