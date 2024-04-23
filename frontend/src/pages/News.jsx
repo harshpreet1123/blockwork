@@ -1,4 +1,3 @@
-// News.jsx
 import { useEffect, useState } from "react";
 import { NewsCard } from "../components/NewsCard";
 import ApiService from "../services/api";
@@ -22,10 +21,9 @@ const News = () => {
   return (
     <>
       <div className="p-8">
-        <p>&lt;</p>
-        <h1 className="text-3xl flex justify-center">Top Crypto News</h1>
+        <h1 className="text-3xl flex justify-center font-bold text-white border-2 p-2 dark:bg-purple-600 rounded-xl">Top Crypto News</h1>
       </div>
-      <div className="grid grid-cols-2 gap-4 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         {newsData.map((article, index) => (
           <NewsCard key={index} article={article} />
         ))}
@@ -35,3 +33,4 @@ const News = () => {
 };
 
 export default News;
+

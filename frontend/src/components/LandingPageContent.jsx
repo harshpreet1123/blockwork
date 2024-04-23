@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import IconTextCard from "./IconTextCard";
 import Lottie from "lottie-react";
 import heroAnimation from "../assets/animations/blocks_2.json";
-import Jobs from "../assets/animations/Jobs.json";
-import Client from "../assets/animations/Clinet.json";
-import Freelancer from "../assets/animations/Freelancer.json";
-import Transaction from "../assets/animations/Transaction.json";
+// import Jobs from "../assets/animations/Jobs.json";
+// import Client from "../assets/animations/Clinet.json";
+// import Freelancer from "../assets/animations/Freelancer.json";
+// import Transaction from "../assets/animations/Transaction.json";
 import ipfsLogo from "../assets/images/ipfs.png";
 import polygonLogo from "../assets/images/polygon.png";
 import defiImg from "../assets/images/defi.png";
@@ -115,7 +115,7 @@ const LandingPageContent = () => {
         </div>
       </section>
 
-      <section>
+      {/* <section>
         <div className="h-auto w-100 flex flex-wrap flex-col items-center text-center p-10 bg-gray-600/10">
           <div className="w-full h-auto flex flex-wrap flex-col items-center text-center">
             <p className="text-black font-bold text-3xl text-center">
@@ -150,7 +150,7 @@ const LandingPageContent = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="bg-gray-100 text-gray-800">
         <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
           <div>

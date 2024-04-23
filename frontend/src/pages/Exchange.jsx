@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-semibold mb-4">Crypto Exchange Info</h1>
+      <h1 className="text-3xl flex justify-center mb-4 font-bold text-white border-2 p-2 dark:bg-purple-600 rounded-xl">Crypto Exchange Info</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {cryptoData.map((crypto) => (
           <ExcangeCard key={crypto.symbol & crypto.id} crypto={crypto} />
