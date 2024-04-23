@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ConnectWallet } from "@thirdweb-dev/react";
 import Home from "./Home";
 import Jobs from "./Jobs";
 import Inbox from "./Inbox";
@@ -121,7 +120,7 @@ const ClientSideBar = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen font-sora">
       {/* Sidebar */}
       <div
         className={` ${
@@ -212,19 +211,7 @@ const ClientSideBar = () => {
           overflowY: "auto",
         }}
       >
-        {/* Search bar and Connect Wallet */}
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
-            />
-          </div>
-          <div className="flex items-center">
-            <ConnectWallet />
-          </div>
-        </div>
+        
 
         {/* Content based on selected menu item */}
         <div>{getContent(selectedItem)}</div>
