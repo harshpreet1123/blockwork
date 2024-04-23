@@ -153,10 +153,16 @@ const ClientSideBar = () => {
           <Link to="/cl/profile" state={{ userData: userData }}>
             <div
               className={`flex ${
-                open ? "p-3" : null
-              } rounded cursor-pointer bg-slate-100 mt-5 items-center gap-x-4`}
+                open ? "p-3 bg-slate-100" : null
+              } rounded cursor-pointer  mt-5 items-center gap-x-4`}
             >
-              <img src={userData.profileImg} className="h-10 w-10 rounded" />
+              <div className="h-10 w-10">
+                <img
+                  className="h-full w-full rounded-full object-cover object-center"
+                  src={userData.profileImg}
+                  alt=""
+                />
+              </div>
               <span
                 className={`${
                   !open && "hidden"
@@ -211,8 +217,6 @@ const ClientSideBar = () => {
           overflowY: "auto",
         }}
       >
-        
-
         {/* Content based on selected menu item */}
         <div>{getContent(selectedItem)}</div>
       </div>

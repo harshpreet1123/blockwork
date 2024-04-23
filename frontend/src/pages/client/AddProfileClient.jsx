@@ -51,10 +51,10 @@ const AddProfileClient = () => {
         token
       );
       console.log("response:" + response);
-      if(response==true){
-        navigate('/cl/home');
-      }else{
-        navigate('/');
+      if (response == true) {
+        navigate("/cl/home");
+      } else {
+        navigate("/");
       }
     } catch (e) {
       console.log(e);
@@ -64,44 +64,79 @@ const AddProfileClient = () => {
   return (
     <div className="flex items-center justify-center bg-gradient-to-tr from-blue-300 to-purple-300">
       <h1 className="text-gray-800 font-bold text-2xl mb-5 m-8">
-            Hello Again! - Create Your Profile
-          </h1>
+        Hello Again! - Create Your Profile
+      </h1>
       <div className="flex w-1/2 justify-center items-center bg-white rounded-none py-4">
         <div className="bg-white ">
           <div className="flex-col items-center">
-            <div className="inset-0 flex items-center justify-center mx-3 mb-4">
-              {imagePreview ? (
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  className="w-48 h-48 rounded-full border-2 border-gray-200"
-                />
-              ) : (
-                <div className="justify-center items-center w-40 h-40 overflow-hidden bg-gray-100 rounded-full">
-                  <svg
-                    className="w-40 h-40 text-gray-400 justify-center items-center -left-1"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              )}
-            </div>
-            <div className="flex py-2 px-3 mb-4 rounded-2xl">
-              <input
-                className="flex w-full text-gray-900 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
-                id="file_input"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                required
-              ></input>
+            <div className="flex felx-row">
+              <div className="inset-0 flex items-center justify-center mx-3 mb-4">
+                {imagePreview ? (
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    className="w-48 h-48 rounded-full border-2 border-gray-200"
+                  />
+                ) : (
+                  <div className="justify-center items-center w-40 h-40 overflow-hidden bg-gray-100 rounded-full">
+                    <svg
+                      className="w-40 h-40 text-gray-400 justify-center items-center -left-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              <div className="mx-auto max-w-xs">
+                <label className="flex w-full cursor-pointer appearance-none items-center justify-center rounded-md border-2 border-dashed border-gray-200 p-6 transition-all hover:border-primary-300">
+                  <div className="space-y-1 text-center">
+                    <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="h-6 w-6 text-gray-500"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="text-gray-600">
+                      <a
+                        href="#"
+                        className="font-medium text-primary-500 hover:text-primary-700"
+                      >
+                        Click to upload
+                      </a>{" "}
+                      or drag and drop
+                    </div>
+                    <p className="text-sm text-gray-500">
+                      {" "}
+                      PNG, JPG, JPEG, WEBP,SVG
+                    </p>
+                  </div>
+                  <input
+                    id="example5"
+                    type="file"
+                    className="sr-only"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+                </label>
+              </div>
             </div>
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
