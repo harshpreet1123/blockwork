@@ -1,6 +1,5 @@
-import Lottie from "lottie-react";
-import CreateJobAnimation from "../../assets/animations/CreateJobAni.json";
 import { useState } from "react";
+import create_job from "../../assets/svg/create_job.svg";
 
 function CreateJob() {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -18,17 +17,13 @@ function CreateJob() {
       <div className="flex flex-col justify-between">
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
-            Let&apos;talk!
+            Create Job
           </h2>
           <div className="dark:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-            tempore.
+            Want something done, fill up details and create a job.
           </div>
+          <img src={create_job} className="h-96"/>
         </div>
-        <Lottie
-          className="h-40 lg:w-80 lg:h-80 mx-auto ml-12"
-          animationData={CreateJobAnimation}
-        />
       </div>
       <form noValidate="" className="space-y-6">
         <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ">
