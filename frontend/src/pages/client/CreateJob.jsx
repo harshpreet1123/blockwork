@@ -48,16 +48,16 @@ function CreateJob() {
             <input
               className="pl-2 outline-none border-none w-full dark:bg-gray-100"
               type="number"
-              name="number"
-              placeholder="number"
+              name="budget"
+              placeholder="Budget"
             />
           </div>
           <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-1 ml-1">
             <input
               className="pl-2 outline-none border-none dark:bg-gray-100"
               type="text"
-              name="text"
-              placeholder="text"
+              name="time"
+              placeholder="Time"
             />
           </div>
         </div>

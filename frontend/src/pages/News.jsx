@@ -22,8 +22,7 @@ const News = () => {
   return (
     <>
       <div className="p-8">
-        <p>&lt;</p>
-        <h1 className="text-3xl flex justify-center">Top Crypto News</h1>
+        <h1 className="text-3xl flex justify-center font-semibold">Top Crypto News</h1>
       </div>
       <div className="grid grid-cols-2 gap-4 p-4">
         {newsData.map((article, index) => (
