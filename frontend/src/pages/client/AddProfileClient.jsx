@@ -1,4 +1,3 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import ApiService from "../../services/api";
@@ -34,6 +33,7 @@ const AddProfileClient = () => {
       // Reset image preview if file is not an image
       setImagePreview(null);
     }
+    console.log(selectedFile);
   };
 
   const handleCreateProfile = async () => {
@@ -51,10 +51,10 @@ const AddProfileClient = () => {
         token
       );
       console.log("response:" + response);
-      if(response==true){
-        navigate('/cl/home');
-      }else{
-        navigate('/');
+      if (response == true) {
+        navigate("/cl/home");
+      } else {
+        navigate("/");
       }
     } catch (e) {
       console.log(e);
@@ -62,13 +62,13 @@ const AddProfileClient = () => {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-tr from-blue-300 to-purple-300">
-      <h1 className="text-gray-800 font-bold text-2xl mb-5 m-8">
-            Hello Again! - Create Your Profile
-          </h1>
-      <div className="flex w-1/2 justify-center items-center bg-white rounded-none py-4">
-        <div className="bg-white ">
-          <div className="flex-col items-center">
+    <div className="max-w-screen-lg mx-auto p-5">
+      <div className="grid grid-cols-1 md:grid-cols-12 rounded-xl border border-purple-200">
+        <div className="md:col-span-4 p-10">
+          <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+            Create<span className="text-purple-600"> Profile</span>
+          </h3>
+          <div className="flex-col items-center py-5">
             <div className="inset-0 flex items-center justify-center mx-3 mb-4">
               {imagePreview ? (
                 <img
@@ -93,48 +93,92 @@ const AddProfileClient = () => {
                 </div>
               )}
             </div>
-            <div className="flex py-2 px-3 mb-4 rounded-2xl">
-              <input
-                className="flex w-full text-gray-900 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
-                id="file_input"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                required
-              ></input>
+
+            <div className="mx-auto max-w-xs">
+              <label className="flex w-full cursor-pointer appearance-none items-center justify-center rounded-md border-2 border-dashed border-gray-200 p-6 transition-all hover:border-primary-300">
+                <div className="space-y-1 text-center">
+                  <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="h-6 w-6 text-gray-500"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="text-gray-600">
+                    <a
+                      href="#"
+                      className="font-medium text-primary-500 hover:text-primary-700"
+                    >
+                      Click to upload
+                    </a>{" "}
+                    or drag and drop
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    {" "}
+                    PNG, JPG, JPEG, WEBP,SVG
+                  </p>
+                </div>
+                <input
+                  id="example5"
+                  type="file"
+                  className="sr-only"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                />
+              </label>
             </div>
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <input
-              className="pl-2 outline-none border-none w-full"
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <div className="flex">
-            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+        </div>
+        <div className="md:col-span-8 p-10">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Username
+              </label>
               <input
-                className="pl-2 outline-none border-none w-full"
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 type="text"
-                name="firstname"
-                placeholder="First Name"
+                placeholder="username"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                required
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                First Name
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                type="text"
+                placeholder="Jhon"
                 onChange={(e) => {
                   setFirstname(e.target.value);
                 }}
                 required
               />
             </div>
-            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+            <div className="w-full md:w-1/2 px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Last Name
+              </label>
               <input
-                className="pl-2 outline-none border-none w-full"
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
                 type="text"
-                name="lastname"
-                placeholder="Last Name"
+                placeholder="Doe"
                 onChange={(e) => {
                   setLastname(e.target.value);
                 }}
@@ -142,100 +186,105 @@ const AddProfileClient = () => {
               />
             </div>
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <input
-              className="pl-2 outline-none border-none w-full"
-              type="text"
-              name="companyname"
-              placeholder="Company Name (optional)"
-              onChange={(e) => {
-                setCompanyname(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <textarea
-              className="pl-2 outline-none border-none w-full"
-              name="info"
-              placeholder="Info"
-              rows="1"
-              cols="60"
-              onChange={(e) => {
-                setInfo(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <div className="flex">
-            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 mr-1">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Company Name (optional)
+              </label>
               <input
-                className="pl-2 outline-none border-none w-full"
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 type="text"
-                name="location"
-                placeholder="Location"
+                placeholder="Example Ltd."
                 onChange={(e) => {
-                  setLocation(e.target.value);
+                  setCompanyname(e.target.value);
                 }}
-                required
               />
             </div>
-            <div className="flex w-1/2 items-center border-2 py-2 px-3 rounded-2xl mb-4 ml-1">
+          </div>
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Phone
+              </label>
               <input
-                className="pl-2 outline-none border-none"
-                type="text"
-                name="phone"
-                placeholder="Phone"
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                type="phone"
+                placeholder="+91 XXXXX-XXXXX"
                 onChange={(e) => {
                   setPhone(e.target.value);
                 }}
                 required
               />
             </div>
+            <div className="w-full md:w-1/2 px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Location
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                type="text"
+                placeholder="Kochi"
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                }}
+                required
+              />
+            </div>
           </div>
-          <div className="p-2">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                SocialList
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                type="text"
+                placeholder="https://socialmedia.com/"
+                onChange={(e) => {
+                  setSocial(e.target.value);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setSocialList([...socialList, social]);
+                    setSocial("");
+                    e.target.value = "";
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <div className="pb-4">
             {socialList.map((str, index) => (
-              <span key={index} className="p-1 mr-1 bg-slate-400">
+              <span key={index} className=" rounded p-1 mr-1 bg-slate-200">
                 {str}
               </span>
             ))}
           </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <input
-              onChange={(e) => {
-                setSocial(e.target.value);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  setSocialList([...socialList, social]);
-                  setSocial("");
-                  e.target.value = "";
-                }
-              }}
-              className="outline-none border-none w-full"
-              type="text"
-              name="socialList"
-              placeholder="Social Media Links"
-              required
-            />
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Info
+              </label>
+              <textarea
+                rows="3"
+                className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                onChange={(e) => {
+                  setInfo(e.target.value);
+                }}
+                required
+              ></textarea>
+            </div>
+            <div className="flex justify-end w-full p-3">
+              <button
+                className="shadow bg-purple-500 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded-xl"
+                type="submit"
+                onClick={handleCreateProfile}
+              >
+                Save
+              </button>
+            </div>
           </div>
-          <ConnectWallet
-            btnTitle={"Choose Wallet"}
-            modalTitle={"Choose a Wallet to Continue"}
-            modalSize={"wide"}
-            welcomeScreen={{
-              title: "BlocWork",
-              subtitle: "The Decentralised Workplace ",
-            }}
-            modalTitleIconUrl={""}
-            showThirdwebBranding={false}
-          />
-          <button
-            onClick={handleCreateProfile}
-            type="button"
-            className="text-white bg-gradient-to-tr from-blue-800 to-purple-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:to-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-200  rounded-lg text-md px-5 py-2.5 mt-2 inline-flex justify-center w-full text-center font-mono font-bold"
-          >
-            Save
-          </button>
         </div>
       </div>
     </div>
