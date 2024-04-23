@@ -53,7 +53,7 @@ function App() {
         <Route path="/fr/home" element={<FreelancerSideBar />} />
         <Route path="/cl/profile" element={<ViewProfileClient />} />
         <Route path="/fr/profile" element={<ViewProfileFreelancer />} />
-        <Route path="/cl/home/CreateJob" element={<CreateJob />}/>
+        <Route path="/cl/create-job" element={<CreateJob />} />
       </Routes>
     </>
   );
@@ -62,7 +62,7 @@ function App() {
 export default function AppWrapper() {
   return (
     <BrowserRouter>
-      <App/>
+      <App />
     </BrowserRouter>
   );
 }
