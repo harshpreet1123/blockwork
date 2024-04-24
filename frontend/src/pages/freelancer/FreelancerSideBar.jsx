@@ -35,7 +35,7 @@ function FreelancerSideBar() {
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.async = true;
-    script.src = "https://embed.tawk.to/661e92cba0c6737bd12c8d4d/1hrjmqr7i";
+    script.src = "https://embed.tawk.to/661e929aa0c6737bd12c8d3a/1hs52b1ar";
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
 

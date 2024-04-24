@@ -13,7 +13,7 @@ const AddProfileFreelancer = () => {
   const [username, setUsername] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [info, setInfo] = useState("");
+  const [bio, setBio] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
   const token = Cookies.get("token");
@@ -44,11 +44,11 @@ const AddProfileFreelancer = () => {
         username,
         firstname,
         lastname,
-        info,
+        bio,
+        skillList,
         phone,
         location,
         socialList,
-        skills,
         token
       );
       console.log("response:" + response);
@@ -73,7 +73,6 @@ const AddProfileFreelancer = () => {
     newList.splice(index, 1);
     setSocialList(newList);
   };
-  
 
   return (
     <div className="max-w-screen-lg mx-auto p-5">
@@ -142,7 +141,6 @@ const AddProfileFreelancer = () => {
                   </p>
                 </div>
                 <input
-                  id="example5"
                   type="file"
                   className="sr-only"
                   accept="image/*"
@@ -190,7 +188,6 @@ const AddProfileFreelancer = () => {
               </label>
               <input
                 className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
                 type="text"
                 placeholder="Doe"
                 onChange={(e) => {
@@ -221,7 +218,6 @@ const AddProfileFreelancer = () => {
               </label>
               <input
                 className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
                 type="text"
                 placeholder="Kochi"
                 onChange={(e) => {
@@ -256,9 +252,7 @@ const AddProfileFreelancer = () => {
           <div className="pb-4 flex flex-wrap">
             {socialList.map((str, index) => (
               <div key={index} className="relative">
-                <span className="rounded  bg-slate-200">
-                  {str}
-                </span>
+                <span className="rounded  bg-slate-200">{str}</span>
                 <button
                   className="text-black w-5 hover:text-red-700 relative bottom-4 mr-5 ml-1 border-solid border-2 rounded-sm bg-red-50 text-base "
                   onClick={() => handleRemoveSocial(index)}
@@ -293,9 +287,7 @@ const AddProfileFreelancer = () => {
           <div className="pb-4 flex flex-wrap">
             {skillList.map((str, index) => (
               <div key={index} className="relative">
-                <span className="rounded  bg-slate-200">
-                  {str}
-                </span>
+                <span className="rounded  bg-slate-200">{str}</span>
                 <button
                   className="text-black w-5 hover:text-red-700 relative bottom-4 mr-5 ml-1 border-solid border-2 rounded-sm bg-red-50 text-base "
                   onClick={() => handleRemoveSkill(index)}
@@ -314,7 +306,7 @@ const AddProfileFreelancer = () => {
                 rows="3"
                 className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 onChange={(e) => {
-                  setInfo(e.target.value);
+                  setBio(e.target.value);
                 }}
                 required
               ></textarea>
