@@ -39,7 +39,7 @@ const AddProfileFreelancer = () => {
 
   const handleCreateProfile = async () => {
     try {
-      const response = await ApiService.createProfileClient(
+      const response = await ApiService.createProfileFreelancer(
         selectedFile,
         username,
         firstname,
@@ -61,6 +61,19 @@ const AddProfileFreelancer = () => {
       console.log(e);
     }
   };
+
+  const handleRemoveSkill = (index) => {
+    const newList = [...skillList];
+    newList.splice(index, 1);
+    setSkillList(newList);
+  };
+
+  const handleRemoveSocial = (index) => {
+    const newList = [...socialList];
+    newList.splice(index, 1);
+    setSocialList(newList);
+  };
+  
 
   return (
     <div className="max-w-screen-lg mx-auto p-5">
@@ -221,12 +234,12 @@ const AddProfileFreelancer = () => {
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                SocialList
+                Social List
               </label>
               <input
                 className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 type="text"
-                placeholder="https://socialmedia.com/"
+                placeholder="https://www.abcd.com"
                 onChange={(e) => {
                   setSocial(e.target.value);
                 }}
@@ -240,11 +253,19 @@ const AddProfileFreelancer = () => {
               />
             </div>
           </div>
-          <div className="pb-4">
+          <div className="pb-4 flex flex-wrap">
             {socialList.map((str, index) => (
-              <span key={index} className=" rounded p-1 mr-1 bg-slate-200">
-                {str}
-              </span>
+              <div key={index} className="relative">
+                <span className="rounded  bg-slate-200">
+                  {str}
+                </span>
+                <button
+                  className="text-black w-5 hover:text-red-700 relative bottom-4 mr-5 ml-1 border-solid border-2 rounded-sm bg-red-50 text-base "
+                  onClick={() => handleRemoveSocial(index)}
+                >
+                  x
+                </button>
+              </div>
             ))}
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
@@ -269,11 +290,19 @@ const AddProfileFreelancer = () => {
               />
             </div>
           </div>
-          <div className="pb-4">
+          <div className="pb-4 flex flex-wrap">
             {skillList.map((str, index) => (
-              <span key={index} className=" rounded p-1 mr-1 bg-slate-200">
-                {str}
-              </span>
+              <div key={index} className="relative">
+                <span className="rounded  bg-slate-200">
+                  {str}
+                </span>
+                <button
+                  className="text-black w-5 hover:text-red-700 relative bottom-4 mr-5 ml-1 border-solid border-2 rounded-sm bg-red-50 text-base "
+                  onClick={() => handleRemoveSkill(index)}
+                >
+                  x
+                </button>
+              </div>
             ))}
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
