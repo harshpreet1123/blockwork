@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ExcangeCard from "../components/ExchangeCrad";
+import ExcangeCard from "../components/ExchangeCard";
 import ApiService from "../services/api";
 
 function App() {
