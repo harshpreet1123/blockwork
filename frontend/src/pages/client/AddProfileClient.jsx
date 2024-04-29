@@ -54,7 +54,7 @@ const AddProfileClient = () => {
       if (response == true) {
         navigate("/cl/home");
       } else {
-        navigate("/");
+        // navigate("/");
       }
     } catch (e) {
       console.log(e);
@@ -66,7 +66,6 @@ const AddProfileClient = () => {
     newList.splice(index, 1);
     setSocialList(newList);
   };
-  
 
   return (
     <div className="max-w-screen-lg mx-auto p-5">
@@ -239,7 +238,7 @@ const AddProfileClient = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full px-3">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Social List
@@ -261,18 +260,17 @@ const AddProfileClient = () => {
               />
             </div>
           </div>
-          <div className="pb-4 flex flex-wrap">
+          <div className="pb-4 flex">
             {socialList.map((str, index) => (
-              <div key={index} className="relative">
-                <span className="rounded  bg-slate-200">
-                  {str}
-                </span>
-                <button
-                  className="text-black w-5 hover:text-red-700 relative bottom-4 mr-5 ml-1 border-solid border-2 rounded-sm bg-red-50 text-base "
+              <div key={index} className="rounded border border-solid mr-3">
+                <span className="bg-slate-200 p-2">{str}</span>
+
+                <span
+                  className="bg-red-300 p-2 hover:bg-red-400"
                   onClick={() => handleRemoveSocial(index)}
                 >
                   x
-                </button>
+                </span>
               </div>
             ))}
           </div>

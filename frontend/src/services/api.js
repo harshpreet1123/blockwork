@@ -161,7 +161,7 @@ const ApiService = {
     }
   },
 
-  checkProfileExists: async (token,userType) => {
+  checkProfileExists: async (token, userType) => {
     try {
       var response = await axios.get(`${BASE_URL}/${userType}/check-profile`, {
         headers: { Authorization: token },
@@ -172,7 +172,7 @@ const ApiService = {
     }
   },
 
-  getProfleDetails: async (token,userType) => {
+  getProfleDetails: async (token, userType) => {
     try {
       var response = await axios.get(`${BASE_URL}/${userType}/get-profile`, {
         headers: { Authorization: token },
@@ -185,16 +185,26 @@ const ApiService = {
     }
   },
 
-  createJob: async (token, title, description, attachments, budget, time) => {
+  createJob: async (
+    token,
+    title,
+    description,
+    attachments,
+    tags,
+    budget,
+    time
+  ) => {
     try {
       const params = {
         title: title,
         description: description,
         attachments: attachments,
+        tags: tags,
         budget: budget,
         time: time,
       };
-      const response = await axios.post(`${BASE_URL}/cl/create-job`, params, {
+      console.log("herr");
+      const response = await axios.post(`${BASE_URL}/jobs/create-job`, params, {
         headers: { Authorization: token },
       });
       console.log(response);
