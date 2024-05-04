@@ -39,7 +39,7 @@ const Footer = () => {
             <div className="space-y-3">
               <h3 className="tracking-wide uppercase text-gray-900">Product</h3>
               <ul className="space-y-1">
-                <FooterItem label="Features" route={'#'} />
+                <FooterItem label="Features" route={'#feat'} />
                 <FooterItem label="Integrations" route={'#'}/>
                 <FooterItem label="FAQ" route={'/faq'}/>
               </ul>

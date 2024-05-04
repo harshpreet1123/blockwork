@@ -85,7 +85,7 @@ const LandingPageContent = () => {
         </div>
       </section>
 
-      <Competences />
+      <Competences/>
 
       <section className="bg-gray-100 text-gray-800">
         <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">

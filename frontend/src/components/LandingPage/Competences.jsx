@@ -5,7 +5,7 @@ import defi from "../../assets/images/defi.png";
 
 const Competences = () => {
   return (
-    <div>
+    <div id="feat">
       <section className="text-gray-200 bg-gray-900">
         <div className="max-w-6xl mx-auto px-5 py-24">
           <div className="text-center mb-20">
