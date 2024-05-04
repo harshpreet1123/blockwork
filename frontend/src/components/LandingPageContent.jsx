@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import heroAnimation from "../assets/animations/blocks_2.json";
 import Competences from "./LandingPage/Competences";
+import Testimonial from "./LandingPage/Testimonial";
+import GetStarted from "./LandingPage/GetStarted";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -207,12 +209,12 @@ const LandingPageContent = () => {
           </div>
         </div>
       </section>
-
-      <section className="bg-gray-900">
+      <Testimonial />
+      <section className="bg-slate-200">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div className="font-light sm:text-lg text-gray-400">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">
-              We didn&apos;t reinvent the wheel
+          <div className="font-light sm:text-lg text-black">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold">
+              We didn&apos;t <span className="text-purple-700">reinvent the wheel</span>
             </h2>
             <p className="mb-4">
               We are strategists, designers and developers. Innovators and
@@ -240,6 +242,7 @@ const LandingPageContent = () => {
           </div>
         </div>
       </section>
+      <GetStarted />
     </div>
   );
 };

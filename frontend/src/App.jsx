@@ -23,6 +23,7 @@ import Cookies from "js-cookie";
 import { useEffect } from "react";
 import ViewProfileFreelancer from "./pages/freelancer/ViewProfile";
 import CreateJob from "./pages/client/CreateJob";
+import FAQ from "./pages/FAQ";
 
 function App() {
   const token = Cookies.get("token");
@@ -54,6 +55,7 @@ function App() {
         <Route path="/cl/profile" element={<ViewProfileClient />} />
         <Route path="/fr/profile" element={<ViewProfileFreelancer />} />
         <Route path="/cl/create-job" element={<CreateJob />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </>
   );

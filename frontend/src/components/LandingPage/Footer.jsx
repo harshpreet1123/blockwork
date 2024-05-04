@@ -1,9 +1,11 @@
 import logo from "../../assets/svg/logo.svg";
+import { Link } from "react-router-dom";
 const Footer = () => {
   // eslint-disable-next-line react/prop-types
-  const FooterItem = ({ label }) => {
+  const FooterItem = ({ label,route }) => {
     return (
       <li>
+        <Link to={route}>
         <span
           rel="noopener noreferrer"
           href="#"
@@ -11,12 +13,13 @@ const Footer = () => {
         >
           {label}
         </span>
+        </Link>
       </li>
     );
   };
   return (
     <div>
-      <footer className="px-4 divide-y bg-gray-100 text-gray-800">
+      <footer className=" divide-y bg-gray-100 text-gray-800">
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div className="lg:w-1/3">
             <a
@@ -34,27 +37,23 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-gray-900">
-                Product
-              </h3>
+              <h3 className="tracking-wide uppercase text-gray-900">Product</h3>
               <ul className="space-y-1">
-                <FooterItem label="Features" />
-                <FooterItem label="Integrations" />
-                <FooterItem label="FAQ" />
+                <FooterItem label="Features" route={'#'} />
+                <FooterItem label="Integrations" route={'#'}/>
+                <FooterItem label="FAQ" route={'/faq'}/>
               </ul>
             </div>
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-gray-900">
-                Company
-              </h3>
+              <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
               <ul className="space-y-1">
-                <FooterItem label="Privacy" />
-                <FooterItem label="Terms of Service" />
+                <FooterItem label="Privacy" route={'#'}/>
+                <FooterItem label="Terms of Service" route={'#'}/>
               </ul>
             </div>
 
             <div className="space-y-3">
-              <div className="uppercase dark:text-gray-900">Social media</div>
+              <div className="uppercase text-gray-900">Social media</div>
               <div className="flex justify-start space-x-3">
                 <a
                   rel="noopener noreferrer"
@@ -104,9 +103,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="py-6 text-sm text-center dark:text-gray-600">
-          Made with ❤️ in ਪੰਜਾਬ
-        </div>
+        <div className="py-6 text-sm text-center">Made with ❤️ in ਪੰਜਾਬ</div>
       </footer>
     </div>
   );

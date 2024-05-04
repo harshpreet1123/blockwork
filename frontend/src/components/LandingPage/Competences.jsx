@@ -1,4 +1,4 @@
-import "../../styles/skill_card.css";
+import "../../styles/feat_card.css";
 import ipfs from "../../assets/images/ipfs.png";
 import polygon from "../../assets/images/polygon.png";
 import defi from "../../assets/images/defi.png";
@@ -10,7 +10,8 @@ const Competences = () => {
         <div className="max-w-6xl mx-auto px-5 py-24">
           <div className="text-center mb-20">
             <h1 className="title-font mb-4 text-4xl font-extrabold leading-10 tracking-tight sm:text-5xl sm:leading-none md:text-6xl">
-              Dive into the World of <span className="text-purple-500">Decentralization</span>
+              Dive into the World of{" "}
+              <span className="text-purple-500">Decentralization</span>
             </h1>
 
             <div className="flex mt-6 justify-center">
@@ -67,9 +68,9 @@ const Competences = () => {
                       DeFi
                     </h2>
                     <p className="text-md leading-relaxed text-justify">
-                      DeFi is a blockchain-based
-                      financial system providing open, secure and permissionless
-                      services without the need of intermediaries.
+                      DeFi is a blockchain-based financial system providing
+                      open, secure and permissionless services without the need
+                      of intermediaries.
                     </p>
                   </div>
                 </div>
