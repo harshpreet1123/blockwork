@@ -1,5 +1,5 @@
 import "../App.css";
-import Footer from "../components/Footer";
+import Footer from "../components/LandingPage/Footer";
 import LandingPageContent from "../components/LandingPageContent";
 import Navbar from "../components/Navbar";
 
