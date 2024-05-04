@@ -1,16 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-import IconTextCard from "./IconTextCard";
 import Lottie from "lottie-react";
 import heroAnimation from "../assets/animations/blocks_2.json";
-import Jobs from "../assets/animations/Jobs.json";
-import Client from "../assets/animations/Clinet.json";
-import Freelancer from "../assets/animations/Freelancer.json";
-import Transaction from "../assets/animations/Transaction.json";
-import ipfsLogo from "../assets/images/ipfs.png";
-import polygonLogo from "../assets/images/polygon.png";
-import defiImg from "../assets/images/defi.png";
+import Competences from "./LandingPage/Competences";
 
 const LandingPageContent = () => {
   const textRef = useRef(null);
@@ -90,67 +83,8 @@ const LandingPageContent = () => {
         </div>
       </section>
 
-      <section>
-        <div className="bg-black p-10">
-          <p className="text-3xl md:text-4xl lg:text-5xl text-center text-white">
-            Dive into the World of Decentralization
-          </p>
-          <div className="flex flex-col md:flex-row justify-between mt-8 gap-4 items-stretch">
-            <IconTextCard
-              icon={ipfsLogo}
-              title="IPFS"
-              subtitle="Uses the IPFS (InterPlanetary File System) protocol, a secure and decentralized method of storing files accessible even from outer space."
-            />
-            <IconTextCard
-              icon={polygonLogo}
-              title="Polygon"
-              subtitle="Polygon Network is an Ethereum layer 2 scaling solution that offers fast, low-cost transactions while ensuring Ethereum ecosystem security."
-            />
-            <IconTextCard
-              icon={defiImg}
-              title="DeFi"
-              subtitle="DeFi (Decentralized Finance) is a blockchain-based financial system that provides open, permissionless services without needing intermediaries."
-            />
-          </div>
-        </div>
-      </section>
+      <Competences />
 
-      <section>
-        <div className="h-auto w-100 flex flex-wrap flex-col items-center text-center p-10 bg-gray-600/10">
-          <div className="w-full h-auto flex flex-wrap flex-col items-center text-center">
-            <p className="text-black font-bold text-3xl text-center">
-              Pure Hardwork, No Shortcuts
-            </p>
-            <div className="w-36 h-1 border-b-4 border-yellow-400 mt-5 mb-5 rounded-2xl "></div>
-          </div>
-          <div className="w-full h-auto flex flex-wrap justify-evenly">
-            <div className="w-46 flex flex-col items-center mb-12">
-              <Lottie className="w-48 h-48 mt-3" animationData={Jobs} />
-              <p className="text-2xl font-bold text-black mt-1 mb-2">10,000+</p>
-              <p className="text-xl font-bold text-gray-800 mb-1"> Jobs </p>
-            </div>
-            <div className="w-46 flex flex-col items-center mb-12">
-              <Lottie className="w-48 h-48 mt-3" animationData={Client} />
-              <p className="text-2xl font-bold text-black mt-1 mb-2">500+</p>
-              <p className="text-xl font-bold text-gray-800 mb-1">Clients</p>
-            </div>
-            <div className="w-46 flex flex-col items-center mb-12">
-              <Lottie className="w-48 h-48 mt-3" animationData={Freelancer} />
-              <p className="text-2xl font-bold text-black mt-1 mb-2">5000+</p>
-              <p className="text-xl font-bold text-gray-800 mb-1">
-                Freelancers
-              </p>
-            </div>
-            <div className="w-46 flex flex-col items-center mb-12">
-              <Lottie className="w-48 h-48 mt-3" animationData={Transaction} />
-              <p className="text-2xl font-bold text-black mt-1 mb-2">15,000+</p>
-              <p className="text-xl font-bold text-gray-800 mb-1">
-                Successfull Transactions
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="bg-gray-100 text-gray-800">
         <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
           <div>

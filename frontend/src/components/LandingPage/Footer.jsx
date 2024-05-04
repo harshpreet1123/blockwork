@@ -1,5 +1,19 @@
-import logo from "../assets/svg/logo.svg";
+import logo from "../../assets/svg/logo.svg";
 const Footer = () => {
+  // eslint-disable-next-line react/prop-types
+  const FooterItem = ({ label }) => {
+    return (
+      <li>
+        <span
+          rel="noopener noreferrer"
+          href="#"
+          className="inline-block hover:border-b-2 border-transparent hover:border-purple-500 transition ease-in-out duration-300 cursor-pointer"
+        >
+          {label}
+        </span>
+      </li>
+    );
+  };
   return (
     <div>
       <footer className="px-4 divide-y bg-gray-100 text-gray-800">
@@ -24,26 +38,9 @@ const Footer = () => {
                 Product
               </h3>
               <ul className="space-y-1">
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Integrations
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    FAQ
-                  </a>
-                </li>
+                <FooterItem label="Features" />
+                <FooterItem label="Integrations" />
+                <FooterItem label="FAQ" />
               </ul>
             </div>
             <div className="space-y-3">
@@ -51,38 +48,11 @@ const Footer = () => {
                 Company
               </h3>
               <ul className="space-y-1">
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Terms of Service
-                  </a>
-                </li>
+                <FooterItem label="Privacy" />
+                <FooterItem label="Terms of Service" />
               </ul>
             </div>
-            <div className="space-y-3">
-              <h3 className="uppercase dark:text-gray-900">Developers</h3>
-              <ul className="space-y-1">
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Public API
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Guides
-                  </a>
-                </li>
-              </ul>
-            </div>
+
             <div className="space-y-3">
               <div className="uppercase dark:text-gray-900">Social media</div>
               <div className="flex justify-start space-x-3">

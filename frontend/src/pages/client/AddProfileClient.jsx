@@ -54,11 +54,17 @@ const AddProfileClient = () => {
       if (response == true) {
         navigate("/cl/home");
       } else {
-        navigate("/");
+        // navigate("/");
       }
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const handleRemoveSocial = (index) => {
+    const newList = [...socialList];
+    newList.splice(index, 1);
+    setSocialList(newList);
   };
 
   return (
@@ -232,15 +238,15 @@ const AddProfileClient = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full px-3">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                SocialList
+                Social List
               </label>
               <input
                 className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 type="text"
-                placeholder="https://socialmedia.com/"
+                placeholder="https://www.SocialMedia.com/"
                 onChange={(e) => {
                   setSocial(e.target.value);
                 }}
@@ -254,11 +260,18 @@ const AddProfileClient = () => {
               />
             </div>
           </div>
-          <div className="pb-4">
+          <div className="pb-4 flex">
             {socialList.map((str, index) => (
-              <span key={index} className=" rounded p-1 mr-1 bg-slate-200">
-                {str}
-              </span>
+              <div key={index} className="rounded border border-solid mr-3">
+                <span className="bg-slate-200 p-2">{str}</span>
+
+                <span
+                  className="bg-red-300 p-2 hover:bg-red-400"
+                  onClick={() => handleRemoveSocial(index)}
+                >
+                  x
+                </span>
+              </div>
             ))}
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">

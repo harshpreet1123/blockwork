@@ -4,6 +4,6 @@ import authMiddleware from '../../middleware/authMiddleware';
 
 const router= express.Router();
 
-router.post('/cl/create-job',authMiddleware,createJOB);
+router.post('/create-job',authMiddleware,createJOB);
 
 export default router;
