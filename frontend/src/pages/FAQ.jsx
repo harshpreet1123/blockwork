@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const FAQ = () => {
   const [isOpen, setIsOpen] = useState(new Array(6).fill(false)); // Assuming there are 6 FAQ items
   const [searchQuery, setSearchQuery] = useState("");
@@ -9,6 +9,9 @@ const FAQ = () => {
     updatedState[index] = !updatedState[index];
     setIsOpen(updatedState);
   };
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top when the component is mounted or updated
+  }, []);
 
   const faqData = [
     {
@@ -49,7 +52,7 @@ const FAQ = () => {
 
   return (
     <div className="bg-gray-900">
-      <section className="h-full bg-white dark:bg-gray-900">
+      <section className="h-full ">
         <div className="container px-6 py-12 mx-auto">
           <h1 className="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">
             Frequently asked questions
@@ -122,6 +125,18 @@ const FAQ = () => {
           </div>
         </div>
       </section>
+      <div className=" flex flex-col justify-center items-center py-10">
+        <h2 className="text-white text-2xl">
+          Can&apos;t find what you are lookin for?
+        </h2>
+        <h2 className="text-purple-600 text-2xl">Don&apos;t Worry...</h2>
+
+        <Link to="/contact-us">
+          <p className=" mt-5 px-6 py-4 text-white bg-purple-600 hover:bg-purple-800 rounded-sm">
+            Conatct Us
+          </p>
+        </Link>
+      </div>
     </div>
   );
 };

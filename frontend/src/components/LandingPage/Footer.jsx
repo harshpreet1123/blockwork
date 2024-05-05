@@ -2,17 +2,17 @@ import logo from "../../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
 const Footer = () => {
   // eslint-disable-next-line react/prop-types
-  const FooterItem = ({ label,route }) => {
+  const FooterItem = ({ label, route }) => {
     return (
       <li>
         <Link to={route}>
-        <span
-          rel="noopener noreferrer"
-          href="#"
-          className="inline-block hover:border-b-2 border-transparent hover:border-purple-500 transition ease-in-out duration-300 cursor-pointer"
-        >
-          {label}
-        </span>
+          <span
+            rel="noopener noreferrer"
+            href="#"
+            className="inline-block hover:border-b-2 border-transparent hover:border-purple-500 transition ease-in-out duration-300 cursor-pointer"
+          >
+            {label}
+          </span>
         </Link>
       </li>
     );
@@ -39,16 +39,17 @@ const Footer = () => {
             <div className="space-y-3">
               <h3 className="tracking-wide uppercase text-gray-900">Product</h3>
               <ul className="space-y-1">
-                <FooterItem label="Features" route={'#feat'} />
-                <FooterItem label="Integrations" route={'#'}/>
-                <FooterItem label="FAQ" route={'/faq'}/>
+                <FooterItem label="Features" route={"#feat"} />
+                <FooterItem label="Integrations" route={"#"} />
+                <FooterItem label="FAQ" route={"/faq"} />
               </ul>
             </div>
             <div className="space-y-3">
               <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
               <ul className="space-y-1">
-                <FooterItem label="Privacy" route={'#'}/>
-                <FooterItem label="Terms of Service" route={'#'}/>
+                <FooterItem label="Privacy" route={"#"} />
+                <FooterItem label="Terms of Service" route={"#"} />
+                <FooterItem label="Contact US" route={"/contact-us"} />
               </ul>
             </div>
 
