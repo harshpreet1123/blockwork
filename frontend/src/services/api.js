@@ -214,5 +214,15 @@ const ApiService = {
       return false;
     }
   },
+  getJobs: async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/jobs/get-jobs`);
+      // console.log(response.data);
+      return response.data.jobs;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  },
 };
 export default ApiService;
