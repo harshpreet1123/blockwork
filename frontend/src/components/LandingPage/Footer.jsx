@@ -9,7 +9,7 @@ const Footer = () => {
           <span
             rel="noopener noreferrer"
             href="#"
-            className="inline-block hover:border-b-2 border-transparent hover:border-purple-500 transition ease-in-out duration-300 cursor-pointer"
+            className="inline-block border-b-2 border-transparent hover:border-purple-500 transition ease-in-out duration-300 cursor-pointer"
           >
             {label}
           </span>

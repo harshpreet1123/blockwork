@@ -25,6 +25,7 @@ import ViewProfileFreelancer from "./pages/freelancer/ViewProfile";
 import CreateJob from "./pages/client/CreateJob";
 import FAQ from "./pages/FAQ";
 import ContactUs from "./pages/ContactUs";
+import JobDetails from "./pages/JobDetails";
 
 function App() {
   const token = Cookies.get("token");
@@ -58,6 +59,7 @@ function App() {
         <Route path="/cl/create-job" element={<CreateJob />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path='job-details' element={<JobDetails/>}/>
       </Routes>
     </>
   );
