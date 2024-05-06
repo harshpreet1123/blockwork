@@ -1,6 +1,145 @@
 import logo from "../../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const Footer = () => {
+  const [termsModalOpen, setTermsModalOpen] = useState(false);
+  const openTermsModal = () => {
+    setTermsModalOpen(true);
+  };
+  const closeTermsModal = () => {
+    setTermsModalOpen(false);
+  };
+  const TermsModal = () => {
+    return (
+      <div
+        tabIndex="-1"
+        aria-hidden="true"
+        className=" flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      >
+        <div className="relative p-4 w-full max-w-2xl max-h-full">
+          <div className="relative bg-white rounded-lg shadow ">
+            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+              <h3 className="text-xl font-semibold text-gray-900 ">
+                Terms And Conditions
+              </h3>
+              <button
+                type="button"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                data-modal-hide="default-modal"
+                onClick={closeTermsModal}
+              >
+                <svg
+                  className="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span className="sr-only">Close modal</span>
+              </button>
+            </div>
+
+            <div className="p-4 md:p-5 space-y-4">
+              <p className="text-base leading-relaxed text-gray-500 ">
+                Acceptance of Terms:
+                <br />
+                <br />
+                By accessing or using our website BlocWork, you agree to comply
+                with and be bound by these Terms and Conditions.
+                <ol>
+                  <li>
+                    <b>User Eligibility:</b> You must be at least 18 years old
+                    and capable of forming a legally binding contract to use our
+                    services. By using our website, you affirm that you meet
+                    these criteria.
+                  </li>
+                  <li>
+                    <b>User Accounts:</b> You are responsible for maintaining
+                    the confidentiality of your account credentials and for all
+                    activities that occur under your account. You agree to
+                    notify us immediately of any unauthorized use of your
+                    account.
+                  </li>
+                  <li>
+                    <b>User Conduct:</b> You agree to use our website and
+                    services in compliance with all applicable laws and
+                    regulations. You will not engage in any unlawful or
+                    fraudulent activities, including but not limited to
+                    spamming, hacking, or distributing malware.
+                  </li>
+                  <li>
+                    <b>Intellectual Property:</b> All content and materials
+                    available on our website, including but not limited to text,
+                    graphics, logos, and software, are the property of BlocWork
+                    or its licensors and are protected by intellectual property
+                    laws.
+                  </li>
+                  <li>
+                    <b>User Content:</b> By submitting content to our website,
+                    including but not limited to job postings, bids, and
+                    messages, you grant BlocWork a worldwide, non-exclusive,
+                    royalty-free license to use, reproduce, and distribute your
+                    content.
+                  </li>
+                  <li>
+                    <b>Payment Terms:</b> Users agree to pay all fees and
+                    charges associated with the use of our services. Payments
+                    may be processed through third-party payment gateways, and
+                    users are responsible for any associated fees.
+                  </li>
+                  <li>
+                    <b>Dispute Resolution:</b> Any disputes between users should
+                    be resolved directly between the parties involved. BlocWork
+                    may, but is not obligated to, assist in resolving disputes.
+                  </li>
+                  <li>
+                    <b>Governing Law:</b> These Terms and Conditions shall be
+                    governed by and construed in accordance with the laws of
+                    India, without regard to its conflict of law provisions.
+                  </li>
+                  <li>
+                    <b>Severability:</b> If any provision of these Terms and
+                    Conditions is found to be invalid or unenforceable, the
+                    remaining provisions shall remain in full force and effect.
+                  </li>
+                  <li>
+                    <b>Entire Agreement:</b>These Terms and Conditions
+                    constitute the entire agreement between you and BlocWork
+                    regarding your use of our website and services, superseding
+                    any prior agreements or understandings. If you have any
+                    questions or concerns about these Terms and Conditions,
+                    please contact us at{" "}
+                    <a href="malito:support.blocwork@gmail.com">
+                      support.blocwork@gmail.com.
+                    </a>
+                  </li>
+                </ol>
+              </p>
+            </div>
+
+            <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b ">
+              <button
+                data-modal-hide="default-modal"
+                type="button"
+                onClick={closeTermsModal}
+                className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   // eslint-disable-next-line react/prop-types
   const FooterItem = ({ label, route }) => {
     return (
@@ -17,6 +156,7 @@ const Footer = () => {
       </li>
     );
   };
+
   return (
     <div>
       <footer className=" divide-y bg-gray-100 text-gray-800">
@@ -47,8 +187,10 @@ const Footer = () => {
             <div className="space-y-3">
               <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
               <ul className="space-y-1">
-                <FooterItem label="Privacy" route={"#"} />
-                <FooterItem label="Terms of Service" route={"#"} />
+                <FooterItem label="Privacy" />
+                <button onClick={openTermsModal}>
+                  <FooterItem label="Terms of Service" />
+                </button>
                 <FooterItem label="Contact US" route={"/contact-us"} />
               </ul>
             </div>
@@ -104,6 +246,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        {termsModalOpen && <TermsModal />}
         <div className="py-6 text-sm text-center">Made with ❤️ in ਪੰਜਾਬ</div>
       </footer>
     </div>

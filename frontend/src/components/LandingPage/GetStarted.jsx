@@ -49,7 +49,7 @@ const GetStarted = () => {
             </span>
           </p>
           <p className="max-w-3xl mt-5 mx-auto text-xl  text-gray-300">
-            Take the leap and unleash your capabilities.
+            Take the leap of faith and unleash your capabilities.
           </p>
           <Link
             to="/category"
