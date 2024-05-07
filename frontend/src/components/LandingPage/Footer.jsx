@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 const Footer = () => {
   const [termsModalOpen, setTermsModalOpen] = useState(false);
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const openTermsModal = () => {
     setTermsModalOpen(true);
   };
   const closeTermsModal = () => {
     setTermsModalOpen(false);
+  };
+  const openPrivacyModal = () => {
+    setPrivacyModalOpen(true);
+  };
+  const closePrivacyModal = () => {
+    setPrivacyModalOpen(false);
   };
   const TermsModal = () => {
     return (
@@ -24,7 +31,7 @@ const Footer = () => {
               </h3>
               <button
                 type="button"
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                className="text-gray-400 bg-transparent hover:bg-purple-500 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
                 data-modal-hide="default-modal"
                 onClick={closeTermsModal}
               >
@@ -51,16 +58,17 @@ const Footer = () => {
               <p className="text-base leading-relaxed text-gray-500 ">
                 Acceptance of Terms:
                 <br />
-                <br />
                 By accessing or using our website BlocWork, you agree to comply
                 with and be bound by these Terms and Conditions.
                 <ol>
+                  <br />
                   <li>
                     <b>User Eligibility:</b> You must be at least 18 years old
                     and capable of forming a legally binding contract to use our
                     services. By using our website, you affirm that you meet
                     these criteria.
                   </li>
+                  <br />
                   <li>
                     <b>User Accounts:</b> You are responsible for maintaining
                     the confidentiality of your account credentials and for all
@@ -68,6 +76,7 @@ const Footer = () => {
                     notify us immediately of any unauthorized use of your
                     account.
                   </li>
+                  <br />
                   <li>
                     <b>User Conduct:</b> You agree to use our website and
                     services in compliance with all applicable laws and
@@ -75,6 +84,7 @@ const Footer = () => {
                     fraudulent activities, including but not limited to
                     spamming, hacking, or distributing malware.
                   </li>
+                  <br />
                   <li>
                     <b>Intellectual Property:</b> All content and materials
                     available on our website, including but not limited to text,
@@ -82,6 +92,7 @@ const Footer = () => {
                     or its licensors and are protected by intellectual property
                     laws.
                   </li>
+                  <br />
                   <li>
                     <b>User Content:</b> By submitting content to our website,
                     including but not limited to job postings, bids, and
@@ -89,27 +100,32 @@ const Footer = () => {
                     royalty-free license to use, reproduce, and distribute your
                     content.
                   </li>
+                  <br />
                   <li>
                     <b>Payment Terms:</b> Users agree to pay all fees and
                     charges associated with the use of our services. Payments
                     may be processed through third-party payment gateways, and
                     users are responsible for any associated fees.
                   </li>
+                  <br />
                   <li>
                     <b>Dispute Resolution:</b> Any disputes between users should
                     be resolved directly between the parties involved. BlocWork
                     may, but is not obligated to, assist in resolving disputes.
                   </li>
+                  <br />
                   <li>
                     <b>Governing Law:</b> These Terms and Conditions shall be
                     governed by and construed in accordance with the laws of
                     India, without regard to its conflict of law provisions.
                   </li>
+                  <br />
                   <li>
                     <b>Severability:</b> If any provision of these Terms and
                     Conditions is found to be invalid or unenforceable, the
                     remaining provisions shall remain in full force and effect.
                   </li>
+                  <br />
                   <li>
                     <b>Entire Agreement:</b>These Terms and Conditions
                     constitute the entire agreement between you and BlocWork
@@ -117,7 +133,10 @@ const Footer = () => {
                     any prior agreements or understandings. If you have any
                     questions or concerns about these Terms and Conditions,
                     please contact us at{" "}
-                    <a href="malito:support.blocwork@gmail.com">
+                    <a
+                      href="mailto:support.blocwork@gmail.com"
+                      className="text-purple-500"
+                    >
                       support.blocwork@gmail.com.
                     </a>
                   </li>
@@ -130,7 +149,7 @@ const Footer = () => {
                 data-modal-hide="default-modal"
                 type="button"
                 onClick={closeTermsModal}
-                className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
+                className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-slate-100 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
               >
                 Close
               </button>
@@ -140,6 +159,106 @@ const Footer = () => {
       </div>
     );
   };
+  const PrivacyModal = () => {
+    return (
+      <div
+        tabIndex="-1"
+        aria-hidden="true"
+        className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      >
+        <div className="relative p-4 w-full max-w-2xl max-h-full">
+          <div className="relative bg-white rounded-lg shadow">
+            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+              <h3 className="text-xl font-semibold text-gray-900">
+                Privacy Policy
+              </h3>
+              <button
+                type="button"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                data-modal-hide="default-modal"
+                onClick={closePrivacyModal}
+              >
+                <svg
+                  className="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span className="sr-only">Close modal</span>
+              </button>
+            </div>
+
+            <div className="p-4 md:p-5 space-y-4">
+              <p className="text-base leading-relaxed text-gray-500">
+                Your privacy is important to us. It is BlocWork's policy to
+                respect your privacy regarding any information we may collect
+                from you across our website, <a href="#">BlocWork.com</a>, and
+                other sites we own and operate.
+                <br />
+                <br />
+                We only ask for personal information when we truly need it to
+                provide a service to you. We collect it by fair and lawful
+                means, with your knowledge and consent. We also let you know why
+                we're collecting it and how it will be used.
+                <br />
+                <br />
+                We only retain collected information for as long as necessary to
+                provide you with your requested service. What data we store,
+                we'll protect within commercially acceptable means to prevent
+                loss and theft, as well as unauthorized access, disclosure,
+                copying, use, or modification.
+                <br />
+                <br />
+                We don't share any personally identifying information publicly
+                or with third-parties, except when required to by law.
+                <br />
+                <br />
+                Our website may link to external sites that are not operated by
+                us. Please be aware that we have no control over the content and
+                practices of these sites, and cannot accept responsibility or
+                liability for their respective privacy policies.
+                <br />
+                <br />
+                You are free to refuse our request for your personal
+                information, with the understanding that we may be unable to
+                provide you with some of your desired services.
+                <br />
+                <br />
+                Your continued use of our website will be regarded as acceptance
+                of our practices around privacy and personal information. If you
+                have any questions about how we handle user data and personal
+                information, feel free to contact us.
+                <br />
+                <br />
+                This policy is effective as of 1 January 2025.
+              </p>
+            </div>
+
+            <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+              <button
+                data-modal-hide="default-modal"
+                type="button"
+                onClick={closePrivacyModal}
+                className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // eslint-disable-next-line react/prop-types
   const FooterItem = ({ label, route }) => {
     return (
@@ -187,7 +306,9 @@ const Footer = () => {
             <div className="space-y-3">
               <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
               <ul className="space-y-1">
-                <FooterItem label="Privacy" />
+                <button onClick={openPrivacyModal}>
+                  <FooterItem label="Privacy Policy" />
+                </button>
                 <button onClick={openTermsModal}>
                   <FooterItem label="Terms of Service" />
                 </button>
@@ -246,6 +367,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        {privacyModalOpen && <PrivacyModal />}
         {termsModalOpen && <TermsModal />}
         <div className="py-6 text-sm text-center">Made with ❤️ in ਪੰਜਾਬ</div>
       </footer>
