@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const JobCard = ({ title, description, budget, time }) => {
   return (
