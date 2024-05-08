@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import {Link} from 'react-router-dom';
+
 const JobCard = ({ title, description, budget, time }) => {
   return (
     <div className="bg-white border hover:border-gray-400 rounded-lg shadow dark:bg-gray-200 mt-3">
