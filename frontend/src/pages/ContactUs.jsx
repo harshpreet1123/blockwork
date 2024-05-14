@@ -1,8 +1,27 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import ApiService from "../services/api";
+
 const ContactUs = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top when the component is mounted or updated
-  }, []);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [response, setResponse] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const result = await ApiService.sendContactEmail(name, email, message);
+      setResponse(result);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setResponse({ success: false, message: "Failed to send email." });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <section className="min-h-screen bg-gradient-to-r from-purple-600 via-violet-500 to-purple-900 ">
@@ -173,7 +192,7 @@ const ContactUs = () => {
                   Contact form
                 </h1>
 
-                <form className="mt-4">
+                <form className="mt-4" onSubmit={handleSubmit}>
                   <div className="flex-1">
                     <label className="block mb-2 text-sm text-gray-600 ">
                       Full Name
@@ -181,6 +200,8 @@ const ContactUs = () => {
                     <input
                       type="text"
                       placeholder="John Doe"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-purple-400 focus:ring-purple-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                     />
                   </div>
@@ -192,6 +213,8 @@ const ContactUs = () => {
                     <input
                       type="email"
                       placeholder="johndoe@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-purple-400 focus:ring-purple-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                     />
                   </div>
@@ -201,16 +224,32 @@ const ContactUs = () => {
                       Message
                     </label>
                     <textarea
-                    rows={5}
+                      rows={5}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       className="block w-full h-10 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48   focus:border-purple-400 focus:ring-purple-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                       placeholder="Message"
                     ></textarea>
                   </div>
 
-                  <button className="w-full px-6 py-3 mt-6 text-sm font-medium trackingWide text-white capitalize transition-colors duration-300 transform bg-purple-600 rounded-md hover:bg-purple-500 focus:outline-none focus:ring focus:ring-purple-400 focus:ring-opacity-50">
-                    get in touch
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full px-6 py-3 mt-6 text-sm font-medium trackingWide text-white capitalize transition-colors duration-300 transform bg-purple-600 rounded-md hover:bg-purple-700 focus:outline-none focus:bg-purple-700"
+                  >
+                    {isLoading ? "Sending..." : "Send Message"}
                   </button>
                 </form>
+
+                {response && (
+                  <p
+                    className={`mt-4 text-sm ${
+                      response.success ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    {response.message}
+                  </p>
+                )}
               </div>
             </div>
           </div>

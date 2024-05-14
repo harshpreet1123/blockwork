@@ -217,11 +217,24 @@ const ApiService = {
   getJobs: async () => {
     try {
       const response = await axios.get(`${BASE_URL}/jobs/get-jobs`);
-      // console.log(response.data);
       return response.data.jobs;
     } catch (error) {
       console.log(error);
       return [];
+    }
+  },
+  sendContactEmail: async (name, email, message) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/contact-us/`, {
+        name: name,
+        email: email,
+        message: message,
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return { success: false, message: "Failed to send email." };
     }
   },
 };
