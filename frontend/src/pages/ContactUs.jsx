@@ -59,7 +59,7 @@ const ContactUs = () => {
                   </svg>
 
                   <span className="mx-2 text-white w-72">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nobis ex quibusdam velit ipsum hic eveniet tempora in recusandae non.
+                    Amritsar, Punjab, India
                   </span>
                 </p>
 
@@ -101,7 +101,7 @@ const ContactUs = () => {
                   </svg>
 
                   <span className="mx-2 text-white truncate w-72">
-                    acb@example.com
+                    info.blocwork@gmail.com
                   </span>
                 </p>
               </div>
