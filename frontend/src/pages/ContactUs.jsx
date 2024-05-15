@@ -59,7 +59,7 @@ const ContactUs = () => {
                   </svg>
 
                   <span className="mx-2 text-white w-72">
-                    Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nobis ex quibusdam velit ipsum hic eveniet tempora in recusandae non.
                   </span>
                 </p>
 
@@ -80,7 +80,7 @@ const ContactUs = () => {
                   </svg>
 
                   <span className="mx-2 text-white truncate w-72">
-                    (257) 563-7401
+                    +91 xxxxx xxxxx
                   </span>
                 </p>
 
