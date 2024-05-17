@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container flex justify-between h-16 mx-auto">
         <div className="flex items-center cursor-pointer">
           <Link className="h-8 w-8" to="/">
-            <img src={logo} alt="BlocWork Logo" />
+            <img src={logo} alt="BlocWork Logo" className="transition-transform duration-500 transform hover:rotate-180" />
           </Link>
           <span className="ml-2 font-bold text-lg">BlocWork</span>
         </div>

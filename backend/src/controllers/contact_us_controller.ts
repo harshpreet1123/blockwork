@@ -1,8 +1,9 @@
 // contactController.ts
 
-import { Request, Response } from 'express';
-import nodemailer from 'nodemailer';
-
+import { Request, Response } from "express";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
 export const sendContactEmail = (req: Request, res: Response) => {
   const { name, email, message } = req.body;
 
@@ -14,7 +15,7 @@ export const sendContactEmail = (req: Request, res: Response) => {
     secure: true,
     auth: {
       user: "info.blocwork@gmail.com",
-      pass: "yaavoolfoqzmmvmh",
+      pass: process.env.EMAIL_PASS,
     },
   });
 
@@ -30,7 +31,9 @@ export const sendContactEmail = (req: Request, res: Response) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error("Error sending email: ", error);
-      res.status(500).json({ success: false, message: "Failed to send email." });
+      res
+        .status(500)
+        .json({ success: false, message: "Failed to send email." });
     } else {
       console.log("Email sent: ", info.response);
       res.json({ success: true, message: "Email sent successfully." });

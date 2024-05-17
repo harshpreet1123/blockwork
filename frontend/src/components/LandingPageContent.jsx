@@ -200,9 +200,10 @@ const LandingPageContent = () => {
               </div>
               <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
                 <img
-                  src="https://source.unsplash.com/random/361x481"
+                
+                  src="src/assets/images/qwert.jpg"
                   alt=""
-                  className="mx-auto rounded-lg shadow-lg bg-gray-500"
+                  className="mx-auto rounded-lg shadow-lg bg-gray-500 w-[361px] h-[481px]"
                 />
               </div>
             </div>

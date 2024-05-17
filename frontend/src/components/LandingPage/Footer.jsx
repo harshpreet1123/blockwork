@@ -287,7 +287,7 @@ const Footer = () => {
               className="flex justify-center space-x-3 lg:justify-start"
             >
               <div className="flex items-center justify-center w-12 h-12">
-                <img src={logo} />
+                <img src={logo} className="transition-transform duration-500 transform hover:rotate-180" />
               </div>
               <span className="self-center text-2xl font-semibold">
                 BlocWork
