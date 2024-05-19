@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Jobs from "./Jobs";
-import Inbox from "./Inbox";
+import Inbox from "../client/Inbox";
 import News from "../News";
 import Exchange from "../Exchange";
 import ApiService from "../../services/api";
