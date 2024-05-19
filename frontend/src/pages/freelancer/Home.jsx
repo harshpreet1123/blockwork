@@ -22,10 +22,11 @@ const Home = () => {
 
   return (
     <div style={{ maxHeight: "calc(100vh - 100px)", overflowY: "auto" }}>
+      <p className="text-xl">Avalible Jobs</p>
       {isLoading ? (
         <Loading />
       ) : jobsList.length === 0 ? (
-        <p>Nothing to Show</p>
+        <p className="h-screen flex justify-center items-center">Nothing to Show</p>
       ) : (
         jobsList.map((job, index) => (
           <JobCard

@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Jobs from "./Jobs";
+import Wallet from "./Wallet";
 import Inbox from "../client/Inbox";
 import News from "../News";
 import Exchange from "../Exchange";
@@ -17,6 +18,7 @@ import {
   logout,
   news,
   exchange,
+  coin,
 } from "../extra/svgIndex";
 import Stats from "./Stats";
 
@@ -68,6 +70,7 @@ function FreelancerSideBar() {
     { title: "Inbox", src: chat },
     { title: "Stats", src: stats },
     { title: "Jobs", src: jobs },
+    { title: "Wallet", src: coin },
     { title: "News", src: news },
     { title: "Exchange", src: exchange },
   ];
@@ -82,6 +85,8 @@ function FreelancerSideBar() {
         return <Stats />;
       case "Jobs":
         return <Jobs />;
+      case "Wallet":
+        return <Wallet/>;
       case "News":
         return <News />;
       case "Exchange":
