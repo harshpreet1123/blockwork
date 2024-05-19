@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Jobs from "./Jobs";
 import Inbox from "./Inbox";
-import Wallet from "./Wallet";
 import News from "../News";
 import Exchange from "../Exchange";
 import ApiService from "../../services/api";
@@ -13,12 +12,13 @@ import {
   home,
   chat,
   jobs,
-  coin,
+  stats,
   arrow_left,
   logout,
   news,
   exchange,
 } from "../extra/svgIndex";
+import Stats from "./Stats";
 
 function FreelancerSideBar() {
   const [open, setOpen] = useState(true);
@@ -66,7 +66,7 @@ function FreelancerSideBar() {
   const Menus = [
     { title: "Home", src: home },
     { title: "Inbox", src: chat },
-    { title: "Wallet", src: coin },
+    { title: "Stats", src: stats },
     { title: "Jobs", src: jobs },
     { title: "News", src: news },
     { title: "Exchange", src: exchange },
@@ -78,8 +78,8 @@ function FreelancerSideBar() {
         return <Home />;
       case "Inbox":
         return <Inbox />;
-      case "Wallet":
-        return <Wallet />;
+      case "Stats":
+        return <Stats />;
       case "Jobs":
         return <Jobs />;
       case "News":
