@@ -36,7 +36,7 @@ const ApiService = {
 
   newsData: async () => {
     const response = await fetch(
-      "https://newsapi.org/v2/everything?q=blockchain&q=crypto&language=en&sortBy=popularity&pageSize=10&page=1&apiKey=79b953060c674330b0ccc948ff6cdd0e"
+      "https://newsapi.org/v2/everything?q=blockchain&q=crypto&language=en&sortBy=popularity&pageSize=20&page=1&apiKey=79b953060c674330b0ccc948ff6cdd0e"
     );
     const data = await response.json();
     return data;
@@ -237,6 +237,33 @@ const ApiService = {
     } catch (error) {
       console.error(error);
       return { success: false, message: "Failed to send email." };
+    }
+  },
+  placeBid: async (jobId, token) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/jobs/place-bid`,
+        { jobId: jobId },
+        { headers: { Authorization: token } }
+      );
+      if (response) {
+        return true;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  assignJob: async (jobId, userId) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/jobs/assign-job`, {
+        jobId: jobId,
+        userId: userId,
+      });
+      if (response) {
+        return true;
+      }
+    } catch (e) {
+      console.log(e);
     }
   },
 };

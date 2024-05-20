@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <div style={{ maxHeight: "calc(100vh - 100px)", overflowY: "auto" }}>
-      <p className="text-xl">Avalible Jobs</p>
+      <p className="text-3xl font-bold">Avalible Jobs</p>
       {isLoading ? (
         <Loading />
       ) : jobsList.length === 0 ? (
@@ -31,10 +31,14 @@ const Home = () => {
         jobsList.map((job, index) => (
           <JobCard
             key={index}
+            jobId={job._id}
             title={job.title}
             description={job.description}
             time={job.time}
             budget={job.budget}
+            tags={job.tags}
+            bidders={job.bidders}
+            assignedTo={job.assignedTo}
           />
         ))
       )}
