@@ -96,13 +96,13 @@ const SignUp = () => {
           <button
             disabled={isLoading}
             onClick={handleSignup}
-            className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
+            className="block w-full bg-purple-700 hover:bg-purple-800 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >
             {!isLoading ? "Sign Up" : "Loading..."}
           </button>
         </div>
       </div>
-      <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center invisible lg:visible">
+      <div className="flex w-1/2 bg-purple-700 i justify-around items-center invisible lg:visible">
         <div>
           <h1 className="text-white font-bold text-4xl font-sans">BlocWork</h1>
           <p className="text-white mt-1">The Decentrlized Workplace.</p>

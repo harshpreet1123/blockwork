@@ -54,7 +54,7 @@ const GetStarted = () => {
           <Link
             to="/category"
             state={{ route: "/register" }}
-            className="inline-block px-6 py-3 mt-8 bg-purple-700 text-white font-semibold rounded  hover:bg-blue-600"
+            className="inline-block px-6 py-3 mt-8 bg-purple-700 text-white font-semibold rounded  hover:bg-purple-800"
           >
             Get Started
           </Link>

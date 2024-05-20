@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://192.168.137.144:5000";
 
 const ApiService = {
   register: async (email, password, userType) => {
@@ -157,6 +157,7 @@ const ApiService = {
         { headers: { Authorization: token } }
       );
       console.log(response);
+      return true;
     } catch (e) {
       console.log(e);
     }

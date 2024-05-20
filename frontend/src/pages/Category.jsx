@@ -5,12 +5,14 @@ import AnimationFreeLancer from "../assets/animations/AnimationFreeLancer.json";
 import AnimationBgCategory from "../assets/animations/AnimationBgCategory.json";
 import Lottie from "lottie-react";
 
+
 const Category = () => {
   const location = useLocation();
   const state = location.state;
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-tr from-blue-500/25 to-purple-400">
+    <div>
+      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-tr from-blue-500/25 to-purple-400">
       <Lottie
         className="absolute inset-0 z-0"
         animationData={AnimationBgCategory}
@@ -49,6 +51,7 @@ const Category = () => {
           </button>
         </Link>
       </div>
+    </div>
     </div>
   );
 };

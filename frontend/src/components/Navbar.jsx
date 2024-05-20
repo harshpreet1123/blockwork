@@ -11,49 +11,47 @@ const Navbar = () => {
 
   return (
     <header className="py-2 bg-white text-gray-800 sticky top-0 border-b z-10">
-      <div className="container flex justify-between h-16 mx-auto">
-        <div className="flex items-center cursor-pointer">
+      <div className="container mx-auto flex justify-between items-center h-16">
+        <div className="flex items-center">
           <Link className="h-8 w-8" to="/">
-            <img src={logo} alt="BlocWork Logo" className="transition-transform duration-500 transform hover:rotate-180" />
+            <img
+              src={logo}
+              alt="BlocWork Logo"
+              className="transition-transform duration-500 transform hover:rotate-180"
+            />
           </Link>
           <span className="ml-2 font-bold text-lg">BlocWork</span>
         </div>
-        <ul className="items-stretch invisible lg:visible space-x-3 lg:flex">
-          <li className="flex font-semibold">
-            <Link className="flex items-center px-4" to="/news">
-              News
-            </Link>
-          </li>
-          <li className="flex font-semibold">
-            <Link to="/exchange" className="flex items-center px-4 ">
-              Exchange
-            </Link>
-          </li>
-          <li className="flex font-semibold">
-            <Link to="/team" className="flex items-center px-4 ">
-              Team
-            </Link>
-          </li>
-        </ul>
-        <div className="items-center flex-shrink-0 invisible lg:visible lg:flex">
+        <nav className="hidden lg:flex space-x-4">
+          <Link to="/news" className="px-4 py-2 font-semibold text-gray-800 hover:text-purple-600">
+            News
+          </Link>
+          <Link to="/exchange" className="px-4 py-2 font-semibold text-gray-800 hover:text-purple-600">
+            Exchange
+          </Link>
+          <Link to="/team" className="px-4 py-2 font-semibold text-gray-800 hover:text-purple-600">
+            Team
+          </Link>
+        </nav>
+        <div className="hidden lg:flex items-center space-x-4">
           <Link to="/category" state={{ route: "/register" }}>
-            <button className="self-center px-8 py-3 rounded font-bold">
+            <button className="px-4 py-2 rounded font-bold border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">
               Sign up
             </button>
           </Link>
           <Link to="/category" state={{ route: "/login" }}>
-            <button className="self-center px-8 py-3 font-semibold rounded bg-purple-600 text-gray-50">
+            <button className="px-4 py-2 font-semibold rounded bg-purple-600 text-white hover:bg-purple-700">
               Log in
             </button>
           </Link>
         </div>
-        <button className="py-4 lg:hidden" onClick={toggleMobileMenu}>
+        <button className="lg:hidden flex items-center p-2" onClick={toggleMobileMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className="w-5 h-5 text-gray-800"
+            className="w-6 h-6 text-gray-800"
           >
             <path
               strokeLinecap="round"
@@ -66,35 +64,27 @@ const Navbar = () => {
       </div>
       {isMobileMenuOpen && (
         <div className="lg:hidden">
-          <ul className="flex flex-col space-y-3">
-            <li>
-              <Link to="/news" className="block px-4 py-2">
-                News
-              </Link>
-            </li>
-            <li>
-              <Link to="/exchange" className="block px-4 py-2">
-                Exchange
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="block px-4 py-2">
-                Team
-              </Link>
-            </li>
-            <li>
-              <Link to="/category" state={{ route: "/regisetr" }}>
-                <button className="block px-4 py-2 rounded">Sign in</button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/category" state={{ route: "/login" }}>
-                <button className="block px-4 py-2 font-semibold rounded bg-purple-600 text-gray-50">
-                  Log in
-                </button>
-              </Link>
-            </li>
-          </ul>
+          <nav className="flex flex-col p-4 space-y-2 bg-gray-100">
+            <Link to="/news" className="px-4 py-2 text-gray-800 hover:bg-gray-200 rounded">
+              News
+            </Link>
+            <Link to="/exchange" className="px-4 py-2 text-gray-800 hover:bg-gray-200 rounded">
+              Exchange
+            </Link>
+            <Link to="/team" className="px-4 py-2 text-gray-800 hover:bg-gray-200 rounded">
+              Team
+            </Link>
+            <Link to="/category" state={{ route: "/register" }}>
+              <button className="w-full px-4 py-2 rounded text-left font-bold border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">
+                Sign up
+              </button>
+            </Link>
+            <Link to="/category" state={{ route: "/login" }}>
+              <button className="w-full px-4 py-2 font-semibold rounded bg-purple-600 text-white hover:bg-purple-700 text-left">
+                Log in
+              </button>
+            </Link>
+          </nav>
         </div>
       )}
     </header>
