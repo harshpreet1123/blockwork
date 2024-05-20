@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
-import Jobs from "./Jobs";
 import Wallet from "./Wallet";
 import Inbox from "../client/Inbox";
 import News from "../News";
@@ -12,7 +11,6 @@ import {
   logo,
   home,
   chat,
-  jobs,
   stats,
   arrow_left,
   logout,
@@ -69,7 +67,6 @@ function FreelancerSideBar() {
     { title: "Home", src: home },
     { title: "Inbox", src: chat },
     { title: "Stats", src: stats },
-    { title: "Jobs", src: jobs },
     { title: "Wallet", src: coin },
     { title: "News", src: news },
     { title: "Exchange", src: exchange },
@@ -83,8 +80,6 @@ function FreelancerSideBar() {
         return <Inbox />;
       case "Stats":
         return <Stats />;
-      case "Jobs":
-        return <Jobs />;
       case "Wallet":
         return <Wallet/>;
       case "News":

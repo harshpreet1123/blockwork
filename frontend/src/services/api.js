@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://192.168.137.145:5000";
 
 const ApiService = {
   register: async (email, password, userType) => {
@@ -36,7 +36,7 @@ const ApiService = {
 
   newsData: async () => {
     const response = await fetch(
-      "https://newsapi.org/v2/everything?q=blockchain&q=crypto&language=en&sortBy=popularity&pageSize=10&page=1&apiKey=79b953060c674330b0ccc948ff6cdd0e"
+      "https://newsapi.org/v2/everything?q=blockchain&q=crypto&language=en&sortBy=popularity&pageSize=20&page=1&apiKey=79b953060c674330b0ccc948ff6cdd0e"
     );
     const data = await response.json();
     return data;
@@ -157,6 +157,7 @@ const ApiService = {
         { headers: { Authorization: token } }
       );
       console.log(response);
+      return true;
     } catch (e) {
       console.log(e);
     }
