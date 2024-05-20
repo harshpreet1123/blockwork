@@ -2,13 +2,13 @@ import { Document, Schema } from "mongoose";
 import { freelancerDB } from "../../db/db";
 
 export interface IProfile extends Document {
-  user_id:string;
+  user_id: string;
   username: string;
   firstname: string;
   lastname: string;
   bio: string;
   profileImg: string;
-  wallets: string[];
+  wallet: string;
   location: string;
   skills: string[];
   social: string[];
@@ -16,17 +16,17 @@ export interface IProfile extends Document {
 }
 
 const profileSchema: Schema<IProfile> = new Schema({
-  user_id:{type: String,required:true,unique:true},
+  user_id: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
   bio: { type: String, required: true },
   profileImg: { type: String },
-  wallets: { type: [String] },
+  wallet: { type: String, required: true },
   location: { type: String, required: true },
   skills: { type: [String], required: true },
   social: {
-    type: [String]
+    type: [String],
   },
   phone: { type: Number, required: true, unique: true },
 });

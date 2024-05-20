@@ -20,7 +20,7 @@ export const addProfileController = async (req: any, res: Response) => {
     }
 
     // Extract profile data from request body
-    const { username, firstname, lastname, bio, profileImg, wallets, location, skills, social, phone } = req.body;
+    const { username, firstname, lastname, bio, profileImg, wallet, location, skills, social, phone } = req.body;
 
     // Create new profile document
     const newProfileData: IProfile = new Profile({
@@ -30,7 +30,7 @@ export const addProfileController = async (req: any, res: Response) => {
       lastname,
       bio,
       profileImg,
-      wallets,
+      wallet,
       location,
       skills,
       social,

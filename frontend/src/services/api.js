@@ -131,6 +131,7 @@ const ApiService = {
     phone,
     location,
     socialList,
+    wallet,
     token
   ) => {
     const IpfsHash = await ApiService.uploadFile(
@@ -150,7 +151,7 @@ const ApiService = {
           profileImg: `https://lavender-magnificent-parakeet-19.mypinata.cloud/ipfs/${IpfsHash}`,
           phone: parseInt(phone),
           location: location,
-          wallets: [],
+          wallet: wallet,
           social: socialList,
         },
         { headers: { Authorization: token } }

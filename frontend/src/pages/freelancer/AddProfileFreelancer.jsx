@@ -16,6 +16,7 @@ const AddProfileFreelancer = () => {
   const [bio, setBio] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
+  const [wallet, setWallet] = useState("");
   const token = Cookies.get("token");
   const navigate = useNavigate();
 
@@ -49,13 +50,14 @@ const AddProfileFreelancer = () => {
         phone,
         location,
         socialList,
+        wallet,
         token
       );
       console.log("response:" + response);
       if (response == true) {
         navigate("/fr/home");
       } else {
-        navigate("/");
+        // navigate("/");
       }
     } catch (e) {
       console.log(e);
@@ -226,6 +228,20 @@ const AddProfileFreelancer = () => {
                 required
               />
             </div>
+          </div>
+          <div className="w-full px-0">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Wallet
+            </label>
+            <input
+              className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-xl py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text"
+              placeholder="Polygon Wallet Address"
+              onChange={(e) => {
+                setWallet(e.target.value);
+              }}
+              required
+            />
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
