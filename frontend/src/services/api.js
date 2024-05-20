@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://192.168.137.145:5000";
+const BASE_URL = "http://192.168.137.224:5000";
 
 const ApiService = {
   register: async (email, password, userType) => {
@@ -237,6 +237,33 @@ const ApiService = {
     } catch (error) {
       console.error(error);
       return { success: false, message: "Failed to send email." };
+    }
+  },
+  placeBid: async (jobId, token) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/jobs/place-bid`,
+        { jobId: jobId },
+        { headers: { Authorization: token } }
+      );
+      if (response) {
+        return true;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  assignJob: async (jobId, userId) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/jobs/assign-job`, {
+        jobId: jobId,
+        userId: userId,
+      });
+      if (response) {
+        return true;
+      }
+    } catch (e) {
+      console.log(e);
     }
   },
 };

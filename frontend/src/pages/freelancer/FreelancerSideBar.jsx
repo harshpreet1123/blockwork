@@ -17,8 +17,10 @@ import {
   news,
   exchange,
   coin,
+  jobs,
 } from "../extra/svgIndex";
 import Stats from "./Stats";
+import Jobs from "./Jobs";
 
 function FreelancerSideBar() {
   const [open, setOpen] = useState(true);
@@ -67,6 +69,7 @@ function FreelancerSideBar() {
     { title: "Home", src: home },
     { title: "Inbox", src: chat },
     { title: "Stats", src: stats },
+    { title: "Jobs", src: jobs },
     { title: "Wallet", src: coin },
     { title: "News", src: news },
     { title: "Exchange", src: exchange },
@@ -82,6 +85,8 @@ function FreelancerSideBar() {
         return <Stats />;
       case "Wallet":
         return <Wallet/>;
+      case "Jobs":
+        return <Jobs/>;
       case "News":
         return <News />;
       case "Exchange":

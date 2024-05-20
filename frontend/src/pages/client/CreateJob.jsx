@@ -106,7 +106,7 @@ function CreateJob() {
               className="pl-2 outline-none border-none dark:bg-gray-100"
               type="text"
               name="time"
-              placeholder="Time"
+              placeholder="Time in days"
               onChange={(e) => {
                 setTime(e.target.value);
               }}
