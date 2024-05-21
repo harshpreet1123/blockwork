@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Home from "./Home";
-import Jobs from "./Jobs";
+
 import Inbox from "./Inbox";
 import Wallet from "./Wallet";
 import News from "../News";
@@ -12,7 +12,7 @@ import {
   logo,
   home,
   chat,
-  jobs,
+
   coin,
   arrow_left,
   logout,
@@ -73,7 +73,7 @@ const ClientSideBar = () => {
     { title: "Home", src: home },
     { title: "Inbox", src: chat },
     { title: "Wallet", src: coin },
-    { title: "Jobs", src: jobs },
+    
     { title: "News", src: news },
     { title: "Exchange", src: exchange },
   ];
@@ -86,8 +86,7 @@ const ClientSideBar = () => {
         return <Inbox />;
       case "Wallet":
         return <Wallet />;
-      case "Jobs":
-        return <Jobs />;
+      
       case "News":
         return <News />;
       case "Exchange":
