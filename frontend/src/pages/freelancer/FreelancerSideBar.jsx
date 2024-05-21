@@ -7,6 +7,8 @@ import News from "../News";
 import Exchange from "../Exchange";
 import ApiService from "../../services/api";
 import Cookies from "js-cookie";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
 import {
   logo,
   home,
@@ -113,10 +115,12 @@ function FreelancerSideBar() {
 
   const handleLogoutClick = () => {
     setShowLogoutModal(true);
+    
   };
 
   const handleLogoutConfirm = () => {
     handleLogout();
+    toast.success("Successfully logged out!");
     setShowLogoutModal(false);
   };
 
@@ -240,6 +244,7 @@ function FreelancerSideBar() {
           </div>
         </div>
       )}
+      <ToastContainer/>
     </div>
   );
 }

@@ -11,7 +11,9 @@ const Home = () => {
     const getJobs = async () => {
       try {
         const response = await ApiService.getJobs();
-        setJobsList(response);
+        console.log(response);
+        const filteredList=response.filter((item)=>item && (item.status=="open"))
+        setJobsList(filteredList);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching jobs:", error);

@@ -25,6 +25,7 @@ export const assignJob = async (req: Request, res: Response) => {
 
     // Add the user ID to the bidders array
     job.assigned_to = userId;
+    job.status = "assigned";
 
     // Save the updated job
     await job.save();

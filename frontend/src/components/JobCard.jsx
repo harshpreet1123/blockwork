@@ -38,8 +38,8 @@ const JobCard = ({
             <h1 className="text-2xl font-bold">{title}</h1>
           </div>
           <div className="m-2">
-            <p className="text-md font-bold">Job Description: </p>
-            <p className="text-sm font-semibold">{description}</p>
+            
+            <p className="text-sm truncate">{description}</p>
           </div>
           <div className="m-2">
             <p className="text-md font-semibold">Budget</p>
